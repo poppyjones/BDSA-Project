@@ -1,6 +1,6 @@
 # Team Prime!
 
-1. Arbejdsdage om torsdagen ca. kl. 12:30
+1. Arbejdsdage: mandagen kl. 14 og torsdagen kl. 12:30
 2. Github regler
   - Master Branch, Dev Branch, + active  branches.
   - Personen der laver PR er ansvarlig for at merge til Dev.
