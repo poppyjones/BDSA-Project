@@ -1,4 +1,6 @@
 @page "/CreatePost"
+@inject HttpClient HttpClient
+
 
 <h3>Create Post</h3>
 
@@ -10,19 +12,28 @@
 </div>
 <div class="CreatePosts">
     <form>
-  <input type="text" id="description" name="topic" placeholder="Topic"><br>
-  <input type="text" id="description" name="description" placeholder="Description"><br>
-  <input type="text" id="skeywords" name="skeywords" placeholder="Suggested keywords"><br>
-  <input type="text" id="ckeyword" name="ckeyword" placeholder="Create new keyword"><br>
-  <br><br>
+        <label for="topic">Topic:</label><br> 
+        <input type="text" id="description" name="topic" placeholder="Project in .."><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" placeholder="The project contains .."><br>
+        <label for="keyword">Keywords:</label><br>
+        @* <input type="text" id="skeywords" name="skeywords" placeholder="Suggested keywords"><br> *@
+        <select class="Keyword">
+            <option value="" disabled selected>Select your suggested keyword</option>
+            <option>AI</option>
+            <option>Machine Learning</option>
+            <option>C#</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>SQL</option>
+            <option>Image Analysis</option>
+        </select><br>
+        <label for="ckeyword">Create your own keyword</label><br>
+        <input type="text" id="ckeyword" name="ckeyword" placeholder="C#"><br>
+        <br><br>
 
-  <input type="submit" value="Submit">
-</form> 
-    </div>
+        <input type="submit" value="Submit">
+    </form> 
+</div>
 
-    @code {
-        async Task isSubmitting()
-        {
-
-        }
-    }
+@code {}
