@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+namespace Model;
 
-namespace keyword {
-
-    public class Keyword
+public class Keyword
     {
         [Required]
         [StringLength(50)]
@@ -11,4 +9,3 @@ namespace keyword {
         [Required]
         public int id { get; set; }
     }
-}

@@ -1,8 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-using System.Collections.ObjectModel;
-using post;
+namespace Model;
 
-namespace user {
     public class User 
     {
         [Required]
@@ -20,4 +17,3 @@ namespace user {
 
         public Collection<Post> collaborating_posts { get; set; }
     }
-}    

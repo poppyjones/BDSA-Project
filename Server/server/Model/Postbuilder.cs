@@ -1,8 +1,7 @@
-using post;
+namespace Model;
 
 public class Postbuilder
 {
-
 
     public Post createPost()
     {

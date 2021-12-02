@@ -1,11 +1,6 @@
-using System.Collections.ObjectModel;
-using user;
-using keyword;
-using System.ComponentModel.DataAnnotations;
+namespace Model;
 
-namespace post 
-{
-    public class Post 
+public class Post 
     {
         [Required]
         [StringLength(50)]
@@ -27,4 +22,3 @@ namespace post
 
         public Collection<Keyword> keywords { get; set; }
     }
-}

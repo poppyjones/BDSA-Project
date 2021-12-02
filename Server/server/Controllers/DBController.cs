@@ -1,15 +1,13 @@
-using System.Collections.ObjectModel;
-using post;
+namespace dBController;
+using Model;
 
-namespace dBController {
-    public class DBController {
+public class DBController {
 
-        public void addPost(){
+    public void addPost(){
 
-        }
+    }
 
-        public Collection<Post> getPosts(){
-            throw new NotImplementedException();
-        }
+    public Collection<Post> getPosts(){
+        throw new NotImplementedException();
     }
 }
