@@ -1,3 +1,32 @@
 @page "/YourPosts"
+@using System.Net.Http;
+@using System.Net.Http.Json;
+@using System.Threading.Tasks;
+@inject HttpClient Http;
 
-<h3>Your Posts will be shown here</h3>
+<h3> Testing API connection to Mock API</h3>
+
+@if (postDTOs == null)
+{
+    <p>No posts found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var post in postDTOs)
+        {
+            <li>Topic: @post.topic</li>
+            <li>Description: @post.description</li>
+            <li>Keywords: @post.keywords</li>
+            <br>
+        }
+    </ul>
+}
+
+@code {
+    private PostDTO[]? postDTOs;
+
+    protected override async Task OnInitializedAsync() => 
+        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://61a6407b8395690017be91cb.mockapi.io/Posts");
+}
+
