@@ -23,3 +23,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+
+// Database
+//$connectionString = "Server=localhost;Database=$database;User Id=sa;Password=$password";

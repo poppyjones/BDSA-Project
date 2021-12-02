@@ -5,15 +5,19 @@ using post;
 namespace user {
     public class User 
     {
-        public string name;
+        [Required]
+        public string name { get; set; }
         
+        [Required]
         [DataType(DataType.EmailAddress)]
-        public EmailAddressAttribute email;
+        public EmailAddressAttribute email { get; set; }
 
-        public string institution;
+        [Required]
+        public string institution { get; set; }
 
-        public string degree;
+        [Required]
+        public string degree { get; set; }
 
-        public Collection<Post> collaborating_posts;
+        public Collection<Post> collaborating_posts { get; set; }
     }
 }    

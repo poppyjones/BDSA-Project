@@ -9,19 +9,22 @@ namespace post
     {
         [Required]
         [StringLength(50)]
-        public string title;
+        public string title { get; set; }
 
-        public User creator;
+        [Required]
+        public User creator { get; set; }
 
-        public (DateTime, DateTime) TimeFrame; 
+        [DataType(DataType.DateTime)]
+        public (DateTime, DateTime) TimeFrame { get; set; } 
 
-        public Collection<User> collaborators;
+        public Collection<User> collaborators { get; set; }
 
-        public string status;
+        [Required]
+        public string status { get; set; }
 
         [StringLength(500)]        
-        public string description;
+        public string description { get; set; }
 
-        public Collection<Keyword> keywords;
+        public Collection<Keyword> keywords { get; set; }
     }
 }

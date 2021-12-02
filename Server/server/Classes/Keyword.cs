@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace keyword {
-    
+
     public class Keyword
     {
-        public string name;
-        public int id;
+        [Required]
+        [StringLength(50)]
+        public string name { get; set; }
+
+        [Required]
+        public int id { get; set; }
     }
 }
