@@ -6,6 +6,7 @@
 
 <h3> Testing API connection to Mock API</h3>
 
+<div class="yourPostList">
 @if (postDTOs == null)
 {
     <p>No posts found.</p>
@@ -15,6 +16,7 @@ else
     <ul>
         @foreach (var post in postDTOs)
         {
+            <li>Id: @post.Id</li>
             <li>Topic: @post.topic</li>
             <li>Description: @post.description</li>
             <li>Keywords: @post.keywords</li>
@@ -22,10 +24,10 @@ else
         }
     </ul>
 }
+</div>
 
 @code {
     private PostDTO[]? postDTOs;
-
     protected override async Task OnInitializedAsync() => 
         postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://61a6407b8395690017be91cb.mockapi.io/Posts");
 }
