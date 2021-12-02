@@ -25,5 +25,5 @@
     {
         var addItem = new PostDTO { topic = newTopic, description = newDescription, keywords = newKeywords};
         await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", addItem);
-    }
+        }
 }

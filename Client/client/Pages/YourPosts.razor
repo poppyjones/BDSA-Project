@@ -28,7 +28,6 @@ else
 
 @code {
     private PostDTO[]? postDTOs;
-
     protected override async Task OnInitializedAsync() => 
         postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://61a6407b8395690017be91cb.mockapi.io/Posts");
 }
