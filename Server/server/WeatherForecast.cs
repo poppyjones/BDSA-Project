@@ -1,4 +1,4 @@
-namespace server.Data;
+namespace Server;
 
 public class WeatherForecast
 {
