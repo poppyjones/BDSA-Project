@@ -1,0 +1,29 @@
+@page "/CreatePostTest"
+
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Threading.Tasks
+@inject HttpClient http
+
+<h3> Create Post Test site</h3>
+
+<div class="createPost">
+<input @bind="newTopic" placeholder="Topic" /><br>
+<input @bind="newDescription" placeholder="Description" /><br>
+<input @bind="newKeywords" placeholder="Keywords" /><br>
+
+<button @onclick="AddPost">Post project</button>
+</div>
+
+
+@code {
+    private string? newTopic;
+    private string? newDescription;
+    private string? newKeywords;
+
+    private async Task AddPost()
+    {
+        var addItem = new PostDTO { topic = newTopic, description = newDescription, keywords = newKeywords};
+        await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", addItem);
+    }
+}
