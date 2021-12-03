@@ -2,19 +2,26 @@ namespace Model;
 
 public class Post 
     {
-        [Required]
+        public Post()
+        {
+            collaborators = new HashSet<User>();
+        }
+
+        public int Id { get; set;}
+
         [StringLength(50)]
         public string title { get; set; }
 
-        [Required]
         public User creator { get; set; }
 
         [DataType(DataType.DateTime)]
-        public (DateTime, DateTime) TimeFrame { get; set; } 
+        public DateTime Created { get; set; } 
 
-        public Collection<User> collaborators { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime Ended { get; set; } 
 
-        [Required]
+        public virtual ICollection<User> collaborators { get; set; }
+
         public string status { get; set; }
 
         [StringLength(500)]        
