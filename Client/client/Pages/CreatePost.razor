@@ -6,44 +6,48 @@
 @inject HttpClient http
 
 
+
 <h3>Create Post</h3>
 
-<div class="main">
+<EditForm Model="@Post" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="topic-field">
+        <label for="Topic">Topic:</label><br>
+        <input @bind="newTopic" placeholder="Project in ..."/><br>
+        <ValidationMessage For="@(() => Post.Topic)" />
+    </div>
+    <div class="text-field">
+        <label for="Description">Description:</label><br>
+        <input @bind="newDescription" placeholder="Description" /><br>
+        <ValidationMessage For="@(() => Post.Description)" />
+    </div>
 
-</div>
 
-<div class="topic-field">
-    <label>Topic:</label><br>
-    <input @bind="newTopic" placeholder="Project in ..."><br>
-</div>
+    <div class="skeyword-field">
+        <label for="keyword">Keywords:</label><br>
+        <select class="Keyword">
+            <option value="" disabled selected>Select your suggested keyword</option>
+            <option>AI</option>
+            <option>Machine Learning</option>
+            <option>C#</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>SQL</option>
+            <option>Image Analysis</option>
+        </select><br>
+    </div>
 
-<div class="text-field">
-    <label for="description">Description:</label><br>
-    <input @bind="newDescription" placeholder="Description" /><br>
-</div>
 
-<div class="skeyword-field">
-    <label for="keyword">Keywords:</label><br>
-    <select class="Keyword">
-        <option value="" disabled selected>Select your suggested keyword</option>
-        <option>AI</option>
-        <option>Machine Learning</option>
-        <option>C#</option>
-        <option>Python</option>
-        <option>Java</option>
-        <option>SQL</option>
-        <option>Image Analysis</option>
-    </select><br>
-</div>
+    <div class="newKeyword-field">
+        <label for="ckeyword">Create your own keyword</label><br>
+        <input @bind="newKeywords" placeholder="Keywords" /><br>
+    </div>
 
-<div class="newKeyword-field">
-    <label for="ckeyword">Create your own keyword</label><br>
-    <input @bind="newKeywords" placeholder="Keywords" /><br>
-</div>
+    <div class="submit-button">
+        <button @onclick="AddPost">Post project</button>
+    </div>
 
-<div class="submit-button">
-    <button @onclick="AddPost">Post project</button>
-</div>
+</EditForm>
 
 
 @code {
@@ -53,7 +57,15 @@
 
     private async Task AddPost()
     {
-        var addItem = new PostDTO { topic = newTopic, description = newDescription, keywords = newKeywords};
+        var addItem = new PostDTO { Topic = newTopic, Description = newDescription, Keywords = newKeywords};
         await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", addItem);
-        }
+    }
+
+    PostDTO Post = new();
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+
 }

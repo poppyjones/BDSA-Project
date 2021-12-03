@@ -1,8 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 public class PostDTO
 {
     public int Id {get; set;}
-    public string? topic {get; set;}
-    public string? description {get; set;}
-    public string? keywords {get; set;}
+
+    [Required(ErrorMessage = "Please enter a topic for your project")]
+    [StringLength(20, ErrorMessage = "Topic must be over two characters.", MinimumLength = 2)]
+    public string? Topic {get; set;}
+
+    [Required(ErrorMessage = "Please enter a description of your project.")]
+    [StringLength(500)]    
+    public string? Description {get; set;}
+    public string? Keywords {get; set;}
 
 }
