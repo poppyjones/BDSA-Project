@@ -12,21 +12,21 @@
 <EditForm Model="@Post" OnValidSubmit="@AddPost">
     <DataAnnotationsValidator />
     <div class="topic-field">
-        <label for="Topic">Topic:</label><br>
-        <InputText @bind-Value="Post.Topic" placeholder="Project in ..."/><br>
+        <label title="The title of your project">Topic:</label><br>
+        <InputText @bind-Value="Post.Topic" placeholder="Project in ..." style="width: 340px;"/><br>
         <ValidationMessage For="@(() => Post.Topic)" />
     </div>
     <div class="text-field">
-        <label for="Description">Description:</label><br>
+        <label for="Description" title="A description of what the project entails">Description:</label><br>
         <InputTextArea @bind-Value="Post.Description" placeholder="Description" rows="4" cols="40" /><br>
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
 
     <div class="skeyword-field">
-        <label for="keyword">Keywords:</label><br>
-        <select class="Keyword">
-            <option value="" disabled selected>Select your suggested keyword</option>
+        <label for="keyword" title="Select the keywords that describes your project">Keywords:</label><br>
+        <select class="Keyword" style="width: 340px;">
+            <option value="" disabled selected >Select your suggested keyword</option>
             @if (KeywordDTOs == null)
             {
                 <p>No keywords found</p>
@@ -41,8 +41,8 @@
 
 
     <div class="newKeyword-field">
-        <label for="ckeyword">Create your own keyword</label><br>
-        <input @bind="newKeywordName" placeholder="Keywords" /><br>
+        <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
+        <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
     </div>
 </EditForm>
 
@@ -120,6 +120,7 @@
         display: inline-block;
         margin-top: 20px;
     }
+
 
 </style>
 
