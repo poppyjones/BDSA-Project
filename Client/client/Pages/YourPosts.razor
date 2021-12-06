@@ -13,16 +13,33 @@
 }
 else
 {
-    <ul>
+    
         @foreach (var post in postDTOs)
         {
-            <li>Id: @post.Id</li>
-            <li>Topic: @post.Topic</li>
-            <li>Description: @post.Description</li>
-            <li>Keywords: @post.Keywords</li>
-            <br>
+            <div class="yourPosts">
+                <div class="topic">
+                    @post.Topic
+                </div> 
+                <div class="desc" >
+                    @post.Description
+                </div> 
+                <div class="key">
+                    @post.Keywords
+                </div>
+
+                @*<li>Id: @post.Id</li> *@
+                @* <label class="topic">Topic: </label>
+                <li>@post.Topic</li>
+                <label class="desc">Description: </label>
+                @post.Description <br>
+                <label class="key">Keywords: </label>
+                <li>@post.Keywords</li>
+                <br> *@
+
+                 
+            </div>
         }
-    </ul>
+    
 }
 </div>
 
@@ -31,4 +48,36 @@ else
     protected override async Task OnInitializedAsync() => 
         postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://61a6407b8395690017be91cb.mockapi.io/Posts");
 }
+
+
+<style>
+    .yourPosts 
+    {
+        border: 1px solid black;
+        width: 600px;
+        height: auto;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .topic
+    {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .desc
+    {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .key
+    {
+        background-color: lightgray;
+        display: inline-block;
+        margin-bottom: 10px;
+        
+    }
+</style>
 

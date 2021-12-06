@@ -9,16 +9,16 @@
 
 <h3>Create Post</h3>
 
-<EditForm Model="@Post" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@Post" OnValidSubmit="@AddPost">
     <DataAnnotationsValidator />
     <div class="topic-field">
         <label for="Topic">Topic:</label><br>
-        <input @bind="newTopic" placeholder="Project in ..."/><br>
+        <InputText @bind-Value="Post.Topic" placeholder="Project in ..."/><br>
         <ValidationMessage For="@(() => Post.Topic)" />
     </div>
     <div class="text-field">
         <label for="Description">Description:</label><br>
-        <input @bind="newDescription" placeholder="Description" /><br>
+        <InputTextArea @bind-Value="Post.Description" placeholder="Description" rows="4" cols="50" /><br>
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
@@ -40,31 +40,43 @@
 
     <div class="newKeyword-field">
         <label for="ckeyword">Create your own keyword</label><br>
-        <input @bind="newKeywords" placeholder="Keywords" /><br>
+        <InputText @bind-Value="Post.Keywords" placeholder="Keywords" /><br>
     </div>
+</EditForm>
 
     <div class="submit-button">
         <button @onclick="AddPost">Post project</button>
     </div>
 
-</EditForm>
+
+
+@if (_showsuccess)
+{
+    <blockquote>
+        <strong>Create Post Saved Successfully!</strong>
+    </blockquote>
+}
 
 
 @code {
+    PostDTO Post = new();
+    bool _showsuccess = false;
     private string? newTopic;
     private string? newDescription;
     private string? newKeywords;
+    
 
     private async Task AddPost()
     {
-        var addItem = new PostDTO { Topic = newTopic, Description = newDescription, Keywords = newKeywords};
-        await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", addItem);
-    }
+        @*var addItem = new PostDTO { Topic = newTopic, Description = newDescription, Keywords = newKeywords}; *@
+        var response = await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", Post);
 
-    PostDTO Post = new();
-    private void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
+        if (response.IsSuccessStatusCode)
+        {
+            _showsuccess = true;
+        }
+       
+
     }
 
 

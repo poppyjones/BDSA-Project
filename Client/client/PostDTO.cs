@@ -4,7 +4,7 @@ public class PostDTO
 {
     public int Id {get; set;}
 
-    [Required(ErrorMessage = "Please enter a topic for your project")]
+    [Required]
     [StringLength(20, ErrorMessage = "Topic must be over two characters.", MinimumLength = 2)]
     public string? Topic {get; set;}
 
