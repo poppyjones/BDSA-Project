@@ -18,7 +18,7 @@
     </div>
     <div class="text-field">
         <label for="Description">Description:</label><br>
-        <InputTextArea @bind-Value="Post.Description" placeholder="Description" rows="4" cols="50" /><br>
+        <InputTextArea @bind-Value="Post.Description" placeholder="Description" rows="4" cols="40" /><br>
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
@@ -54,7 +54,7 @@
 
 @if (_showsuccess)
 {
-    <blockquote>
+    <blockquote class="showSuccess">
         <strong>Create Post Saved Successfully!</strong>
     </blockquote>
 }
@@ -104,4 +104,22 @@
     }
 }
 
+
+
+<style>
+    .submit-button
+    {
+        margin-top: 10px;
+    }
+
+    .showSuccess
+    {
+        border-style: 2px dotted lightgreen;
+        border-left: 2px solid lightgreen;
+        background-color:hsla(120,60%,70%,0.3);
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+</style>
 
