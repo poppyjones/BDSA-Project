@@ -1,5 +1,4 @@
 namespace Model;
-
 public class User
 {
     // public User()
@@ -28,5 +27,5 @@ public class User
 
     public string Degree { get; set; }
 
-    public ICollection<UserPost> UserPost { get; set; }
+    public ICollection<Post> Posts { get; set; }
 }

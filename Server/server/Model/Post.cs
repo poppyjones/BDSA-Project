@@ -1,3 +1,6 @@
+
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Model;
 
 public class Post
@@ -25,6 +28,7 @@ public class Post
     [StringLength(50)]
     public string Title { get; set; }
 
+    [NotMapped]
     public User Creator { get; set; }
 
     //[DataType(DataType.DateTime)]
@@ -38,7 +42,7 @@ public class Post
     [StringLength(500)]
     public string Description { get; set; }
 
-    public ICollection<PostKeyword> PostKeyword { get; set; }
+    public ICollection<Keyword> Keywords { get; set; }
 
-    public ICollection<UserPost> UserPost { get; set; }
+    public ICollection<User> Users { get; set; }
 }
