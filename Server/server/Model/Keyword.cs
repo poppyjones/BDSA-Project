@@ -1,11 +1,18 @@
 namespace Model;
 
 public class Keyword
-    {
-        [Required]
-        [StringLength(50)]
-        public string name { get; set; }
+{
+    // public Keyword(string name, int id)
+    // {
+    //     this.name = name;
+    //     this.id = id;
+    // }
 
-        [Required]
-        public int id { get; set; }
-    }
+    [Key]
+    public int Id { get; set; }
+    
+    [StringLength(50)]
+    public string Name { get; set; }
+
+    public ICollection<PostKeyword> PostKeyword { get; set; }
+}
