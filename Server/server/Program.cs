@@ -2,8 +2,8 @@ using Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -19,14 +19,21 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseCors(builder => builder
+     .AllowAnyOrigin()
+     .AllowAnyMethod()
+     .AllowAnyHeader());   
+
+//app.UseMvc();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 
 app.Run();
-
-
 
 
 // Database
@@ -47,6 +54,7 @@ static IConfiguration LoadConfiguration()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json")
         .AddUserSecrets<Program>();
+        
 
     return builder.Build();
 }
