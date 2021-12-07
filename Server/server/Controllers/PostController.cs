@@ -26,7 +26,7 @@ public class PostController : ControllerBase
             Id = 1,
             Topic = "TestTopic",
             Description = "Test Description",
-            Keywords = "Random Word"
+            Keywords = "Random Keyword"
         })
         .ToArray();
     }
