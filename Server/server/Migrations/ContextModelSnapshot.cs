@@ -21,6 +21,21 @@ namespace server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("KeywordPost", b =>
+                {
+                    b.Property<int>("KeywordsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("KeywordsId", "PostsId");
+
+                    b.HasIndex("PostsId");
+
+                    b.ToTable("KeywordPost");
+                });
+
             modelBuilder.Entity("Model.Keyword", b =>
                 {
                     b.Property<int>("Id")
@@ -47,20 +62,23 @@ namespace server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CreatorId")
+                    b.Property<int>("AuthorId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<DateTime?>("Ended")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SupervisorId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -69,26 +87,7 @@ namespace server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
-
-                    b.HasIndex("SupervisorId");
-
                     b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("Model.PostKeyword", b =>
-                {
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KeywordId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PostId", "KeywordId");
-
-                    b.HasIndex("KeywordId");
-
-                    b.ToTable("PostKeyword");
                 });
 
             modelBuilder.Entity("Model.User", b =>
@@ -103,10 +102,6 @@ namespace server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Institution")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -118,105 +113,51 @@ namespace server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
                 });
 
-            modelBuilder.Entity("Model.UserPost", b =>
+            modelBuilder.Entity("PostUser", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.HasKey("UserId", "PostId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("PostId");
+                    b.HasKey("PostId", "UserId");
 
-                    b.ToTable("UserPost");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostUser");
                 });
 
-            modelBuilder.Entity("Model.Supervisor", b =>
+            modelBuilder.Entity("KeywordPost", b =>
                 {
-                    b.HasBaseType("Model.User");
-
-                    b.HasDiscriminator().HasValue("Supervisor");
-                });
-
-            modelBuilder.Entity("Model.Post", b =>
-                {
-                    b.HasOne("Model.User", "Creator")
+                    b.HasOne("Model.Keyword", null)
                         .WithMany()
-                        .HasForeignKey("CreatorId")
+                        .HasForeignKey("KeywordsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Model.Supervisor", null)
-                        .WithMany("OwnedPosts")
-                        .HasForeignKey("SupervisorId");
-
-                    b.Navigation("Creator");
+                    b.HasOne("Model.Post", null)
+                        .WithMany()
+                        .HasForeignKey("PostsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Model.PostKeyword", b =>
+            modelBuilder.Entity("PostUser", b =>
                 {
-                    b.HasOne("Model.Keyword", "Keyword")
-                        .WithMany("PostKeyword")
-                        .HasForeignKey("KeywordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Model.Post", "Post")
-                        .WithMany("PostKeyword")
+                    b.HasOne("Model.User", null)
+                        .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Keyword");
-
-                    b.Navigation("Post");
-                });
-
-            modelBuilder.Entity("Model.UserPost", b =>
-                {
-                    b.HasOne("Model.Post", "Post")
-                        .WithMany("UserPost")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Model.User", "User")
-                        .WithMany("UserPost")
+                    b.HasOne("Model.Post", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Post");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Model.Keyword", b =>
-                {
-                    b.Navigation("PostKeyword");
-                });
-
-            modelBuilder.Entity("Model.Post", b =>
-                {
-                    b.Navigation("PostKeyword");
-
-                    b.Navigation("UserPost");
-                });
-
-            modelBuilder.Entity("Model.User", b =>
-                {
-                    b.Navigation("UserPost");
-                });
-
-            modelBuilder.Entity("Model.Supervisor", b =>
-                {
-                    b.Navigation("OwnedPosts");
                 });
 #pragma warning restore 612, 618
         }
