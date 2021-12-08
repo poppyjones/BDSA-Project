@@ -26,8 +26,6 @@ app.UseCors(builder => builder
      .AllowAnyMethod()
      .AllowAnyHeader());   
 
-//app.UseMvc();
-
 app.UseAuthorization();
 
 

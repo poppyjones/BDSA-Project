@@ -4,6 +4,7 @@
 @using System.Threading.Tasks;
 @inject HttpClient Http;
 
+
 <h3> Testing API connection Server. Localhost:5222</h3>
 
 <div class="yourPostList">
@@ -26,17 +27,6 @@ else
                 <div class="key">
                     @post.Keywords
                 </div>
-
-                @*<li>Id: @post.Id</li> *@
-                @* <label class="topic">Topic: </label>
-                <li>@post.Topic</li>
-                <label class="desc">Description: </label>
-                @post.Description <br>
-                <label class="key">Keywords: </label>
-                <li>@post.Keywords</li>
-                <br> *@
-
-                 
             </div>
         }
     
