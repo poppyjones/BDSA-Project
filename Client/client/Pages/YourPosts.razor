@@ -4,7 +4,7 @@
 @using System.Threading.Tasks;
 @inject HttpClient Http;
 
-<h3> Testing API connection to Mock API</h3>
+<h3> Testing API connection Server. Localhost:5222</h3>
 
 <div class="yourPostList">
 @if (postDTOs == null)
@@ -46,7 +46,7 @@ else
 @code {
     private PostDTO[]? postDTOs;
     protected override async Task OnInitializedAsync() => 
-        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://61a6407b8395690017be91cb.mockapi.io/Posts");
+        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:5222/Post");
 }
 
 

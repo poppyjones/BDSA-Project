@@ -1,7 +1,9 @@
+using Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,9 +19,42 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseCors(builder => builder
+     .AllowAnyOrigin()
+     .AllowAnyMethod()
+     .AllowAnyHeader());   
+
+//app.UseMvc();
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 
 app.Run();
+
+
+// Database
+//$connectionString = "Server=localhost;Database=$database;User Id=sa;Password=$password";
+static void Main(string[] args)
+{
+    var configuration = LoadConfiguration();
+    var connectionString = configuration.GetConnectionString("PrimeSlice");
+
+    var optionsBuilder = new DbContextOptionsBuilder<Context>().UseSqlServer(connectionString);
+    using var context = new Context(optionsBuilder.Options);
+    ContextFactory.Seed(context);
+}
+
+static IConfiguration LoadConfiguration()
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddUserSecrets<Program>();
+        
+
+    return builder.Build();
+}
