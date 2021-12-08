@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace server.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211206144529_InitMigration")]
-    partial class InitMigration
+    [Migration("20211208140702_MigTest2")]
+    partial class MigTest2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,17 +64,23 @@ namespace server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("AuthorUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<DateTime?>("Ended")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SupervisorId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -83,24 +89,20 @@ namespace server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SupervisorId");
+                    b.HasIndex("AuthorUserId");
 
                     b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Model.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Degree")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -112,33 +114,24 @@ namespace server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
                 });
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.Property<int>("PostsId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("PostsId", "UsersId");
+                    b.HasKey("PostId", "UserId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("PostUser");
-                });
-
-            modelBuilder.Entity("Model.Supervisor", b =>
-                {
-                    b.HasBaseType("Model.User");
-
-                    b.HasDiscriminator().HasValue("Supervisor");
                 });
 
             modelBuilder.Entity("KeywordPost", b =>
@@ -158,27 +151,31 @@ namespace server.Migrations
 
             modelBuilder.Entity("Model.Post", b =>
                 {
-                    b.HasOne("Model.Supervisor", null)
+                    b.HasOne("Model.User", "Author")
                         .WithMany("OwnedPosts")
-                        .HasForeignKey("SupervisorId");
+                        .HasForeignKey("AuthorUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.HasOne("Model.Post", null)
+                    b.HasOne("Model.User", null)
                         .WithMany()
-                        .HasForeignKey("PostsId")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Model.User", null)
+                    b.HasOne("Model.Post", null)
                         .WithMany()
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Model.Supervisor", b =>
+            modelBuilder.Entity("Model.User", b =>
                 {
                     b.Navigation("OwnedPosts");
                 });

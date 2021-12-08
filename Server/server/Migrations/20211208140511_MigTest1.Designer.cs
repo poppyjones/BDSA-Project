@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace server.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20211208140511_MigTest1")]
+    partial class MigTest1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,15 +121,15 @@ namespace server.Migrations
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.Property<int>("CollaboratingPostsId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CollaboratingUsersUserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("CollaboratingPostsId", "CollaboratingUsersUserId");
+                    b.HasKey("PostId", "UserId");
 
-                    b.HasIndex("CollaboratingUsersUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("PostUser");
                 });
@@ -160,15 +162,15 @@ namespace server.Migrations
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.HasOne("Model.Post", null)
+                    b.HasOne("Model.User", null)
                         .WithMany()
-                        .HasForeignKey("CollaboratingPostsId")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Model.User", null)
+                    b.HasOne("Model.Post", null)
                         .WithMany()
-                        .HasForeignKey("CollaboratingUsersUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
