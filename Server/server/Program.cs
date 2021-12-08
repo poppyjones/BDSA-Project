@@ -1,6 +1,6 @@
 using Database;
 
-var builder = WebApplication.CreateBuilder(args);
+/*var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -24,29 +24,31 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run();*/
 
+using System;
 
+namespace Main {
+    public class Program {
+        public static void Main(string[] args)
+        {
+            var configuration = LoadConfiguration();
+            var connectionString = configuration.GetConnectionString("PrimeSlice");
 
+            var optionsBuilder = new DbContextOptionsBuilder<Context>().UseSqlServer(connectionString);
+            using var context = new Context(optionsBuilder.Options);
+            ContextFactory.Seed(context);
+            Console.WriteLine("Finished Main Method");
+        }
 
-// Database
-//$connectionString = "Server=localhost;Database=$database;User Id=sa;Password=$password";
-static void Main(string[] args)
-{
-    var configuration = LoadConfiguration();
-    var connectionString = configuration.GetConnectionString("PrimeSlice");
+        static IConfiguration LoadConfiguration()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddUserSecrets<Program>();
 
-    var optionsBuilder = new DbContextOptionsBuilder<Context>().UseSqlServer(connectionString);
-    using var context = new Context(optionsBuilder.Options);
-    ContextFactory.Seed(context);
-}
-
-static IConfiguration LoadConfiguration()
-{
-    var builder = new ConfigurationBuilder()
-        .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json")
-        .AddUserSecrets<Program>();
-
-    return builder.Build();
+            return builder.Build();
+        }
+    }
 }

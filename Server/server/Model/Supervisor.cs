@@ -1,18 +1,29 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Model;
 
-public class Supervisor : User
-{
+
+public class Supervisor
+{   
+    [Key]
+    public int SupervisorId { get; set; }
+
+    public string Name { get; set; }
+    
+    [EmailAddress]
+    public string Email { get; set; }
+
+    public string Institution { get; set; }
+
+    public string Degree { get; set; }
+
+    public ICollection<Post> CollaboratingPosts { get; set; } // Marksu sagde det skulle hedde det >:(
+
     public ICollection<Post> OwnedPosts { get; set; }
 
-    // public Supervisor (int id, string name, EmailAddressAttribute email, string institution, string degree, ICollection<Post> collaborating_posts, Collection<Post> ownedPosts) : base (id, name, email, institution, degree, collaborating_posts)
-    // {
-    //     this.ownedPosts = ownedPosts;
-    // }
-
-    // public Supervisor(Collection<Post> ownedPosts): base(id, name, email, institution, degree, collaborating_posts)
-    // {
-    //     this.ownedPosts = ownedPosts;
-    // }
-
-
+    public Supervisor()
+    {
+        this.CollaboratingPosts = new HashSet<Post>();  
+        this.OwnedPosts = new HashSet<Post>();
+    }
 }
