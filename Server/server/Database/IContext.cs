@@ -1,6 +1,6 @@
 namespace Model;
 
-public interface IContext 
+public interface IContext : IDisposable
 {
     DbSet<Keyword> Keywords { get; }
     DbSet<Post> Posts { get; }

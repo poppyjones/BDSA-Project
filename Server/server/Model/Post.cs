@@ -11,7 +11,7 @@ public class Post
     [StringLength(50)]
     public string Title { get; set; }
 
-    public User Author { get; set; }
+    public int AuthorId { get; set; }
 
     public DateTime Created { get; set; }
 
@@ -24,6 +24,6 @@ public class Post
 
     public virtual ICollection<Keyword> Keywords { get; set; }
 
-    //[ForeignKey("UserId")]
-    public virtual ICollection<User> CollaboratingUsers { get; set; }
+    [ForeignKey("UserId")]
+    public virtual ICollection<User> Users { get; set; }
 }

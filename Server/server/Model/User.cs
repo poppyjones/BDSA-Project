@@ -5,7 +5,7 @@ namespace Model;
 public class User
 {
     [Key]
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
     public string Name { get; set; }
 
@@ -17,8 +17,6 @@ public class User
 
     public string Degree { get; set; }
 
-    //[ForeignKey("PostId")]
-    public virtual ICollection<Post> CollaboratingPosts { get; set; }
-
-    public virtual ICollection<Post> OwnedPosts { get; set; }
+    [ForeignKey("PostId")]
+    public virtual ICollection<Post> Posts { get; set; }
 }

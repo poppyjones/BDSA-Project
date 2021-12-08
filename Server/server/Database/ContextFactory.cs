@@ -1,4 +1,5 @@
 using Model;
+using main;
 namespace Database;
 
 public class ContextFactory : IDesignTimeDbContextFactory<Context>
@@ -34,11 +35,25 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         context.Database.ExecuteSqlRaw("DELETE dbo.Posts");
         context.Database.ExecuteSqlRaw("DELETE dbo.Users");
         
-        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.KeywordPost', RESEED, 0)");
-        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.PostUser', RESEED, 0)");
-        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.PostKeywords', RESEED, 0)");
+        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.KeywordPost', RESEED, 0)");
+        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.PostUser', RESEED, 0)");
+        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Keywords', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Posts', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Users', RESEED, 0)");
+
+        Post post = new Post {  Title = "blabla",
+                                Description = "blablabla",
+                                Created = DateTime.UtcNow,
+                                Status = "New" };
+
+        User user = new User {  Name = "Eric",
+                                Degree = "Pron",
+                                Institution = "ITU"};
+
+        post.AuthorId = user.Id;
+
+        context.Users.Add(user);
+        context.Posts.Add(post);
 
         context.SaveChanges();
     }

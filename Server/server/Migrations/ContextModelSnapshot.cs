@@ -62,7 +62,7 @@ namespace server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AuthorUserId")
+                    b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Created")
@@ -87,18 +87,16 @@ namespace server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorUserId");
-
                     b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Model.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Degree")
                         .IsRequired()
@@ -112,22 +110,22 @@ namespace server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.Property<int>("CollaboratingPostsId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CollaboratingUsersUserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("CollaboratingPostsId", "CollaboratingUsersUserId");
+                    b.HasKey("PostId", "UserId");
 
-                    b.HasIndex("CollaboratingUsersUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("PostUser");
                 });
@@ -147,35 +145,19 @@ namespace server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Model.Post", b =>
-                {
-                    b.HasOne("Model.User", "Author")
-                        .WithMany("OwnedPosts")
-                        .HasForeignKey("AuthorUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-                });
-
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.HasOne("Model.Post", null)
-                        .WithMany()
-                        .HasForeignKey("CollaboratingPostsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Model.User", null)
                         .WithMany()
-                        .HasForeignKey("CollaboratingUsersUserId")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("Model.User", b =>
-                {
-                    b.Navigation("OwnedPosts");
+                    b.HasOne("Model.Post", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

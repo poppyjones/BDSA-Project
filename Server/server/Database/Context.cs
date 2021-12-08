@@ -11,8 +11,8 @@ public class Context : DbContext, IContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Ignore<Attribute>();
-        modelBuilder.Entity<Post>().HasOne<User>(p => p.Author).WithMany(s => s.OwnedPosts);
-        modelBuilder.Entity<Post>().HasMany<User>(p => p.CollaboratingUsers).WithMany(u => u.CollaboratingPosts);
-        modelBuilder.Entity<User>().HasMany<Post>(u => u.CollaboratingPosts).WithMany(p => p.CollaboratingUsers);
+        modelBuilder.Entity<Post>().HasMany<User>(p => p.Users).WithMany(u => u.Posts);
+        modelBuilder.Entity<User>().HasMany<Post>(u => u.Posts).WithMany(p => p.Users);
+        
     }
 }
