@@ -1,4 +1,8 @@
-namespace Repository;
+using server.Interfaces;
+using server.Database;
+using server.Model;
+
+namespace server.Repository;
 
 public class UserRepository : IUserRepository
 {
@@ -10,9 +14,9 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    Task<Option<UserDto>> ReadAsync(int UserId)
+    public Task<UserDTO> ReadAsync(int UserId)
     {
-        throw NotImplementedException();
+        throw new NotImplementedException();
     }
     
 }

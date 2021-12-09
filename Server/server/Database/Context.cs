@@ -1,5 +1,6 @@
+using server.Model;
 
-using Model;
+namespace server.Database;
 public class Context : DbContext, IContext
 {
     public DbSet<Keyword> Keywords { get; set; }

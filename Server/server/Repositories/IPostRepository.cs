@@ -1,9 +1,12 @@
-Namespace Interfaces;
+using server.Database;
+using server.Model;
+
+namespace server.Interfaces;
 
 public interface IPostRepository 
 {
-    Task<(Status, PostDto)> CreateAsync(PostCreateDto post);
-    Task<Option<PostDto>> ReadAsync(int PostId);
-    Task<IReadOnlyCollection<PostDto>> ReadAsync();
+    Task<PostDTO> CreateAsync(PostCreateDTO post);
+    Task<PostDTO> ReadAsync(int PostId);
+    Task<IReadOnlyCollection<PostDTO>> ReadAsync();
 }
 

@@ -1,4 +1,4 @@
-namespace Model;
+namespace server.Model;
 
 public class Keyword
 {

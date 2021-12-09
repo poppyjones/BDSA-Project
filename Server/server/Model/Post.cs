@@ -1,7 +1,4 @@
-
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Model;
+namespace server.Model;
 
 public class Post
 {
@@ -22,6 +19,7 @@ public class Post
     [StringLength(500)]
     public string Description { get; set; }
 
+    [ForeignKey("KeywordId")]
     public virtual ICollection<Keyword> Keywords { get; set; }
 
     [ForeignKey("UserId")]

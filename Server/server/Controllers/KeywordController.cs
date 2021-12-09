@@ -3,8 +3,8 @@ using System;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
-
-namespace Server.Controllers;
+using server.Model;
+namespace server.Controllers;
 
 [ApiController]
 [Route("[controller]")]

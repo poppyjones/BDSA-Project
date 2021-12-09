@@ -1,6 +1,6 @@
-using Model;
+using server.Model;
 using main;
-namespace Database;
+namespace server.Database;
 
 public class ContextFactory : IDesignTimeDbContextFactory<Context>
 {

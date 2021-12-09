@@ -1,4 +1,7 @@
-namespace Repository;
+using server.Interfaces;
+using server.Database;
+using server.Model;
+namespace server.Repository;
 
 public class PostRepository : IPostRepository
 {
@@ -10,19 +13,19 @@ public class PostRepository : IPostRepository
         _context = context;
     }
 
-    Task<(Status, PostDto)> CreateAsync(PostCreateDto post)
+    public Task<PostDTO> CreateAsync(PostCreateDTO post)
     {
-        throw NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    Task<Option<PostDto>> ReadAsync(int PostId)
+    public Task<PostDTO> ReadAsync(int PostId)
     {
-        throw NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    Task<IReadOnlyCollection<PostDto>> ReadAsync()
+    public Task<IReadOnlyCollection<PostDTO>> ReadAsync()
     {
-        throw NotImplementedException();
+        throw new NotImplementedException();
     }
     
 }

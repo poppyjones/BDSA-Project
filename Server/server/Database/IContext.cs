@@ -1,4 +1,5 @@
-namespace Model;
+using server.Model;
+namespace server.Database;
 
 public interface IContext : IDisposable
 {

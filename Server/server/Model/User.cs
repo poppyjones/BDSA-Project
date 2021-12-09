@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model;
+namespace server.Model;
 
 public class User
 {

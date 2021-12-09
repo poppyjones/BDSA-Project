@@ -1,28 +1,24 @@
-Namespace Model;
+namespace server.Model;
 
-public class PostDTO
-{
-    public record PostCreateDTO(
-                            string Title,
-                            int AuthorId,
-                            DateTime Created,
-                            Datetime Created,
-                            string Status,
-                            [StringLength(500)] string Description,
-                            ICollection<Keyword> Keywords,
-                            [ForeignKey("UserId")] ICollection<User> Users
-                            );
-
-    public record PostDTO(
-                        int Id,
+public record PostCreateDTO(
                         string Title,
                         int AuthorId,
                         DateTime Created,
-                        Datetime Created,
+                        DateTime? Ended, //den her
                         string Status,
                         [StringLength(500)] string Description,
-                        ICollection<Keyword> Keywords,
-                        [ForeignKey("UserId")] ICollection<User> Users
+                        ICollection<KeywordDTO> Keywords,
+                        ICollection<UserDTO> Users
                         );
 
-}
+public record PostDTO(
+                    int Id,
+                    string Title,
+                    int AuthorId,
+                    DateTime Created,
+                    DateTime? Ended, //den her
+                    string Status,
+                    [StringLength(500)] string Description,
+                    ICollection<KeywordDTO> Keywords,
+                    ICollection<UserDTO> Users
+                    );
