@@ -5,8 +5,8 @@ namespace server.Interfaces;
 
 public interface IPostRepository 
 {
-    PostDTO Create(PostCreateDTO post);
-    PostDTO ReadById(int PostId);
-    PostDTO ReadByAuthorId(int PostId);
+    int Create(PostCreateDTO post);
+    PostDTO ReadByPostId(int PostId);
+    ICollection<PostDTO> ReadAllByAuthorId(int PostId);
 }
 

@@ -1,7 +1,7 @@
 using server.Database;
 using server.Model;
 using server.Repositories;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace server.Tests;
 
@@ -13,7 +13,7 @@ public class PostRepositoryTests : IDisposable
     // Test data
     DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
     DateTime date2 = new DateTime(2009, 6, 6, 6, 0, 0);
-    
+
     public PostRepositoryTests()
     {
         var connection = new SqliteConnection("Filename=:memory:");
@@ -53,6 +53,17 @@ public class PostRepositoryTests : IDisposable
             Keywords = null,
             Users = null
         });
+        context.Posts.Add(new Post
+        {
+            Title = "MyOtherPost",
+            AuthorId = 1,
+            Created = date1,
+            Ended = date2,
+            Status = "Pending",
+            Description = "this is also a description",
+            Keywords = null,
+            Users = null
+        });
 
 
         context.SaveChanges();
@@ -61,16 +72,15 @@ public class PostRepositoryTests : IDisposable
         _repository = new PostRepository(_context);
     }
 
-    // Test PostDTO ReadById(int PostId);
 
     [Fact]
-    public void ReadById_given_existing_postid_returns_post()
+    public void ReadByPostId_given_existing_postid_returns_post()
     {
         // arrange
-        var expected = new PostDTO(1, "MyPost", 1, date1, date2, "Active", "this is a description", new Collection<KeywordDTO> {}, new Collection<UserDTO> {});
+        var expected = new PostDTO(1, "MyPost", 1, date1, date2, "Active", "this is a description", new Collection<KeywordDTO> { }, new Collection<UserDTO> { });
 
         // act
-        var result = _repository.ReadById(1);
+        var result = _repository.ReadByPostId(1);
 
         // assert
         Assert.Equal(expected.Id, result.Id);
@@ -80,21 +90,123 @@ public class PostRepositoryTests : IDisposable
         Assert.Equal(expected.Ended, result.Ended);
         Assert.Equal(expected.Status, result.Status);
         Assert.Equal(expected.Description, result.Description);
-        CollectionAssert.AreEquivalent(expected.Keywords, result.Keywords);
-        CollectionAssert.AreEquivalent(expected.Users, result.Users);
     }
 
     [Fact]
-    public void ReadById_given_nonexisting_postid_returns_null()
+    public void ReadByPostId_given_nonexisting_postid_returns_null()
     {
-        var result = _repository.ReadById(100);
+        var result = _repository.ReadByPostId(100);
 
         Assert.Null(result);
     }
 
-    // Test PostDTO ReadByAuthorId(int PostId);
+    public void ReadAllByAuthorId_given_existing_authorid_with_posts_returns_posts()
+    {
+        // arrange
+         var expectedPost1 = new Post
+        {
+            Id = 1,
+            Title = "MyPost",
+            AuthorId = 1,
+            Created = date1,
+            Ended = date2,
+            Status = "Active",
+            Description = "this is a description",
+            Keywords = new Collection<Keyword> { },
+            Users = new Collection<User> { }
+        };
 
-    // Test PostDTO Create(PostCreateDTO post);
+        var expectedPost2 = new Post
+        {
+            Id = 1,
+            Title = "MyOtherPost",
+            AuthorId = 1,
+            Created = date1,
+            Ended = date2,
+            Status = "Pending",
+            Description = "this is also a description",
+            Keywords = new Collection<Keyword> { },
+            Users = new Collection<User> { }
+        };
+
+        // act
+        var actualPosts = _repository.ReadAllByAuthorId(1);
+
+        // assert
+        Assert.Collection(actualPosts,
+            t => {
+                Assert.Equal(expectedPost1.Id, t.Id);
+                Assert.Equal(expectedPost1.Title, t.Title);
+                Assert.Equal(expectedPost1.AuthorId, t.AuthorId);
+                Assert.Equal(expectedPost1.Created, t.Created);
+                Assert.Equal(expectedPost1.Ended, t.Ended);
+                Assert.Equal(expectedPost1.Status, t.Status);
+                Assert.Equal(expectedPost1.Description, t.Description);
+            },
+            t => {
+                Assert.Equal(expectedPost2.Id, t.Id);
+                Assert.Equal(expectedPost2.Title, t.Title);
+                Assert.Equal(expectedPost2.AuthorId, t.AuthorId);
+                Assert.Equal(expectedPost2.Created, t.Created);
+                Assert.Equal(expectedPost2.Ended, t.Ended);
+                Assert.Equal(expectedPost2.Status, t.Status);
+                Assert.Equal(expectedPost2.Description, t.Description);
+            }
+        );
+    }
+
+    public void ReadAllByAuthorId_given_existing_authorid_without_posts_returns_null()
+    {
+        // arrange
+
+        // act
+        var result = _repository.ReadByPostId(2);
+
+        // assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void CreatePost_with_given_PostCreateDTO()
+    {
+        // arrange
+        var expectedPost = new Post
+        {
+            Id = 3,
+            Title = "MyThirdPost",
+            AuthorId = 2,
+            Created = date2,
+            Ended = date1,
+            Status = "Ended",
+            Description = "description a is this",
+            Keywords = new Collection<Keyword> { },
+            Users = new Collection<User> { }
+        };
+        var postToBeCreated = new PostCreateDTO(
+            "MyThirdPost",
+            2,
+            date2,
+            date1,
+            "Ended",
+            "description a is this",
+            new Collection<KeywordDTO> { },
+            new Collection<UserDTO> { }
+        );
+
+        // act
+        var postId = _repository.Create(postToBeCreated);
+        var actualPost = _context.Posts.Find(postId);
+
+        // assert
+        Assert.Equal(expectedPost.Id, actualPost.Id);
+        Assert.Equal(expectedPost.Title, actualPost.Title);
+        Assert.Equal(expectedPost.AuthorId, actualPost.AuthorId);
+        Assert.Equal(expectedPost.Created, actualPost.Created);
+        Assert.Equal(expectedPost.Ended, actualPost.Ended);
+        Assert.Equal(expectedPost.Status, actualPost.Status);
+        Assert.Equal(expectedPost.Description, actualPost.Description);
+    }
+
 
     public void Dispose()
     {
