@@ -1,3 +1,7 @@
+using server.Database;
+using server.Model;
+using server.Repositories;
+
 namespace server.Tests;
 
 public class UserRepositoryTests : IDisposable
@@ -15,21 +19,22 @@ public class UserRepositoryTests : IDisposable
         context.Database.EnsureCreated();
 
         // Test data
-        var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-        var date2 = new DateTime(1969, 6, 6, 6, 0, 0);
+        // var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
+        // var date2 = new DateTime(2009, 6, 6, 6, 0, 0);
         
-        var posts = ICollection<Post> (
-                                new Post { "1", "firstPost", "1", date1, "", "Active", "DescriptiveDescription", keywords, users},
-                                new Post {"1", "firstPost", "1", date1, "", "Active", "DescriptiveDescription", keywords, users}
-                                ); 
+        // var posts = ICollection<Post> (
+        //                         new Post { "1", "firstPost", "1", date1, "", "Active", "DescriptiveDescription", keywords, users},
+        //                         new Post {"1", "firstPost", "1", date2, "", "Active", "DescriptiveDescription", keywords, users}
+        //                         );
 
         // Adding data to test area
         context.Users.Add( new User
         {
-            name = "Eric",
-            degree = "swu",
-            institution = "ITU",
-            posts = posts
+            Name = "Eric",
+            Email = "Eric@mail.dk",
+            Degree = "bsc science",
+            Institution = "ITU"//,
+            //posts = posts
         });
 
 
@@ -40,19 +45,28 @@ public class UserRepositoryTests : IDisposable
     }
 
     [Fact]
-    public async Task ReadAsync_given_existing_id_returns_user()
+    public void ReadById_given_existing_userid_returns_user()
     {
-        var option = await _repository.ReadAsync(1);
+        // arrange
+        
 
-        Assert.Equal(new UserDto(1, "Eric", "swu", ITU), option.Value);
+        // act
+        var result =  _repository.ReadById(1);
+        
+        // assert
+        Assert.Equal(new UserDTO(1, "Eric", "Eric@mail.dk", "ITU", "bsc science"), result);
     }
 
     [Fact]
-    public async Task ReadAsync_given_nonexisting_id_returns_null()
+    public void ReadById_given_nonexisting_userid_returns_null()
     {
-        var option = await _repository.ReadAsync(1);
+        var result =  _repository.ReadById(100);
 
-        Assert.Null(option.Value);
+        Assert.Null(result);
     }
 
+    public void Dispose()
+    {
+        _context.Dispose();
+    }
 }

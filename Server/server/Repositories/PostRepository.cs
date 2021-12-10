@@ -1,7 +1,7 @@
 using server.Interfaces;
 using server.Database;
 using server.Model;
-namespace server.Repository;
+namespace server.Repositories;
 
 public class PostRepository : IPostRepository
 {
@@ -28,4 +28,8 @@ public class PostRepository : IPostRepository
         throw new NotImplementedException();
     }
     
+    public void Dispose()
+    {
+        _context.Dispose();
+    }
 }

@@ -9,9 +9,7 @@ public class User
 
     public string Name { get; set; }
 
-    //[Required]
-    //[EmailAddress]
-    //public EmailAddressAttribute Email { get; set; }
+    public string Email { get; set; }
 
     public string Institution { get; set; }
 
