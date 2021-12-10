@@ -18,15 +18,6 @@ public class UserRepositoryTests : IDisposable
         var context = new Context(builder.Options);
         context.Database.EnsureCreated();
 
-        // Test data
-        // var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-        // var date2 = new DateTime(2009, 6, 6, 6, 0, 0);
-        
-        // var posts = ICollection<Post> (
-        //                         new Post { "1", "firstPost", "1", date1, "", "Active", "DescriptiveDescription", keywords, users},
-        //                         new Post {"1", "firstPost", "1", date2, "", "Active", "DescriptiveDescription", keywords, users}
-        //                         );
-
         // Adding data to test area
         context.Users.Add( new User
         {
@@ -34,7 +25,6 @@ public class UserRepositoryTests : IDisposable
             Email = "Eric@mail.dk",
             Degree = "bsc science",
             Institution = "ITU"//,
-            //posts = posts
         });
 
 

@@ -22,11 +22,7 @@ public class KeywordController : ApiController
     [HttpGet]
     public IEnumerable<KeywordDTO> Get()
     {
-        return Enumerable.Range(1, 1).Select(index => new KeywordDTO
-        {
-            Id = 1,
-            Name = "Random word"
-        })
+        return Enumerable.Range(1, 1).Select(index => new KeywordDTO(1, "Random word"))
         .ToArray();
     }
 
@@ -34,11 +30,7 @@ public class KeywordController : ApiController
     [HttpPost]
     public KeywordDTO Post(KeywordDTO keywordDTO)
     {
-        return new KeywordDTO
-        {
-            Id = 2,
-            Name = "Random word 2"
-        };
+        return new KeywordDTO( 2,"Random word 2");
 
     }
 }

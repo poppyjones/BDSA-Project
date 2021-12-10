@@ -27,23 +27,6 @@ public class UserRepository : IUserRepository
                     );
         
         return user.FirstOrDefault();
-
-        // var characters = from c in _context.Characters
-        //                  where c.Id == characterId
-        //                  select new CharacterDetailsDto(
-        //                      c.Id,
-        //                      c.AlterEgo,
-        //                      c.GivenName,
-        //                      c.Surname,
-        //                      c.City == null ? null : c.City.Name,
-        //                      c.Gender,
-        //                      c.FirstAppearance,
-        //                      c.Occupation,
-        //                      c.ImageUrl,
-        //                      c.Powers.Select(c => c.Name).ToHashSet()
-        //                  );
-
-        // return await characters.FirstOrDefaultAsync();
     }
     
     public void Dispose()

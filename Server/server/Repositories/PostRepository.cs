@@ -13,19 +13,83 @@ public class PostRepository : IPostRepository
         _context = context;
     }
 
-    public Task<PostDTO> CreateAsync(PostCreateDTO post)
+    public PostDTO Create(PostCreateDTO post)
     {
+        //var post = new 
         throw new NotImplementedException();
     }
 
-    public Task<PostDTO> ReadAsync(int PostId)
+    /*public (Response Response, int UserId) Create(UserCreateDTO user)
     {
-        throw new NotImplementedException();
+        if (ReadByEmail(user.Email) != null)
+        {
+            return (Conflict, 0);
+        }
+
+        var entity = new User
+        {
+            Name = user.Name,
+            Email = user.Email
+        };
+
+        _context.Users.Add(entity);
+        _context.SaveChanges();
+
+        return (Response.Created, entity.Id);
+    }*/
+
+    public PostDTO ReadById(int PostId)
+    {
+        var post =  from p in _context.Posts
+                    where p.Id == PostId
+                    select new PostDTO(
+                        p.Id,
+                        p.Title,
+                        p.AuthorId,
+                        p.Created,
+                        p.Ended,
+                        p.Status,
+                        p.Description,
+                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
+                        UsersToUserDTOs(p.Users).ToList()
+                    );
+        
+        return post.FirstOrDefault();
+    }
+    
+    public PostDTO ReadByAuthorId(int AuthorId)
+    {
+        var post =  from p in _context.Posts
+                    where p.AuthorId == AuthorId
+                    select new PostDTO(
+                        p.Id,
+                        p.Title,
+                        p.AuthorId,
+                        p.Created,
+                        p.Ended,
+                        p.Status,
+                        p.Description,
+                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
+                        UsersToUserDTOs(p.Users).ToList()
+                    );
+
+        return post.FirstOrDefault();
     }
 
-    public Task<IReadOnlyCollection<PostDTO>> ReadAsync()
+    private static IEnumerable<KeywordDTO> KeywordsToKeywordDTOs(ICollection<Keyword> Keywords)
     {
-        throw new NotImplementedException();
+        foreach (Keyword keyword in Keywords)
+        {
+            yield return new KeywordDTO(keyword.Id, keyword.Name);            
+        }
+    }
+
+    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users)
+    {
+        foreach (User user in Users)
+        {
+            yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
+        }
     }
     
     public void Dispose()

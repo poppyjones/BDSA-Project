@@ -6,10 +6,10 @@ using server.Controllers;
 
 namespace server.Tests;
 
-public class TestPostController
+public class ControllerTests
 {
 
-    [Fact]
+    /*[Fact]
     public void Test()
     {
         // Arrange
@@ -23,5 +23,5 @@ public class TestPostController
         // Assert
         Assert.Equal(null, response);
 
-    }
+    }*/
 }
