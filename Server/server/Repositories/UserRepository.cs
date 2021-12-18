@@ -17,9 +17,9 @@ public class UserRepository : IUserRepository
     public UserDTO ReadById(int UserId)
     {
         var user =  from u in _context.Users
-                    where u.Id == UserId
+                    where u.UserId == UserId
                     select new UserDTO(
-                        u.Id,
+                        u.UserId,
                         u.Name,
                         u.Email,
                         u.Institution,

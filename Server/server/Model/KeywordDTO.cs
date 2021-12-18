@@ -1,3 +1,3 @@
 namespace server.Model;
 
-public record KeywordDTO(int Id, string Name);
+public record KeywordDTO(int KeywordId, string Name);

@@ -12,7 +12,7 @@ public record PostCreateDTO(
                         );
 
 public record PostDTO(
-                    int Id,
+                    int PostId,
                     string Title,
                     int AuthorId,
                     DateTime Created,

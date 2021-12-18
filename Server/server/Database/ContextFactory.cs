@@ -28,18 +28,20 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
 
     public static void Seed(Context context)
     {
+        //context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
-        context.Database.ExecuteSqlRaw("DELETE dbo.PostUser");
-        context.Database.ExecuteSqlRaw("DELETE dbo.KeywordPost");
-        context.Database.ExecuteSqlRaw("DELETE dbo.Keywords");
-        context.Database.ExecuteSqlRaw("DELETE dbo.Posts");
-        context.Database.ExecuteSqlRaw("DELETE dbo.Users");
         
-        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.KeywordPost', RESEED, 0)");
-        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.PostUser', RESEED, 0)");
+        context.Database.ExecuteSqlRaw("DELETE dbo.Posts");
+        context.Database.ExecuteSqlRaw("DELETE dbo.Keywords");
+        context.Database.ExecuteSqlRaw("DELETE dbo.Users");
+        context.Database.ExecuteSqlRaw("DELETE dbo.UserPost");
+        context.Database.ExecuteSqlRaw("DELETE dbo.KeywordPost");
+        
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Keywords', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Posts', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Users', RESEED, 0)");
+        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.KeywordPost', RESEED, 0)");
+        context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.UserPost', RESEED, 0)");
 
         Post post = new Post {  Title = "blabla",
                                 Description = "blablabla",
@@ -47,10 +49,11 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
                                 Status = "New" };
 
         User user = new User {  Name = "Eric",
-                                Degree = "Pron",
-                                Institution = "ITU"};
+                                Email = "Eric@hotmail.com",
+                                Institution = "ITU",
+                                Degree = "Pron" };
 
-        post.AuthorId = user.Id;
+        post.AuthorId = user.UserId;
 
         context.Users.Add(user);
         context.Posts.Add(post);

@@ -3,10 +3,13 @@ namespace server.Model;
 public class Keyword
 {
     [Key]
-    public int Id { get; set; }
+    public int KeywordId { get; set; }
     
     [StringLength(50)]
     public string Name { get; set; }
 
-    public virtual ICollection<Post> Posts { get; set; }
+    //[ForeignKey("PostId")]
+    public ICollection<Post> Posts { get; set; }
+
+    public List<KeywordPost> KeywordPost { get; set; }
 }

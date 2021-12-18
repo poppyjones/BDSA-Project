@@ -5,7 +5,7 @@ namespace server.Model;
 public class User
 {
     [Key]
-    public int Id { get; set; }
+    public int UserId { get; set; }
 
     public string Name { get; set; }
 
@@ -15,6 +15,8 @@ public class User
 
     public string Degree { get; set; }
 
-    [ForeignKey("PostId")]
-    public virtual ICollection<Post> Posts { get; set; }
+    //[ForeignKey("PostId")]
+    public ICollection<Post> Posts { get; set; }
+
+    public List<UserPost> UserPost { get; set; }
 }

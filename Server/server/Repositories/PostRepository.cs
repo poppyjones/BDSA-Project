@@ -29,7 +29,7 @@ public class PostRepository : IPostRepository
         _context.Posts.Add(newPost);
         _context.SaveChanges();
 
-        return newPost.Id;
+        return newPost.PostId;
     }
 
     /*public (Response Response, int UserId) Create(UserCreateDTO user)
@@ -54,9 +54,9 @@ public class PostRepository : IPostRepository
     public PostDTO ReadByPostId(int PostId)
     {
         var post =  from p in _context.Posts
-                    where p.Id == PostId
+                    where p.PostId == PostId
                     select new PostDTO(
-                        p.Id,
+                        p.PostId,
                         p.Title,
                         p.AuthorId,
                         p.Created,
@@ -75,7 +75,7 @@ public class PostRepository : IPostRepository
         var posts = from p in _context.Posts
                     where p.AuthorId == AuthorId
                     select new PostDTO(
-                        p.Id,
+                        p.PostId,
                         p.Title,
                         p.AuthorId,
                         p.Created,
@@ -93,7 +93,7 @@ public class PostRepository : IPostRepository
     {
         foreach (Keyword keyword in Keywords)
         {
-            yield return new KeywordDTO(keyword.Id, keyword.Name);            
+            yield return new KeywordDTO(keyword.KeywordId, keyword.Name);            
         }
     }
 
@@ -101,7 +101,7 @@ public class PostRepository : IPostRepository
     {
         foreach (User user in Users)
         {
-            yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
+            yield return new UserDTO(user.UserId, user.Name, user.Email, user.Institution, user.Degree);
         }
     }
 
@@ -109,7 +109,7 @@ public class PostRepository : IPostRepository
     {
         foreach (KeywordDTO keyword in Keywords)
         {
-            yield return new Keyword { Id = keyword.Id, Name = keyword.Name };            
+            yield return new Keyword { KeywordId = keyword.KeywordId, Name = keyword.Name };            
         }
     }
 
@@ -117,7 +117,7 @@ public class PostRepository : IPostRepository
     {
         foreach (UserDTO user in Users)
         {
-            yield return new User { Id = user.Id, Name = user.Name, Email = user.Email, Institution = user.Institution, Degree = user.Degree };
+            yield return new User { UserId = user.UserId, Name = user.Name, Email = user.Email, Institution = user.Institution, Degree = user.Degree };
         }
     }
     

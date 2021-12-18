@@ -1,7 +1,7 @@
 namespace server.Model;
 
 public record UserDTO(
-                int Id,
+                int UserId,
                 string Name,
                 string Email,
                 string Institution,
