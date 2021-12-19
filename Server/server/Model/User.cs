@@ -18,5 +18,5 @@ public class User
     //[ForeignKey("PostId")]
     public ICollection<Post> Posts { get; set; }
 
-    public List<UserPost> UserPost { get; set; }
+    public List<UserPost> UserPosts { get; set; }
 }

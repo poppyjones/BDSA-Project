@@ -6,8 +6,8 @@ public class Context : DbContext, IContext
     public DbSet<Keyword> Keywords { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<UserPost> UserPost { get; set; }
-    public DbSet<KeywordPost> KeywordPost { get; set; }
+    public DbSet<UserPost> UserPosts { get; set; }
+    public DbSet<KeywordPost> KeywordPosts { get; set; }
 
     public Context(DbContextOptions<Context> options) : base(options) { }
 
@@ -28,14 +28,14 @@ public class Context : DbContext, IContext
         /* modelBuilder.Entity<Keyword>()
                 .HasMany(k => k.Posts)
                 .WithMany(k => k.Keywords)
-                .UsingEntity<KeywordPost>(
+                .UsingEntity<KeywordPosts>(
                     j => j
                         .HasOne(kp => kp.Post)
-                        .WithMany(p => p.KeywordPost)
+                        .WithMany(p => p.KeywordPosts)
                         .HasForeignKey(kp => kp.PostId),
                     j => j
                         .HasOne(kp => kp.Post)
-                        .WithMany(k => k.KeywordPost)
+                        .WithMany(k => k.KeywordPosts)
                         .HasForeignKey(kp => kp.PostId),
                     j =>
                     {
@@ -49,11 +49,11 @@ public class Context : DbContext, IContext
             .UsingEntity<KeywordPost>(
                 j => j
                     .HasOne(pt => pt.Post)
-                    .WithMany(t => t.KeywordPost)
+                    .WithMany(t => t.KeywordPosts)
                     .HasForeignKey(pt => pt.PostId),
                 j => j
                     .HasOne(pt => pt.Keyword)
-                    .WithMany(p => p.KeywordPost)
+                    .WithMany(p => p.KeywordPosts)
                     .HasForeignKey(pt => pt.PostId),
                 j =>
                 {
@@ -67,11 +67,11 @@ public class Context : DbContext, IContext
             .UsingEntity<UserPost>(
                 j => j
                     .HasOne(pt => pt.Post)
-                    .WithMany(t => t.UserPost)
+                    .WithMany(t => t.UserPosts)
                     .HasForeignKey(pt => pt.PostId),
                 j => j
                     .HasOne(pt => pt.User)
-                    .WithMany(p => p.UserPost)
+                    .WithMany(p => p.UserPosts)
                     .HasForeignKey(pt => pt.PostId),
                 j =>
                 {

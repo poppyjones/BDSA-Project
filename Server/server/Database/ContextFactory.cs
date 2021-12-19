@@ -10,8 +10,8 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
 
         var connectionString = configuration.GetConnectionString("PrimeSlice");
 
-        var optionsBuilder = new DbContextOptionsBuilder<Context>()
-            .UseSqlServer(connectionString);
+        var optionsBuilder = new DbContextOptionsBuilder<Context>();
+        optionsBuilder.UseSqlServer(connectionString);
 
         return new Context(optionsBuilder.Options);
     }

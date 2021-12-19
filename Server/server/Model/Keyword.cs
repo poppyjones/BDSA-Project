@@ -11,5 +11,5 @@ public class Keyword
     //[ForeignKey("PostId")]
     public ICollection<Post> Posts { get; set; }
 
-    public List<KeywordPost> KeywordPost { get; set; }
+    public List<KeywordPost> KeywordPosts { get; set; }
 }

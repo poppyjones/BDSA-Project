@@ -20,15 +20,16 @@ public class Post
     public string Description { get; set; }
 
 
+    public virtual ICollection<User> Users { get; set; }
+
+    public List<UserPost> UserPosts { get; set; }
 
     //[ForeignKey("KeywordId")]
     public ICollection<Keyword> Keywords { get; set; }
 
-    public List<KeywordPost> KeywordPost { get; set; }
+    public List<KeywordPost> KeywordPosts { get; set; }
 
 
     //[ForeignKey("UserId")]
-    public virtual ICollection<User> Users { get; set; }
-
-   public List<UserPost> UserPost { get; set; }
+    
 }
