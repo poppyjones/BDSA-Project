@@ -4,19 +4,22 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
 using server.Model;
+using server.Interfaces;
 
 namespace server.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 
-public class PostController : ApiController
+public class PostController : ControllerBase
 {
-    //private readonly ILogger<PostController> _logger;
+    private readonly ILogger<PostController> _logger;
+    private readonly IPostRepository _repository;
 
-    public PostController()//ILogger<PostController> logger)
+    public PostController(ILogger<PostController> logger, IPostRepository repository)
     {
-        //_logger = logger;
+        _logger = logger;
+        _repository = repository;
     }
 
     [EnableCors]

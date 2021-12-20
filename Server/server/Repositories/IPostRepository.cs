@@ -3,7 +3,7 @@ using server.Model;
 
 namespace server.Interfaces;
 
-public interface IPostRepository 
+public interface IPostRepository
 {
     int Create(PostCreateDTO post);
     PostDTO ReadByPostId(int PostId);

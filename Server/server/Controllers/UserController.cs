@@ -1,5 +1,3 @@
-using System.Reflection.Emit;
-using System.Reflection;
 using System.Net.Http;
 using System;
 using Microsoft.AspNetCore.Cors;
@@ -13,12 +11,12 @@ namespace server.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 
-public class KeywordController : ControllerBase
+public class UserController : ControllerBase
 {
-    private readonly ILogger<PostController> _logger;
-    private readonly IKeywordRepository _repository;
+    private readonly ILogger<UserController> _logger;
+    private readonly IUserRepository _repository;
 
-    public KeywordController(ILogger<PostController> logger, IKeywordRepository repository)
+    public UserController(ILogger<UserController> logger, IUserRepository repository)
     {
         _logger = logger;
         _repository = repository;
