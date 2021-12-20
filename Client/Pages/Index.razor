@@ -1,0 +1,22 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@inject NavigationManager Navigation
+@inject SignOutSessionStateManager SignOutManager
+
+<AuthorizeView>
+    <Authorized>
+        <PageTitle>Homepage</PageTitle>
+
+        <h1>Welcome to the <b>Project Bank</b></h1>
+        <h4>Create a post to your project <a href="/CreatePost">here</a></h4>
+
+        <h4>See your already created posts <a href="/YourPosts">here</a></h4>
+    </Authorized>
+    <NotAuthorized>
+        <PageTitle>Homepage</PageTitle>
+
+        <h1>Welcome to the <b>Project Bank</b></h1>
+    </NotAuthorized>
+</AuthorizeView>
