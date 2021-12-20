@@ -12,8 +12,13 @@ public class Context : DbContext, IContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Ignore<Attribute>();
+
         modelBuilder.Entity<Post>().HasMany<User>(p => p.Users).WithMany(u => u.Posts);
         modelBuilder.Entity<User>().HasMany<Post>(u => u.Posts).WithMany(p => p.Users);
-        
+
+        modelBuilder.Entity<Post>().HasMany<Keyword>(p => p.Keywords).WithMany(k => k.Posts);
+        modelBuilder.Entity<Keyword>().HasMany<Post>(k => k.Posts).WithMany(p => p.Keywords);
+
+        base.OnModelCreating(modelBuilder);
     }
 }

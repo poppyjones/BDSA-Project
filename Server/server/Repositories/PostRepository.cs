@@ -3,7 +3,7 @@ using server.Database;
 using server.Model;
 namespace server.Repositories;
 
-public class PostRepository : IPostRepository
+public class PostRepository //: IPostRepository
 {
 
     private readonly IContext _context;
@@ -31,25 +31,6 @@ public class PostRepository : IPostRepository
 
         return newPost.Id;
     }
-
-    /*public (Response Response, int UserId) Create(UserCreateDTO user)
-    {
-        if (ReadByEmail(user.Email) != null)
-        {
-            return (Conflict, 0);
-        }
-
-        var entity = new User
-        {
-            Name = user.Name,
-            Email = user.Email
-        };
-
-        _context.Users.Add(entity);
-        _context.SaveChanges();
-
-        return (Response.Created, entity.Id);
-    }*/
 
     public PostDTO ReadByPostId(int PostId)
     {

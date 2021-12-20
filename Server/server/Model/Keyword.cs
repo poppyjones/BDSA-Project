@@ -8,5 +8,6 @@ public class Keyword
     [StringLength(50)]
     public string Name { get; set; }
 
+    //[ForeignKey("KeywordsId")]
     public virtual ICollection<Post> Posts { get; set; }
 }

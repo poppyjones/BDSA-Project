@@ -4,7 +4,7 @@
 
 namespace server.Migrations
 {
-    public partial class InitialMigration2 : Migration
+    public partial class InitMig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

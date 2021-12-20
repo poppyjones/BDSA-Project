@@ -26,7 +26,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         return builder.Build();
     }
 
-    public static void Seed(Context context)
+    public static void DBSeed(Context context)
     {
         context.Database.EnsureCreated();
         context.Database.ExecuteSqlRaw("DELETE dbo.PostUser");
@@ -41,19 +41,32 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Posts', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Users', RESEED, 0)");
 
+        Keyword keyword1 = new Keyword { Name = "C#" };
+        Keyword keyword2 = new Keyword { Name = "Databases" };
+
+        context.Keywords.Add(keyword1);
+        context.Keywords.Add(keyword2);
+
+        context.SaveChanges();
+
         Post post = new Post {  Title = "blabla",
+                                AuthorId = 1,
                                 Description = "blablabla",
                                 Created = DateTime.UtcNow,
-                                Status = "New" };
+                                Ended = DateTime.UtcNow,
+                                Status = "New",
+                                Keywords = new List<Keyword> { keyword1, keyword2 } };
+
+        context.Posts.Add(post);
+        context.SaveChanges();
 
         User user = new User {  Name = "Eric",
-                                Degree = "Pron",
-                                Institution = "ITU"};
-
-        post.AuthorId = user.Id;
+                                Email = "Eric@mail.dk",
+                                Degree = "SWU",
+                                Institution = "ITU",
+                                Posts = new List<Post> { post } };
 
         context.Users.Add(user);
-        context.Posts.Add(post);
 
         context.SaveChanges();
     }

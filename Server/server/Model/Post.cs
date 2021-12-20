@@ -19,9 +19,9 @@ public class Post
     [StringLength(500)]
     public string Description { get; set; }
 
-    [ForeignKey("KeywordId")]
+    //[ForeignKey("PostsId")]
     public virtual ICollection<Keyword> Keywords { get; set; }
 
-    [ForeignKey("UserId")]
+    //[ForeignKey("PostsId")]
     public virtual ICollection<User> Users { get; set; }
 }

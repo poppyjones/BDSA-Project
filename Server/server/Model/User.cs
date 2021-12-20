@@ -15,6 +15,6 @@ public class User
 
     public string Degree { get; set; }
 
-    [ForeignKey("PostId")]
+    //[ForeignKey("UsersId")]
     public virtual ICollection<Post> Posts { get; set; }
 }
