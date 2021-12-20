@@ -49,7 +49,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
 
         context.SaveChanges();
 
-        Post post = new Post {  Title = "Post 1",
+        Post post = new Post {  Title = "Post 2",
                                 AuthorId = 1,
                                 Description = "blablabla",
                                 Created = DateTime.UtcNow,
