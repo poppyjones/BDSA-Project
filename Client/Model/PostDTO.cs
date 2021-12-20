@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+namespace client.Model;
 public class PostDTO
 {
     public int Id {get; set;}

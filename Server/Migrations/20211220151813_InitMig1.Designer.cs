@@ -9,11 +9,11 @@ using server.Database;
 
 #nullable disable
 
-namespace server.Migrations
+namespace ProjectBank.Server.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20211220140123_InitialMigration3")]
-    partial class InitialMigration3
+    [Migration("20211220151813_InitMig1")]
+    partial class InitMig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,30 +26,30 @@ namespace server.Migrations
 
             modelBuilder.Entity("KeywordPost", b =>
                 {
-                    b.Property<int>("KeywordId")
-                        .HasColumnType("int");
-
                     b.Property<int>("KeywordsId")
                         .HasColumnType("int");
 
-                    b.HasKey("KeywordId", "KeywordsId");
+                    b.Property<int>("PostsId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("KeywordsId");
+                    b.HasKey("KeywordsId", "PostsId");
+
+                    b.HasIndex("PostsId");
 
                     b.ToTable("KeywordPost");
                 });
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.Property<int>("PostId")
+                    b.Property<int>("PostsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("UsersId")
                         .HasColumnType("int");
 
-                    b.HasKey("PostId", "UserId");
+                    b.HasKey("PostsId", "UsersId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UsersId");
 
                     b.ToTable("PostUser");
                 });
@@ -139,30 +139,30 @@ namespace server.Migrations
 
             modelBuilder.Entity("KeywordPost", b =>
                 {
-                    b.HasOne("server.Model.Post", null)
-                        .WithMany()
-                        .HasForeignKey("KeywordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("server.Model.Keyword", null)
                         .WithMany()
                         .HasForeignKey("KeywordsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("server.Model.Post", null)
+                        .WithMany()
+                        .HasForeignKey("PostsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("PostUser", b =>
                 {
-                    b.HasOne("server.Model.User", null)
+                    b.HasOne("server.Model.Post", null)
                         .WithMany()
-                        .HasForeignKey("PostId")
+                        .HasForeignKey("PostsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("server.Model.Post", null)
+                    b.HasOne("server.Model.User", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

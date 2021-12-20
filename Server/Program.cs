@@ -7,15 +7,10 @@ namespace main
 {
     public class Program 
     {
+        private static IContext _context;
         public static void Main(string[] args)
         {
-            var configuration = LoadConfiguration();
-            var connectionString = configuration.GetConnectionString("PrimeSlice");
-
-            var optionsBuilder = new DbContextOptionsBuilder<Context>().UseSqlServer(connectionString);
-            using var context = new Context(optionsBuilder.Options);
-            ContextFactory.Seed(context);
-            
+            _context = SetupDB();
             //LoadAuthentication();
             
             var builder = WebApplication.CreateBuilder(args);
@@ -102,14 +97,15 @@ namespace main
             app.Run();
         } */
 
-        static IConfiguration LoadConfiguration()
+        private static Context SetupDB()
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddUserSecrets<Program>();
+            var configuration = ContextFactory.LoadConfiguration();
+            var connectionString = configuration.GetConnectionString("PrimeSlice");
 
-            return builder.Build();
+            var optionsBuilder = new DbContextOptionsBuilder<Context>().UseSqlServer(connectionString);
+            using var context = new Context(optionsBuilder.Options);
+            ContextFactory.DBSeed(context);
+            return context;
         }
     }
 }

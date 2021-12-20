@@ -16,7 +16,6 @@ namespace server.Model
 
         public string Degree { get; set; }
 
-        [ForeignKey("PostId")]
         public virtual ICollection<Post> Posts { get; set; }
     }
 }

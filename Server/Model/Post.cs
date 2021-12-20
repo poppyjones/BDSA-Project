@@ -20,10 +20,8 @@ namespace server.Model
         [StringLength(500)]
         public string Description { get; set; }
 
-        [ForeignKey("KeywordId")]
         public virtual ICollection<Keyword> Keywords { get; set; }
 
-        [ForeignKey("UserId")]
         public virtual ICollection<User> Users { get; set; }
     }
 }
