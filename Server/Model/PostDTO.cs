@@ -5,11 +5,10 @@ namespace server.Model
                             string Title,
                             int AuthorId,
                             DateTime Created,
-                            DateTime? Ended, //den her
+                            DateTime? Ended,
                             string Status,
                             [StringLength(500)] string Description,
-                            ICollection<KeywordDTO> Keywords,
-                            ICollection<UserDTO> Users
+                            ICollection<KeywordDTO> Keywords
                             );
 
     public record PostDTO(

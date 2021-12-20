@@ -7,7 +7,7 @@
 @attribute [Authorize]
 
 
-<h3> Testing API connection Server. Localhost:5222</h3>
+<h3> Testing API connection Server. Localhost:7081</h3>
 
 <div class="yourPostList">
 @if (postDTOs == null)
@@ -21,7 +21,7 @@ else
         {
             <div class="yourPosts">
                 <div class="topic">
-                    @post.Topic
+                    @post.Title
                 </div> 
                 <div class="desc" >
                     @post.Description
@@ -38,7 +38,7 @@ else
 @code {
     private PostDTO[]? postDTOs;
     protected override async Task OnInitializedAsync() => 
-        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:5222/Post");
+        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:7081/Post");
 }
 
 

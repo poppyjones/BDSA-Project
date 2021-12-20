@@ -25,37 +25,25 @@ namespace server.Controllers
             _repository = repository;
         }
 
-       // [EnableCors]
         [HttpGet]
         public IEnumerable<PostDTO> Get()
         {
             return _repository.ReadAllByAuthorId(1);
-
-
-            //throw new NotImplementedException();
-            // return Enumerable.Range(1, 1).Select(index => new PostDTO
-            // {
-            //     Id = 1,
-            //     Topic = "TestTopic",
-            //     Description = "Test Description",
-            //     Keywords = "Random Keyword"
-            // })
-            // .ToArray();
         }
 
-        [EnableCors]
         [HttpPost]
-        public PostDTO Post(PostDTO postDTO)
+        public int Post(PostDTO postDTO)
         {
-            throw new NotImplementedException();
-            // return new PostDTO
-            // {
-            //     Id = 2,
-            //     Topic = "TestTopic2",
-            //     Description = "Test Description 2",
-            //     Keywords = "Random Keyword 2",
-            // };
-
+            var dto = new PostCreateDTO(
+                postDTO.Title,
+                postDTO.AuthorId,
+                postDTO.Created,
+                postDTO.Ended,
+                postDTO.Status,
+                postDTO.Description,
+                postDTO.Keywords
+            );
+            return _repository.Create(dto);
         }
     }
 }
