@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
 using server.Model;
+using server.Interfaces;
 
 namespace server.Controllers
 {
@@ -13,26 +14,31 @@ namespace server.Controllers
 
     public class KeywordController : ApiController
     {
-        //private readonly ILogger<PostController> _logger;
+        private readonly ILogger<KeywordController> _logger;
 
-        public KeywordController()//ILogger<PostController> logger)
+        private readonly IKeywordRepository _repository;
+
+        public KeywordController(ILogger<KeywordController> logger, IKeywordRepository repository)
         {
-            //_logger = logger;
+            _logger = logger;
+            _repository = repository;
         }
 
-        [EnableCors]
         [HttpGet]
         public IEnumerable<KeywordDTO> Get()
         {
-            return Enumerable.Range(1, 1).Select(index => new KeywordDTO(1, "Random word")).ToArray();
+            return _repository.ReadAllKeywords();
         }
 
-        [EnableCors]
         [HttpPost]
-        public KeywordDTO Post(KeywordDTO keywordDTO)
+        public int Post(KeywordDTO keywordDTO)
         {
-            return new KeywordDTO(2, "Random word 2");
+            var dto = new KeywordDTO(
+                keywordDTO.Id,
+                keywordDTO.Name                
+            );
+            return _repository.Create(dto);
+        }
 
         }
     }
-}

@@ -222,9 +222,8 @@ namespace server.Tests
             // act
             var result = _repository.ReadAllByAuthorId(3);
             var actual = Array.Empty<PostDTO>();
-
             // assert
-            Assert.Equal(result, actual);
+            Assert.Null(result);
         }
 
         [Fact]
@@ -250,8 +249,7 @@ namespace server.Tests
                 date1,
                 "Ended",
                 "description a is this",
-                new Collection<KeywordDTO> { },
-                new Collection<UserDTO> { }
+                new Collection<KeywordDTO> { }
             );
 
             // act

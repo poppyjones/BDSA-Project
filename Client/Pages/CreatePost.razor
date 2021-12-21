@@ -16,8 +16,8 @@
     <DataAnnotationsValidator />
     <div class="topic-field">
         <label title="The title of your project">Topic:</label><br>
-        <InputText @bind-Value="Post.Topic" placeholder="Project in ..." style="width: 340px;"/><br>
-        <ValidationMessage For="@(() => Post.Topic)" />
+        <InputText @bind-Value="Post.Title" placeholder="Project in ..." style="width: 340px;"/><br>
+        <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
         <label for="Description" title="A description of what the project entails">Description:</label><br>
@@ -50,7 +50,11 @@
 </EditForm>
 
     <div class="submit-button">
-        <button @onclick="AddBoth">Post project</button>
+        <button @onclick="AddPost">Post project</button>
+    </div>
+
+    <div class="keyword-button">
+        <button @onclick="AddKeyword">Add Keyword</button>
     </div>
 
 
@@ -75,7 +79,7 @@
     
     private async Task AddPost(){
 
-        var response = await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", Post);
+        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", Post);
 
         if (response.IsSuccessStatusCode)
         {
@@ -87,7 +91,7 @@
     private async Task AddKeyword()
     {
         var addItem = new KeywordDTO { Name = newKeywordName };
-        await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Keywords", addItem);
+        await http.PostAsJsonAsync("https://localhost:7081/Keyword", addItem);
     }
 
     private async Task AddBoth()
@@ -97,7 +101,7 @@
     }
 
     protected override async Task OnInitializedAsync() =>
-        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:5222/Keyword");
+        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:7081/Keyword");
 
     private void HandleValidSubmit()
     {
