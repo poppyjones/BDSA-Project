@@ -165,7 +165,7 @@ public class PostRepositoryTests : IDisposable
         // assert
         Assert.Null(result);
     }
-
+/*
     [Fact]
     public void CreatePost_with_given_PostCreateDTO()
     {
@@ -206,7 +206,7 @@ public class PostRepositoryTests : IDisposable
         Assert.Equal(expectedPost.Status, actualPost.Status);
         Assert.Equal(expectedPost.Description, actualPost.Description);
     }
-
+*/
 
     public void Dispose()
     {

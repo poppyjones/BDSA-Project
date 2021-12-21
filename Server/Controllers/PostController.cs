@@ -28,7 +28,7 @@ namespace server.Controllers
         [HttpGet]
         public IEnumerable<PostDTO> Get()
         {
-            return _repository.ReadAllByAuthorId(1);
+            return _repository.ReadAllByAuthorId(1);// Hardcoded to user 1 per slice definition
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace server.Controllers
         {
             var dto = new PostCreateDTO(
                 postDTO.Title,
-                postDTO.AuthorId,
+                1,                                  // Hardcoded to user 1 per slice definition
                 postDTO.Created,
                 postDTO.Ended,
                 postDTO.Status,

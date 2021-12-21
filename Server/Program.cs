@@ -32,6 +32,7 @@ namespace main
             builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PrimeSlice")));
             builder.Services.AddScoped<IContext, Context>();
             builder.Services.AddScoped<IPostRepository, PostRepository>();
+            builder.Services.AddScoped<IKeywordRepository, KeywordRepository>();
 
             var app = builder.Build();
 

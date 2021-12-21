@@ -50,7 +50,11 @@
 </EditForm>
 
     <div class="submit-button">
-        <button @onclick="AddBoth">Post project</button>
+        <button @onclick="AddPost">Post project</button>
+    </div>
+
+    <div class="keyword-button">
+        <button @onclick="AddKeyword">Add Keyword</button>
     </div>
 
 
@@ -87,7 +91,7 @@
     private async Task AddKeyword()
     {
         var addItem = new KeywordDTO { Name = newKeywordName };
-        await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Keywords", addItem);
+        await http.PostAsJsonAsync("https://localhost:7081/Keyword", addItem);
     }
 
     private async Task AddBoth()
