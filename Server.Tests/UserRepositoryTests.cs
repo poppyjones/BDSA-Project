@@ -29,6 +29,13 @@ namespace server.Tests
                 Degree = "bsc science",
                 Institution = "ITU"//,
             });
+            context.Users.Add( new User
+            {
+                Name = "Hans",
+                Email = "Hans@mail.dk",
+                Degree = "bsc science",
+                Institution = "ITU"//,
+            });
 
 
             context.SaveChanges();
@@ -44,17 +51,26 @@ namespace server.Tests
             
 
             // act
-            var result =  _repository.ReadById(1);
+            var result1 = _repository.ReadById(1);
+            var result2 = _repository.ReadById(2);
             
             // assert
-            Assert.Equal(new UserDTO(1, "Eric", "Eric@mail.dk", "ITU", "bsc science"), result);
+            Assert.Equal(new UserDTO(1, "Eric", "Eric@mail.dk", "ITU", "bsc science"), result1);
+            Assert.Equal(new UserDTO(2, "Hans", "Hans@mail.dk", "ITU", "bsc science"), result2);
         }
 
-        [Fact]
-        public void ReadById_given_nonexisting_userid_returns_null()
+        [Theory]
+        [InlineData(20)]
+        [InlineData(50)]
+        [InlineData(100)]
+        public void ReadById_given_nonexisting_userid_returns_null(int id)
         {
-            var result =  _repository.ReadById(100);
+            // arrange
 
+            // act
+            var result =  _repository.ReadById(id);
+
+            // assert
             Assert.Null(result);
         }
 

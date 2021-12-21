@@ -40,9 +40,17 @@ namespace server.Tests
                 Degree = "phd",
                 Institution = "ITU"
             };
+            var user3 = new User
+            {
+                Name = "Hans",
+                Email = "Hans@mail.dk",
+                Degree = "master science",
+                Institution = "ITU"
+            };
 
             context.Users.Add(user1);
             context.Users.Add(user2);
+            context.Users.Add(user3);
 
             // Adding data to test area
             context.Posts.Add(new Post
@@ -67,6 +75,17 @@ namespace server.Tests
                 Keywords = null,
                 Users = null
             });
+            context.Posts.Add(new Post
+            {
+                Title = "",
+                AuthorId = 2,
+                Created = date1,
+                Ended = date2,
+                Status = "Pending",
+                Description = "",
+                Keywords = null,
+                Users = null
+            }); 
 
 
             context.SaveChanges();
@@ -95,14 +114,19 @@ namespace server.Tests
             Assert.Equal(expected.Description, result.Description);
         }
 
-        [Fact]
-        public void ReadByPostId_given_nonexisting_postid_returns_null()
+        [Theory]
+        [InlineData(5)]
+        [InlineData(10)]
+        [InlineData(50)]
+        [InlineData(100)]
+        public void ReadByPostId_given_nonexisting_postid_returns_null(int id)
         {
-            var result = _repository.ReadByPostId(100);
+            var result = _repository.ReadByPostId(id);
 
             Assert.Null(result);
         }
 
+        [Fact]
         public void ReadAllByAuthorId_given_existing_authorid_with_posts_returns_posts()
         {
             // arrange
@@ -121,7 +145,7 @@ namespace server.Tests
 
             var expectedPost2 = new Post
             {
-                Id = 1,
+                Id = 2,
                 Title = "MyOtherPost",
                 AuthorId = 1,
                 Created = date1,
@@ -158,15 +182,17 @@ namespace server.Tests
             );
         }
 
-        public void ReadAllByAuthorId_given_existing_authorid_without_posts_returns_null()
+        [Fact]
+        public void ReadAllByAuthorId_given_existing_authorid_without_posts_returns_empty_list()
         {
             // arrange
 
             // act
-            var result = _repository.ReadByPostId(2);
+            var result = _repository.ReadAllByAuthorId(3);
+            var actual = Array.Empty<PostDTO>();
 
             // assert
-            Assert.Null(result);
+            Assert.Equal(result, actual);
         }
 
         [Fact]
@@ -175,7 +201,7 @@ namespace server.Tests
             // arrange
             var expectedPost = new Post
             {
-                Id = 3,
+                Id = 4,
                 Title = "MyThirdPost",
                 AuthorId = 2,
                 Created = date2,
