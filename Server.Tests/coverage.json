@@ -1,480 +1,4 @@
 {
-  "ProjectBank.Client.dll": {
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Program.cs": {
-      "Program/<<Main>$>d__0": {
-        "System.Void Program/<<Main>$>d__0::MoveNext()": {
-          "Lines": {
-            "6": 0,
-            "7": 0,
-            "8": 0,
-            "10": 0,
-            "11": 0,
-            "14": 0,
-            "16": 0,
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "22": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\App.razor": {
-      "ProjectBank.Client.App/<>c__DisplayClass0_1": {
-        "System.Void ProjectBank.Client.App/<>c__DisplayClass0_1::<BuildRenderTree>b__5(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "6": 0,
-            "7": 0,
-            "9": 0,
-            "11": 0,
-            "13": 0
-          },
-          "Branches": [
-            {
-              "Line": 6,
-              "Offset": 18,
-              "EndOffset": 20,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 6,
-              "Offset": 18,
-              "EndOffset": 24,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            },
-            {
-              "Line": 6,
-              "Offset": 34,
-              "EndOffset": 36,
-              "Path": 0,
-              "Ordinal": 2,
-              "Hits": 0
-            },
-            {
-              "Line": 6,
-              "Offset": 34,
-              "EndOffset": 56,
-              "Path": 1,
-              "Ordinal": 3,
-              "Hits": 0
-            }
-          ]
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\LoginDisplay.razor": {
-      "ProjectBank.Client.Shared.LoginDisplay/<>c__DisplayClass0_0": {
-        "System.Void ProjectBank.Client.Shared.LoginDisplay/<>c__DisplayClass0_0::<BuildRenderTree>b__2(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "9": 0
-          },
-          "Branches": [
-            {
-              "Line": 9,
-              "Offset": 33,
-              "EndOffset": 35,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 9,
-              "Offset": 33,
-              "EndOffset": 39,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            }
-          ]
-        }
-      },
-      "ProjectBank.Client.Shared.LoginDisplay/<BeginLogout>d__1": {
-        "System.Void ProjectBank.Client.Shared.LoginDisplay/<BeginLogout>d__1::MoveNext()": {
-          "Lines": {
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\RedirectToLogin.razor": {
-      "ProjectBank.Client.Shared.RedirectToLogin": {
-        "System.Void ProjectBank.Client.Shared.RedirectToLogin::OnInitialized()": {
-          "Lines": {
-            "5": 0,
-            "6": 0,
-            "7": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\SurveyPrompt.razor": {
-      "ProjectBank.Client.Shared.SurveyPrompt": {
-        "System.Void ProjectBank.Client.Shared.SurveyPrompt::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "3": 0
-          },
-          "Branches": []
-        },
-        "System.String ProjectBank.Client.Shared.SurveyPrompt::get_Title()": {
-          "Lines": {
-            "15": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\MainLayout.razor": {
-      "ProjectBank.Client.Shared.MainLayout": {
-        "System.Void ProjectBank.Client.Shared.MainLayout::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "15": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\NavMenu.razor": {
-      "ProjectBank.Client.Shared.NavMenu": {
-        "System.String ProjectBank.Client.Shared.NavMenu::get_NavMenuCssClass()": {
-          "Lines": {
-            "33": 0
-          },
-          "Branches": [
-            {
-              "Line": 33,
-              "Offset": 6,
-              "EndOffset": 8,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 33,
-              "Offset": 6,
-              "EndOffset": 11,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            }
-          ]
-        },
-        "System.Void ProjectBank.Client.Shared.NavMenu::ToggleNavMenu()": {
-          "Lines": {
-            "36": 0,
-            "37": 0,
-            "38": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Client.Shared.NavMenu::.ctor()": {
-          "Lines": {
-            "31": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\Authentication.razor": {
-      "ProjectBank.Client.Pages.Authentication": {
-        "System.String ProjectBank.Client.Pages.Authentication::get_Action()": {
-          "Lines": {
-            "6": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\Counter.razor": {
-      "ProjectBank.Client.Pages.Counter": {
-        "System.Void ProjectBank.Client.Pages.Counter::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "7": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Client.Pages.Counter::IncrementCount()": {
-          "Lines": {
-            "15": 0,
-            "16": 0,
-            "17": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Client.Pages.Counter::.ctor()": {
-          "Lines": {
-            "12": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\CreatePost.razor": {
-      "ProjectBank.Client.Pages.CreatePost": {
-        "System.Void ProjectBank.Client.Pages.CreatePost::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "58": 0,
-            "59": 0,
-            "63": 0
-          },
-          "Branches": [
-            {
-              "Line": 58,
-              "Offset": 253,
-              "EndOffset": 255,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 58,
-              "Offset": 253,
-              "EndOffset": 271,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            }
-          ]
-        },
-        "System.Void ProjectBank.Client.Pages.CreatePost::HandleValidSubmit()": {
-          "Lines": {
-            "103": 0,
-            "104": 0,
-            "106": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Client.Pages.CreatePost::<BuildRenderTree>b__0_1(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "33": 0,
-            "34": 0,
-            "36": 0,
-            "38": 0,
-            "39": 0,
-            "40": 0,
-            "41": 0
-          },
-          "Branches": [
-            {
-              "Line": 33,
-              "Offset": 987,
-              "EndOffset": 989,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 33,
-              "Offset": 987,
-              "EndOffset": 1007,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            },
-            {
-              "Line": 38,
-              "Offset": 1094,
-              "EndOffset": 1019,
-              "Path": 1,
-              "Ordinal": 3,
-              "Hits": 0
-            },
-            {
-              "Line": 38,
-              "Offset": 1094,
-              "EndOffset": 1096,
-              "Path": 0,
-              "Ordinal": 2,
-              "Hits": 0
-            }
-          ]
-        },
-        "System.Void ProjectBank.Client.Pages.CreatePost::.ctor()": {
-          "Lines": {
-            "67": 0,
-            "70": 0
-          },
-          "Branches": []
-        }
-      },
-      "ProjectBank.Client.Pages.CreatePost/<AddBoth>d__9": {
-        "System.Void ProjectBank.Client.Pages.CreatePost/<AddBoth>d__9::MoveNext()": {
-          "Lines": {
-            "94": 0,
-            "95": 0,
-            "96": 0,
-            "97": 0
-          },
-          "Branches": []
-        }
-      },
-      "ProjectBank.Client.Pages.CreatePost/<AddKeyword>d__8": {
-        "System.Void ProjectBank.Client.Pages.CreatePost/<AddKeyword>d__8::MoveNext()": {
-          "Lines": {
-            "88": 0,
-            "89": 0,
-            "90": 0,
-            "91": 0
-          },
-          "Branches": []
-        }
-      },
-      "ProjectBank.Client.Pages.CreatePost/<AddPost>d__7": {
-        "System.Void ProjectBank.Client.Pages.CreatePost/<AddPost>d__7::MoveNext()": {
-          "Lines": {
-            "76": 0,
-            "78": 0,
-            "80": 0,
-            "81": 0,
-            "82": 0,
-            "83": 0,
-            "84": 0
-          },
-          "Branches": [
-            {
-              "Line": 80,
-              "Offset": 186,
-              "EndOffset": 188,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 80,
-              "Offset": 186,
-              "EndOffset": 202,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            }
-          ]
-        }
-      },
-      "ProjectBank.Client.Pages.CreatePost/<OnInitializedAsync>d__10": {
-        "System.Void ProjectBank.Client.Pages.CreatePost/<OnInitializedAsync>d__10::MoveNext()": {
-          "Lines": {
-            "100": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\YourPosts.razor": {
-      "ProjectBank.Client.Pages.YourPosts": {
-        "System.Void ProjectBank.Client.Pages.YourPosts::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
-          "Lines": {
-            "13": 0,
-            "14": 0,
-            "16": 0,
-            "18": 0,
-            "20": 0,
-            "21": 0,
-            "24": 0,
-            "27": 0,
-            "30": 0,
-            "33": 0,
-            "35": 0
-          },
-          "Branches": [
-            {
-              "Line": 13,
-              "Offset": 56,
-              "EndOffset": 58,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 13,
-              "Offset": 56,
-              "EndOffset": 78,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            },
-            {
-              "Line": 20,
-              "Offset": 336,
-              "EndOffset": 94,
-              "Path": 1,
-              "Ordinal": 3,
-              "Hits": 0
-            },
-            {
-              "Line": 20,
-              "Offset": 336,
-              "EndOffset": 341,
-              "Path": 0,
-              "Ordinal": 2,
-              "Hits": 0
-            }
-          ]
-        }
-      },
-      "ProjectBank.Client.Pages.YourPosts/<OnInitializedAsync>d__2": {
-        "System.Void ProjectBank.Client.Pages.YourPosts/<OnInitializedAsync>d__2::MoveNext()": {
-          "Lines": {
-            "41": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Model\\KeywordDTO.cs": {
-      "client.Model.KeywordDTO": {
-        "System.Int32 client.Model.KeywordDTO::get_Id()": {
-          "Lines": {
-            "6": 0
-          },
-          "Branches": []
-        },
-        "System.String client.Model.KeywordDTO::get_Name()": {
-          "Lines": {
-            "8": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Model\\PostDTO.cs": {
-      "client.Model.PostDTO": {
-        "System.Int32 client.Model.PostDTO::get_Id()": {
-          "Lines": {
-            "5": 0
-          },
-          "Branches": []
-        },
-        "System.String client.Model.PostDTO::get_Topic()": {
-          "Lines": {
-            "9": 0
-          },
-          "Branches": []
-        },
-        "System.String client.Model.PostDTO::get_Description()": {
-          "Lines": {
-            "13": 0
-          },
-          "Branches": []
-        },
-        "System.String client.Model.PostDTO::get_Keywords()": {
-          "Lines": {
-            "14": 0
-          },
-          "Branches": []
-        }
-      }
-    }
-  },
   "ProjectBank.Server.dll": {
     "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Pages\\Error.cshtml": {
       "AspNetCoreGeneratedDocument.Pages_Error/<<ExecuteAsync>b__13_1>d": {
@@ -510,47 +34,60 @@
       "main.Program": {
         "System.Void main.Program::Main(System.String[])": {
           "Lines": {
-            "12": 0,
-            "13": 0,
-            "16": 0,
-            "19": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
             "20": 0,
-            "22": 0,
+            "21": 0,
             "23": 0,
-            "25": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
             "28": 0,
             "29": 0,
             "30": 0,
             "31": 0,
+            "32": 0,
             "33": 0,
             "34": 0,
-            "36": 0,
+            "35": 0,
             "37": 0,
-            "39": 0,
+            "40": 0,
             "41": 0,
             "42": 0,
+            "43": 0,
             "44": 0,
+            "45": 0,
             "46": 0,
-            "47": 0,
-            "50": 0,
+            "48": 0,
+            "49": 0,
             "51": 0,
             "52": 0,
             "54": 0,
-            "55": 0
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "70": 0,
+            "71": 0
           },
           "Branches": [
             {
-              "Line": 28,
-              "Offset": 106,
-              "EndOffset": 108,
+              "Line": 40,
+              "Offset": 289,
+              "EndOffset": 291,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 0
             },
             {
-              "Line": 28,
-              "Offset": 106,
-              "EndOffset": 119,
+              "Line": 40,
+              "Offset": 289,
+              "EndOffset": 325,
               "Path": 1,
               "Ordinal": 1,
               "Hits": 0
@@ -559,14 +96,14 @@
         },
         "server.Database.Context main.Program::SetupDB()": {
           "Lines": {
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "105": 0,
-            "106": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0
           },
           "Branches": []
         }
@@ -958,6 +495,81 @@
         }
       }
     },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\KeywordRepository.cs": {
+      "server.Repositories.KeywordRepository": {
+        "System.Int32 server.Repositories.KeywordRepository::Create(server.Model.KeywordCreateDTO)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 275,
+              "EndOffset": 277,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 275,
+              "EndOffset": 292,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.KeywordDTO> server.Repositories.KeywordRepository::ReadAllKeywords()": {
+          "Lines": {
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1
+          },
+          "Branches": []
+        },
+        "server.Model.KeywordDTO server.Repositories.KeywordRepository::ReadById(System.Int32)": {
+          "Lines": {
+            "47": 3,
+            "48": 3,
+            "49": 3,
+            "50": 3,
+            "51": 3,
+            "52": 3,
+            "53": 3,
+            "54": 3,
+            "55": 3
+          },
+          "Branches": []
+        },
+        "System.Void server.Repositories.KeywordRepository::.ctor(server.Database.IContext)": {
+          "Lines": {
+            "13": 11,
+            "14": 11,
+            "15": 11,
+            "16": 11
+          },
+          "Branches": []
+        }
+      }
+    },
     "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\PostRepository.cs": {
       "server.Repositories.PostRepository": {
         "System.Int32 server.Repositories.PostRepository::Create(server.Model.PostCreateDTO)": {
@@ -972,37 +584,37 @@
             "24": 1,
             "25": 1,
             "26": 1,
-            "27": 1,
+            "28": 1,
             "29": 1,
-            "30": 1,
-            "32": 1,
-            "33": 1
+            "31": 1,
+            "32": 1
           },
           "Branches": []
         },
         "server.Model.PostDTO server.Repositories.PostRepository::ReadByPostId(System.Int32)": {
           "Lines": {
-            "36": 5,
-            "37": 5,
-            "38": 5,
-            "39": 5,
-            "40": 5,
-            "41": 5,
-            "42": 5,
-            "43": 5,
-            "44": 5,
-            "45": 5,
-            "46": 5,
-            "47": 5,
-            "48": 5,
-            "49": 5,
-            "51": 5,
-            "52": 5
+            "35": 6,
+            "36": 6,
+            "37": 6,
+            "38": 6,
+            "39": 6,
+            "40": 6,
+            "41": 6,
+            "42": 6,
+            "43": 6,
+            "44": 6,
+            "45": 6,
+            "46": 6,
+            "47": 6,
+            "48": 6,
+            "50": 5,
+            "51": 5
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<server.Model.PostDTO> server.Repositories.PostRepository::ReadAllByAuthorId(System.Int32)": {
           "Lines": {
+            "54": 2,
             "55": 2,
             "56": 2,
             "57": 2,
@@ -1016,26 +628,25 @@
             "65": 2,
             "66": 2,
             "67": 2,
-            "68": 2,
-            "70": 2,
-            "71": 2
+            "69": 2,
+            "70": 2
           },
           "Branches": []
         },
         "System.Void server.Repositories.PostRepository::Dispose()": {
           "Lines": {
-            "106": 0,
-            "107": 0,
-            "108": 0
+            "115": 1,
+            "116": 1,
+            "117": 1
           },
           "Branches": []
         },
         "System.Void server.Repositories.PostRepository::.ctor(server.Database.IContext)": {
           "Lines": {
-            "11": 8,
-            "12": 8,
-            "13": 8,
-            "14": 8
+            "11": 9,
+            "12": 9,
+            "13": 9,
+            "14": 9
           },
           "Branches": []
         }
@@ -1043,26 +654,29 @@
       "server.Repositories.PostRepository/<KeywordDTOsToKeywords>d__7": {
         "System.Boolean server.Repositories.PostRepository/<KeywordDTOsToKeywords>d__7::MoveNext()": {
           "Lines": {
-            "90": 1,
-            "91": 3,
-            "92": 0,
-            "93": 0,
-            "94": 0,
-            "95": 1
+            "104": 1,
+            "105": 7,
+            "106": 2,
+            "107": 2,
+            "108": 2,
+            "109": 2,
+            "110": 2,
+            "111": 2,
+            "112": 1
           },
           "Branches": [
             {
-              "Line": 91,
-              "Offset": 168,
-              "EndOffset": 65,
+              "Line": 105,
+              "Offset": 307,
+              "EndOffset": 71,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 91,
-              "Offset": 168,
-              "EndOffset": 170,
+              "Line": 105,
+              "Offset": 307,
+              "EndOffset": 312,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 1
@@ -1073,59 +687,35 @@
       "server.Repositories.PostRepository/<KeywordsToKeywordDTOs>d__5": {
         "System.Boolean server.Repositories.PostRepository/<KeywordsToKeywordDTOs>d__5::MoveNext()": {
           "Lines": {
-            "74": 3,
-            "75": 9,
-            "76": 0,
-            "77": 0,
-            "78": 0,
-            "79": 3
+            "73": 3,
+            "74": 21,
+            "75": 6,
+            "76": 6,
+            "77": 6,
+            "78": 6,
+            "79": 6,
+            "80": 6,
+            "81": 6,
+            "82": 6,
+            "83": 6,
+            "84": 3
           },
           "Branches": [
             {
-              "Line": 75,
-              "Offset": 154,
-              "EndOffset": 65,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            },
-            {
-              "Line": 75,
-              "Offset": 154,
-              "EndOffset": 156,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 3
-            }
-          ]
-        }
-      },
-      "server.Repositories.PostRepository/<UserDTOsToUsers>d__8": {
-        "System.Boolean server.Repositories.PostRepository/<UserDTOsToUsers>d__8::MoveNext()": {
-          "Lines": {
-            "98": 1,
-            "99": 3,
-            "100": 0,
-            "101": 0,
-            "102": 0,
-            "103": 1
-          },
-          "Branches": [
-            {
-              "Line": 99,
-              "Offset": 228,
+              "Line": 74,
+              "Offset": 422,
               "EndOffset": 71,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 6
             },
             {
-              "Line": 99,
-              "Offset": 228,
-              "EndOffset": 233,
+              "Line": 74,
+              "Offset": 422,
+              "EndOffset": 427,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 3
             }
           ]
         }
@@ -1133,26 +723,35 @@
       "server.Repositories.PostRepository/<UsersToUserDTOs>d__6": {
         "System.Boolean server.Repositories.PostRepository/<UsersToUserDTOs>d__6::MoveNext()": {
           "Lines": {
-            "82": 3,
-            "83": 9,
-            "84": 0,
-            "85": 0,
-            "86": 0,
-            "87": 3
+            "87": 3,
+            "88": 15,
+            "89": 3,
+            "90": 3,
+            "91": 3,
+            "92": 3,
+            "93": 3,
+            "94": 3,
+            "95": 3,
+            "96": 3,
+            "97": 3,
+            "98": 3,
+            "99": 3,
+            "100": 3,
+            "101": 3
           },
           "Branches": [
             {
-              "Line": 83,
-              "Offset": 190,
-              "EndOffset": 68,
+              "Line": 88,
+              "Offset": 669,
+              "EndOffset": 71,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 3
             },
             {
-              "Line": 83,
-              "Offset": 190,
-              "EndOffset": 192,
+              "Line": 88,
+              "Offset": 669,
+              "EndOffset": 674,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 3
@@ -1161,55 +760,17 @@
         }
       }
     },
-    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\UserRepository.cs": {
-      "server.Repositories.UserRepository": {
-        "server.Model.UserDTO server.Repositories.UserRepository::ReadById(System.Int32)": {
-          "Lines": {
-            "18": 5,
-            "19": 5,
-            "20": 5,
-            "21": 5,
-            "22": 5,
-            "23": 5,
-            "24": 5,
-            "25": 5,
-            "26": 5,
-            "27": 5,
-            "29": 5,
-            "30": 5
-          },
-          "Branches": []
-        },
-        "System.Void server.Repositories.UserRepository::Dispose()": {
-          "Lines": {
-            "33": 0,
-            "34": 0,
-            "35": 0
-          },
-          "Branches": []
-        },
-        "System.Void server.Repositories.UserRepository::.ctor(server.Database.IContext)": {
-          "Lines": {
-            "12": 4,
-            "13": 4,
-            "14": 4,
-            "15": 4
-          },
-          "Branches": []
-        }
-      }
-    },
     "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\Keyword.cs": {
       "server.Model.Keyword": {
         "System.Int32 server.Model.Keyword::get_Id()": {
           "Lines": {
-            "7": 0
+            "7": 10
           },
           "Branches": []
         },
         "System.String server.Model.Keyword::get_Name()": {
           "Lines": {
-            "10": 0
+            "10": 37
           },
           "Branches": []
         },
@@ -1225,7 +786,15 @@
       "server.Model.KeywordDTO": {
         "System.Int32 server.Model.KeywordDTO::get_Id()": {
           "Lines": {
-            "4": 0
+            "4": 135
+          },
+          "Branches": []
+        }
+      },
+      "server.Model.KeywordCreateDTO": {
+        "System.String server.Model.KeywordCreateDTO::get_Name()": {
+          "Lines": {
+            "5": 0
           },
           "Branches": []
         }
@@ -1235,55 +804,55 @@
       "server.Model.Post": {
         "System.Int32 server.Model.Post::get_Id()": {
           "Lines": {
-            "7": 8
+            "7": 4
           },
           "Branches": []
         },
         "System.String server.Model.Post::get_Title()": {
           "Lines": {
-            "10": 32
+            "10": 31
           },
           "Branches": []
         },
         "System.Int32 server.Model.Post::get_AuthorId()": {
           "Lines": {
-            "12": 32
+            "12": 31
           },
           "Branches": []
         },
         "System.DateTime server.Model.Post::get_Created()": {
           "Lines": {
-            "14": 32
+            "14": 31
           },
           "Branches": []
         },
         "System.Nullable`1<System.DateTime> server.Model.Post::get_Ended()": {
           "Lines": {
-            "16": 32
+            "16": 31
           },
           "Branches": []
         },
         "System.String server.Model.Post::get_Status()": {
           "Lines": {
-            "18": 32
+            "18": 31
           },
           "Branches": []
         },
         "System.String server.Model.Post::get_Description()": {
           "Lines": {
-            "21": 32
+            "21": 31
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<server.Model.Keyword> server.Model.Post::get_Keywords()": {
           "Lines": {
-            "23": 28
+            "23": 30
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<server.Model.User> server.Model.Post::get_Users()": {
           "Lines": {
-            "25": 28
+            "25": 27
           },
           "Branches": []
         }
@@ -1333,16 +902,10 @@
           },
           "Branches": []
         },
-        "System.Collections.Generic.ICollection`1<server.Model.UserDTO> server.Model.PostCreateDTO::get_Users()": {
-          "Lines": {
-            "12": 2
-          },
-          "Branches": []
-        },
-        "System.Void server.Model.PostCreateDTO::.ctor(System.String,System.Int32,System.DateTime,System.Nullable`1<System.DateTime>,System.String,System.String,System.Collections.Generic.ICollection`1<server.Model.KeywordDTO>,System.Collections.Generic.ICollection`1<server.Model.UserDTO>)": {
+        "System.Void server.Model.PostCreateDTO::.ctor(System.String,System.Int32,System.DateTime,System.Nullable`1<System.DateTime>,System.String,System.String,System.Collections.Generic.ICollection`1<server.Model.KeywordDTO>)": {
           "Lines": {
             "4": 1,
-            "13": 1
+            "12": 1
           },
           "Branches": []
         }
@@ -1350,62 +913,62 @@
       "server.Model.PostDTO": {
         "System.Int32 server.Model.PostDTO::get_Id()": {
           "Lines": {
-            "16": 8
+            "15": 37
           },
           "Branches": []
         },
         "System.String server.Model.PostDTO::get_Title()": {
           "Lines": {
-            "17": 8
+            "16": 37
           },
           "Branches": []
         },
         "System.Int32 server.Model.PostDTO::get_AuthorId()": {
           "Lines": {
-            "18": 8
+            "17": 37
           },
           "Branches": []
         },
         "System.DateTime server.Model.PostDTO::get_Created()": {
           "Lines": {
-            "19": 8
+            "18": 37
           },
           "Branches": []
         },
         "System.Nullable`1<System.DateTime> server.Model.PostDTO::get_Ended()": {
           "Lines": {
-            "20": 8
+            "19": 37
           },
           "Branches": []
         },
         "System.String server.Model.PostDTO::get_Status()": {
           "Lines": {
-            "21": 8
+            "20": 37
           },
           "Branches": []
         },
         "System.String server.Model.PostDTO::get_Description()": {
           "Lines": {
-            "22": 8
+            "21": 37
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<server.Model.KeywordDTO> server.Model.PostDTO::get_Keywords()": {
           "Lines": {
-            "23": 4
+            "22": 32
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<server.Model.UserDTO> server.Model.PostDTO::get_Users()": {
           "Lines": {
-            "24": 4
+            "23": 32
           },
           "Branches": []
         },
         "System.Void server.Model.PostDTO::.ctor(System.Int32,System.String,System.Int32,System.DateTime,System.Nullable`1<System.DateTime>,System.String,System.String,System.Collections.Generic.ICollection`1<server.Model.KeywordDTO>,System.Collections.Generic.ICollection`1<server.Model.UserDTO>)": {
           "Lines": {
-            "15": 4,
-            "25": 4
+            "14": 31,
+            "24": 31
           },
           "Branches": []
         }
@@ -1415,31 +978,31 @@
       "server.Model.User": {
         "System.Int32 server.Model.User::get_Id()": {
           "Lines": {
-            "9": 0
+            "9": 6
           },
           "Branches": []
         },
         "System.String server.Model.User::get_Name()": {
           "Lines": {
-            "11": 32
+            "11": 30
           },
           "Branches": []
         },
         "System.String server.Model.User::get_Email()": {
           "Lines": {
-            "13": 32
+            "13": 30
           },
           "Branches": []
         },
         "System.String server.Model.User::get_Institution()": {
           "Lines": {
-            "15": 32
+            "15": 30
           },
           "Branches": []
         },
         "System.String server.Model.User::get_Degree()": {
           "Lines": {
-            "17": 32
+            "17": 30
           },
           "Branches": []
         },
@@ -1455,38 +1018,38 @@
       "server.Model.UserDTO": {
         "System.Int32 server.Model.UserDTO::get_Id()": {
           "Lines": {
-            "5": 4
+            "5": 32
           },
           "Branches": []
         },
         "System.String server.Model.UserDTO::get_Name()": {
           "Lines": {
-            "6": 4
+            "6": 32
           },
           "Branches": []
         },
         "System.String server.Model.UserDTO::get_Email()": {
           "Lines": {
-            "7": 4
+            "7": 32
           },
           "Branches": []
         },
         "System.String server.Model.UserDTO::get_Institution()": {
           "Lines": {
-            "8": 4
+            "8": 32
           },
           "Branches": []
         },
         "System.String server.Model.UserDTO::get_Degree()": {
           "Lines": {
-            "9": 4
+            "9": 32
           },
           "Branches": []
         },
         "System.Void server.Model.UserDTO::.ctor(System.Int32,System.String,System.String,System.String,System.String)": {
           "Lines": {
-            "4": 4,
-            "10": 4
+            "4": 30,
+            "10": 30
           },
           "Branches": []
         }
@@ -1496,19 +1059,19 @@
       "server.Database.Context": {
         "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.Keyword> server.Database.Context::get_Keywords()": {
           "Lines": {
-            "6": 12
+            "6": 56
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.Post> server.Database.Context::get_Posts()": {
           "Lines": {
-            "7": 45
+            "7": 48
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.User> server.Database.Context::get_Users()": {
           "Lines": {
-            "8": 49
+            "8": 41
           },
           "Branches": []
         },
@@ -1527,7 +1090,7 @@
         },
         "System.Void server.Database.Context::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<server.Database.Context>)": {
           "Lines": {
-            "10": 36
+            "10": 33
           },
           "Branches": []
         }
@@ -1542,57 +1105,58 @@
             "11": 0,
             "13": 0,
             "14": 0,
-            "16": 0,
-            "17": 0
+            "15": 0,
+            "17": 0,
+            "18": 0
           },
           "Branches": []
         },
         "Microsoft.Extensions.Configuration.IConfiguration server.Database.ContextFactory::LoadConfiguration()": {
           "Lines": {
-            "20": 0,
             "21": 0,
             "22": 0,
             "23": 0,
             "24": 0,
-            "26": 0,
-            "27": 0
+            "25": 0,
+            "27": 0,
+            "28": 0
           },
           "Branches": []
         },
         "System.Void server.Database.ContextFactory::DBSeed(server.Database.Context)": {
           "Lines": {
-            "30": 0,
             "31": 0,
             "32": 0,
             "33": 0,
             "34": 0,
             "35": 0,
             "36": 0,
-            "40": 0,
+            "37": 0,
             "41": 0,
             "42": 0,
-            "44": 0,
+            "43": 0,
             "45": 0,
-            "47": 0,
+            "46": 0,
             "48": 0,
-            "50": 0,
-            "52": 0,
+            "49": 0,
+            "51": 0,
             "53": 0,
             "54": 0,
             "55": 0,
             "56": 0,
             "57": 0,
             "58": 0,
-            "60": 0,
+            "59": 0,
             "61": 0,
-            "63": 0,
+            "62": 0,
             "64": 0,
             "65": 0,
             "66": 0,
             "67": 0,
-            "69": 0,
-            "71": 0,
-            "72": 0
+            "68": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0
           },
           "Branches": []
         }
@@ -1602,25 +1166,30 @@
       "server.Controllers.KeywordController": {
         "System.Collections.Generic.IEnumerable`1<server.Model.KeywordDTO> server.Controllers.KeywordController::Get()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "28": 0
+            "29": 0,
+            "30": 0,
+            "31": 0
           },
           "Branches": []
         },
-        "server.Model.KeywordDTO server.Controllers.KeywordController::Post(server.Model.KeywordDTO)": {
+        "System.Int32 server.Controllers.KeywordController::Post(server.Model.KeywordCreateDTO)": {
           "Lines": {
-            "33": 0,
-            "34": 0,
-            "36": 0
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0
           },
           "Branches": []
         },
-        "System.Void server.Controllers.KeywordController::.ctor()": {
+        "System.Void server.Controllers.KeywordController::.ctor(Microsoft.Extensions.Logging.ILogger`1<server.Controllers.KeywordController>,server.Interfaces.IKeywordRepository)": {
           "Lines": {
-            "18": 0,
-            "19": 0,
-            "21": 0
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0
           },
           "Branches": []
         }
@@ -1630,23 +1199,36 @@
       "server.Controllers.PostController": {
         "System.Collections.Generic.IEnumerable`1<server.Model.PostDTO> server.Controllers.PostController::Get()": {
           "Lines": {
-            "26": 0,
-            "27": 0
+            "30": 0,
+            "31": 0,
+            "32": 0
           },
           "Branches": []
         },
-        "server.Model.PostDTO server.Controllers.PostController::Post(server.Model.PostDTO)": {
+        "System.Int32 server.Controllers.PostController::Post(server.Model.PostDTO)": {
           "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
             "41": 0,
-            "42": 0
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0
           },
           "Branches": []
         },
-        "System.Void server.Controllers.PostController::.ctor()": {
+        "System.Void server.Controllers.PostController::.ctor(Microsoft.Extensions.Logging.ILogger`1<server.Controllers.PostController>,server.Interfaces.IPostRepository)": {
           "Lines": {
-            "18": 0,
-            "19": 0,
-            "21": 0
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
           },
           "Branches": []
         }

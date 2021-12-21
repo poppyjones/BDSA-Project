@@ -15,18 +15,18 @@ public class KeywordRepository : IKeywordRepository
         _context = context;
     }
 
-    public int Create(KeywordDTO keywordDTO)
+    public int Create(KeywordCreateDTO keywordCreateDTO)
     {   
         //check if the word exists
         var keyword =  from k in _context.Keywords
-                        where k.Name == keywordDTO.Name
+                        where k.Name == keywordCreateDTO.Name
                         select new KeywordDTO(
                             k.Id,
                             k.Name
                         );
         if(keyword.FirstOrDefault() is not null) return keyword.FirstOrDefault().Id;
         
-        var newKeyword = new Keyword{ Name = keywordDTO.Name };
+        var newKeyword = new Keyword{ Name = keywordCreateDTO.Name };
 
         _context.Keywords.Add(newKeyword);
         _context.SaveChanges();
@@ -41,5 +41,16 @@ public class KeywordRepository : IKeywordRepository
                             k.Name
                         );
         return keywords.ToList();  
+    }
+
+    public KeywordDTO ReadById(int keywordId)
+    {
+        var keyword =  from k in _context.Keywords
+                        where k.Id == keywordId
+                        select new KeywordDTO(
+                            k.Id,
+                            k.Name
+                        );
+        return keyword.FirstOrDefault();
     }
 }

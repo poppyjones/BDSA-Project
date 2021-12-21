@@ -31,10 +31,9 @@ namespace server.Controllers
         }
 
         [HttpPost]
-        public int Post(KeywordDTO keywordDTO)
+        public int Post(KeywordCreateDTO keywordDTO)
         {
-            var dto = new KeywordDTO(
-                keywordDTO.Id,
+            var dto = new KeywordCreateDTO(
                 keywordDTO.Name                
             );
             return _repository.Create(dto);

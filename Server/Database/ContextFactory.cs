@@ -11,7 +11,8 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         var connectionString = configuration.GetConnectionString("PrimeSlice");
 
         var optionsBuilder = new DbContextOptionsBuilder<Context>()
-            .UseSqlServer(connectionString);
+            .UseSqlServer(connectionString)
+            .EnableSensitiveDataLogging();
 
         return new Context(optionsBuilder.Options);
     }
