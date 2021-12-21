@@ -1,7 +1,6 @@
 using server.Database;
 using server.Model;
 using server.Repositories;
-using Xunit;
 
 // For Test Coverage:
 // CLI: dotnet test /p:CollectCoverage=true /p:Exclude="[ProjectBank.Client]*"
@@ -94,9 +93,9 @@ namespace server.Tests
         {
             // Arr
             _repository.Dispose();
-        
+
             // Act
-        
+
             // Assert
             Assert.Throws<System.ObjectDisposedException>(() => _repository.ReadById(1));
         }
@@ -106,7 +105,7 @@ namespace server.Tests
         {
             // Arrange
             KeywordCreateDTO keywordCreateDTO = new KeywordCreateDTO("Graphic Design");
-            Keyword expectedKeyword = new Keyword{ Id = 3, Name = "Graphic Design" };
+            Keyword expectedKeyword = new Keyword { Id = 3, Name = "Graphic Design" };
 
             // Actual
             var createdKeywordId = _repository.Create(keywordCreateDTO);
@@ -125,8 +124,8 @@ namespace server.Tests
             var alreadyExistingKeyword = _context.Keywords.Find(1);
 
             // Actual
-            var actualIdWhenAttemptingCreate = _repository.Create(keywordCreateDTO); // Create returns the Id of an already existing Keyword
-
+            var actualIdWhenAttemptingCreate = _repository.Create(keywordCreateDTO);
+            
             // Assert
             Assert.Equal(alreadyExistingKeyword.Id, actualIdWhenAttemptingCreate);
         }

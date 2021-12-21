@@ -1,7 +1,6 @@
 using server.Database;
 using server.Model;
 using server.Repositories;
-using Xunit;
 
 // For Test Coverage:
 // CLI: dotnet test /p:CollectCoverage=true /p:Exclude="[ProjectBank.Client]*"
@@ -48,7 +47,7 @@ namespace server.Tests
 
             users = new Collection<User> {  new User { Name = "Eric", Email = "Eric@mail.dk", Institution = "ITU", Degree = "bsc science" },
                                             new User { Name = "Erica", Email = "Erica@mail.dk", Institution = "ITU", Degree = "phd"},
-                                            new User { Name = "Hans", Email = "Hans@mail.dk", Institution = "ITU", Degree = "master science"} }; 
+                                            new User { Name = "Hans", Email = "Hans@mail.dk", Institution = "ITU", Degree = "master science"} };
 
             userDTOs = new Collection<UserDTO> {new UserDTO(1, "Eric", "Eric@mail.dk", "ITU", "bsc science" ),
                                                 new UserDTO(2, "Erica", "Erica@mail.dk", "ITU", "phd"),
@@ -91,8 +90,8 @@ namespace server.Tests
                                                 Keywords = new List<Keyword> { keywords[2], keywords[1] },
                                                 Users = new List<User> { users[0] }
                                             } };
-            
-            postDTOs = new Collection<PostDTO> {new PostDTO(1, "MyPost", 1, date1, date2, "Active", "C# and Database", 
+
+            postDTOs = new Collection<PostDTO> {new PostDTO(1, "MyPost", 1, date1, date2, "Active", "C# and Database",
                                                             new Collection<KeywordDTO> { keywordDTOs[0], keywordDTOs[1] },
                                                             new Collection<UserDTO> { userDTOs[2] } ),
                                                 new PostDTO(2, "MyOtherPost", 1, date1, date2, "Pending", "Backend and C#",
@@ -118,9 +117,9 @@ namespace server.Tests
         public void ReadByPostId_given_existing_postid_returns_post()
         {
             // arrange
-            var expected = new PostDTO( 1, "MyPost", 1, date1, date2, "Active", "C# and Database",
+            var expected = new PostDTO(1, "MyPost", 1, date1, date2, "Active", "C# and Database",
                                         new Collection<KeywordDTO> { keywordDTOs[0], keywordDTOs[1] },
-                                        new Collection<UserDTO> { userDTOs[2] } );
+                                        new Collection<UserDTO> { userDTOs[2] });
 
             // act
             var result = _repository.ReadByPostId(1);
@@ -134,17 +133,20 @@ namespace server.Tests
             Assert.Equal(expected.Status, result.Status);
             Assert.Equal(expected.Description, result.Description);
             Assert.Collection(result.Keywords,
-                t => {
+                t =>
+                {
                     Assert.Equal(keywordDTOs[0].Id, t.Id);
                     Assert.Equal(keywordDTOs[0].Name, t.Name);
                 },
-                t => {
+                t =>
+                {
                     Assert.Equal(keywordDTOs[1].Id, t.Id);
                     Assert.Equal(keywordDTOs[1].Name, t.Name);
                 }
             );
             Assert.Collection(result.Users,
-                t => {
+                t =>
+                {
                     Assert.Equal(userDTOs[2].Id, t.Id);
                     Assert.Equal(userDTOs[2].Name, t.Name);
                     Assert.Equal(userDTOs[2].Email, t.Email);
@@ -161,8 +163,9 @@ namespace server.Tests
         [InlineData(100)]
         public void ReadByPostId_given_nonexisting_postid_returns_null(int id)
         {
+            // act
             var result = _repository.ReadByPostId(id);
-
+            // assert
             Assert.Null(result);
         }
 
@@ -176,7 +179,8 @@ namespace server.Tests
 
             // assert
             Assert.Collection(actualPosts,
-                t => {
+                t =>
+                {
                     Assert.Equal(postDTOs[0].Id, t.Id);
                     Assert.Equal(postDTOs[0].Title, t.Title);
                     Assert.Equal(postDTOs[0].AuthorId, t.AuthorId);
@@ -185,7 +189,8 @@ namespace server.Tests
                     Assert.Equal(postDTOs[0].Status, t.Status);
                     Assert.Equal(postDTOs[0].Description, t.Description);
                 },
-                t => {
+                t =>
+                {
                     Assert.Equal(postDTOs[1].Id, t.Id);
                     Assert.Equal(postDTOs[1].Title, t.Title);
                     Assert.Equal(postDTOs[1].AuthorId, t.AuthorId);
@@ -201,7 +206,7 @@ namespace server.Tests
         public void ReadAllByAuthorId_given_existing_authorid_without_posts_returns_empty_list()
         {
             // arrange
-            var expected = new List<PostDTO>();            
+            var expected = new List<PostDTO>();
 
             // act
             var actual = _repository.ReadAllByAuthorId(4);
@@ -257,11 +262,13 @@ namespace server.Tests
             Assert.Equal(expectedPost.Status, actualPost.Status);
             Assert.Equal(expectedPost.Description, actualPost.Description);
             Assert.Collection(actualPost.Keywords,
-                t => {
+                t =>
+                {
                     Assert.Equal(keywordJava.Id, t.Id);
                     Assert.Equal(keywordJava.Name, t.Name);
                 },
-                t => {
+                t =>
+                {
                     Assert.Equal(keywordMath.Id, t.Id);
                     Assert.Equal(keywordMath.Name, t.Name);
                 }
@@ -273,13 +280,13 @@ namespace server.Tests
         {
             // Arr
             _repository.Dispose();
-        
+
             // Act
-        
+
             // Assert
             Assert.Throws<System.ObjectDisposedException>(() => _repository.ReadByPostId(1));
         }
-        
+
 
         public void Dispose()
         {

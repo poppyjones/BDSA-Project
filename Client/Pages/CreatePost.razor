@@ -15,8 +15,8 @@
 <EditForm Model="@Post" OnValidSubmit="@AddPost">
     <DataAnnotationsValidator />
     <div class="title-field">
-        <label tile="The title of your project">Title:</label><br>
-        <input @bind="newTitle" placeholder="Project in ..." style="width: 140px;" /><br>
+        <label title="The title of your project">Title:</label><br>
+        <input @bind="newTitle" placeholder="Project title" style="width: 340px;" /><br>
         <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
@@ -126,7 +126,7 @@
     {
         var addItem = new KeywordCreateDTO { Name = newKeywordName };
         await http.PostAsJsonAsync("https://localhost:7081/Keyword", addItem);
-
+        
     }
 
     protected override async Task OnInitializedAsync() =>
