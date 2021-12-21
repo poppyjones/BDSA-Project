@@ -32,14 +32,14 @@ namespace server.Controllers
         }
 
         [HttpPost]
-        public int Post(PostDTO postDTO)
+        public int Post(PostCreateDTO postDTO)
         {
+            Console.WriteLine("New DTO in database: " + postDTO.Title);
             var dto = new PostCreateDTO(
                 postDTO.Title,
                 1,                                  // Hardcoded to user 1 per slice definition
                 postDTO.Created,
-                postDTO.Ended,
-                postDTO.Status,
+                postDTO.Status,                                               
                 postDTO.Description,
                 postDTO.Keywords
             );
