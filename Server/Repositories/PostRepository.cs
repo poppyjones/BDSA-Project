@@ -43,7 +43,7 @@ public class PostRepository : IPostRepository
                         p.Ended,
                         p.Status,
                         p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords, _context).ToList(),
+                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
                         UsersToUserDTOs(p.Users, _context).ToList()
                     );
         
@@ -62,42 +62,20 @@ public class PostRepository : IPostRepository
                         p.Ended,
                         p.Status,
                         p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords, _context).ToList(),
+                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
                         UsersToUserDTOs(p.Users, _context).ToList()
                     );
 
         return posts.ToList();
     }
 
-    private static IEnumerable<KeywordDTO> KeywordsToKeywordDTOs(ICollection<Keyword> Keywords, IContext context)
+    private static IEnumerable<KeywordDTO> KeywordsToKeywordDTOs(ICollection<Keyword> Keywords)
     {
         foreach (Keyword keyword in Keywords)
         {
-            var result = from k in context.Keywords
-                            where k.Id == keyword.Id
-                            select new KeywordDTO(
-                                k.Id,
-                                k.Name
-                            );
-            yield return result.FirstOrDefault();
+            yield return new KeywordDTO(keyword.Id, keyword.Name);
         }
-    }
-
-    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users, IContext context)
-    {
-        foreach (User user in Users)
-        {
-            var result = from u in context.Users
-                            where u.Id == user.Id
-                            select new UserDTO(
-                                user.Id,
-                                user.Name,
-                                user.Email,
-                                user.Institution,
-                                user.Degree
-                            );
-            yield return result.FirstOrDefault();
-        }
+        
     }
 
     private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords, IContext context)
@@ -110,7 +88,14 @@ public class PostRepository : IPostRepository
             yield return result.FirstOrDefault();
         }
     }
-    
+    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users, IContext context)
+    {
+        foreach (User user in Users)
+        {
+           yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
+        }
+    }
+
     public void Dispose()
     {
         _context.Dispose();
