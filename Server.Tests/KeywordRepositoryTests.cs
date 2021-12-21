@@ -4,7 +4,7 @@ using server.Repositories;
 using Xunit;
 
 // For Test Coverage:
-// CLI: dotnet test /p:CollectCoverage=true
+// CLI: dotnet test /p:CollectCoverage=true /p:Exclude="[ProjectBank.Client]*"
 
 namespace server.Tests
 {
