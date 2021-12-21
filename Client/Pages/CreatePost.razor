@@ -16,7 +16,7 @@
     <DataAnnotationsValidator />
     <div class="title-field">
         <label tile="The title of your project">Title:</label><br>
-        <input @bind="newTitle" placeholder="Project in ..." style="width: 340px;" /><br>
+        <input @bind="newTitle" placeholder="Project in ..." style="width: 140px;" /><br>
         <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
@@ -27,9 +27,11 @@
 
     <div class="newKeyword-field">
         <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
-        <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
-        <div class="keyword-button">
-            <button @onclick="AddKeyword">Add Keyword</button>
+        <div class="flex-container" style="width: 340px;">
+            <input @bind="newKeywordName" placeholder="New Keyword"/><br>
+            <div class="keyword-button">
+                <button @onclick="AddKeyword">Add Keyword</button>
+            </div>
         </div>
     </div>
 
@@ -85,7 +87,7 @@
     KeywordDTO[] ConvertSelectedKeywords()
     {
         int n = selectedKeywordIds.Length;
-        if (n == 0) return new KeywordDTO[]{};
+        if (n == 0) return new KeywordDTO[] { };
 
         var result = new KeywordDTO[n];
         for (int i = 0; i < n; i++)
@@ -101,7 +103,7 @@
     private async Task AddPost()
     {
 
-        KeywordDTO[] kDTOs = ConvertSelectedKeywords(); //Array.ConvertAll(selectedKeywordIds, i => new KeywordDTO { Id = });
+        KeywordDTO[] kDTOs = ConvertSelectedKeywords(); 
 
         var addPost = new PostCreateDTO
         {
@@ -149,5 +151,11 @@
         background-color: hsla(120, 60%, 70%, 0.3);
         display: inline-block;
         margin-top: 20px;
+    }
+
+    
+    .flex-container{
+        display: flex;
+        justify-content: space-between;
     }
 </style>
