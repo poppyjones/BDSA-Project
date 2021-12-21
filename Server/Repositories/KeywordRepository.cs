@@ -3,54 +3,59 @@ using System.ComponentModel.Design;
 using server.Interfaces;
 using server.Database;
 using server.Model;
-namespace server.Repositories;
-
-public class KeywordRepository : IKeywordRepository
+namespace server.Repositories
 {
-
-    private readonly IContext _context;
-
-    public KeywordRepository(IContext context)
+    public class KeywordRepository : IKeywordRepository, IDisposable
     {
-        _context = context;
-    }
+        private readonly IContext _context;
 
-    public int Create(KeywordCreateDTO keywordCreateDTO)
-    {   
-        //check if the word exists
-        var keyword =  from k in _context.Keywords
-                        where k.Name == keywordCreateDTO.Name
-                        select new KeywordDTO(
-                            k.Id,
-                            k.Name
-                        );
-        if(keyword.FirstOrDefault() is not null) return keyword.FirstOrDefault().Id;
-        
-        var newKeyword = new Keyword{ Name = keywordCreateDTO.Name };
+        public KeywordRepository(IContext context)
+        {
+            _context = context;
+        }
 
-        _context.Keywords.Add(newKeyword);
-        _context.SaveChanges();
+        public int Create(KeywordCreateDTO keywordCreateDTO)
+        {   
+            //check if the word exists
+            var keyword =  from k in _context.Keywords
+                            where k.Name == keywordCreateDTO.Name
+                            select new KeywordDTO(
+                                k.Id,
+                                k.Name
+                            );
+            if(keyword.FirstOrDefault() is not null) return keyword.FirstOrDefault().Id;
+            
+            var newKeyword = new Keyword{ Name = keywordCreateDTO.Name };
 
-        return newKeyword.Id;
-    }
-    public ICollection<KeywordDTO> ReadAllKeywords()
-    {
-        var keywords =  from k in _context.Keywords
-                        select new KeywordDTO(
-                            k.Id,
-                            k.Name
-                        );
-        return keywords.ToList();  
-    }
+            _context.Keywords.Add(newKeyword);
+            _context.SaveChanges();
 
-    public KeywordDTO ReadById(int keywordId)
-    {
-        var keyword =  from k in _context.Keywords
-                        where k.Id == keywordId
-                        select new KeywordDTO(
-                            k.Id,
-                            k.Name
-                        );
-        return keyword.FirstOrDefault();
+            return newKeyword.Id;
+        }
+        public ICollection<KeywordDTO> ReadAllKeywords()
+        {
+            var keywords =  from k in _context.Keywords
+                            select new KeywordDTO(
+                                k.Id,
+                                k.Name
+                            );
+            return keywords.ToList();  
+        }
+
+        public KeywordDTO ReadById(int keywordId)
+        {
+            var keyword =  from k in _context.Keywords
+                            where k.Id == keywordId
+                            select new KeywordDTO(
+                                k.Id,
+                                k.Name
+                            );
+            return keyword.FirstOrDefault();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
     }
 }

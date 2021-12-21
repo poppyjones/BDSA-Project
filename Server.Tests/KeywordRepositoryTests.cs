@@ -52,6 +52,10 @@ namespace server.Tests
         }
 
 
+        [Theory]
+        [InlineData(5)]
+        [InlineData(10)]
+        [InlineData(100)]
         public void ReadById_given_nonexisting_returns_null(int id)
         {
             var result = _repository.ReadById(id);
@@ -67,6 +71,7 @@ namespace server.Tests
             // act
             var actualKeywords = _repository.ReadAllKeywords();
             // arrange
+
             // assert
             Assert.Collection(
                 actualKeywords,
@@ -84,7 +89,47 @@ namespace server.Tests
 
         }
 
+        [Fact]
+        public void KeywordRepository_HasBeen_Disposed_Throws_ObjectDiscopsedException()
+        {
+            // Arr
+            _repository.Dispose();
+        
+            // Act
+        
+            // Assert
+            Assert.Throws<System.ObjectDisposedException>(() => _repository.ReadById(1));
+        }
 
+        [Fact]
+        public void CreateKeyword_with_given_KeywordCreateDTO()
+        {
+            // Arrange
+            KeywordCreateDTO keywordCreateDTO = new KeywordCreateDTO("Graphic Design");
+            Keyword expectedKeyword = new Keyword{ Id = 3, Name = "Graphic Design" };
+
+            // Actual
+            var createdKeywordId = _repository.Create(keywordCreateDTO);
+            var createdKeyword = _context.Keywords.Find(createdKeywordId);
+
+            // Assert
+            Assert.Equal(expectedKeyword.Id, createdKeyword.Id);
+            Assert.Equal(expectedKeyword.Name, createdKeyword.Name);
+        }
+
+        [Fact]
+        public void CreateKeyword_with_given_KeywordCreateDTO_Already_Created()
+        {
+            // Arrange
+            KeywordCreateDTO keywordCreateDTO = new KeywordCreateDTO("Java");
+            var alreadyExistingKeyword = _context.Keywords.Find(1);
+
+            // Actual
+            var actualIdWhenAttemptingCreate = _repository.Create(keywordCreateDTO); // Create returns the Id of an already existing Keyword
+
+            // Assert
+            Assert.Equal(alreadyExistingKeyword.Id, actualIdWhenAttemptingCreate);
+        }
 
         public void Dispose()
         {
