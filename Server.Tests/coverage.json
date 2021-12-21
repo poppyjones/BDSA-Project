@@ -1,6 +1,6 @@
 {
   "ProjectBank.Client.dll": {
-    "C:\\Code\\BDSA-Project\\Client\\Program.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Program.cs": {
       "Program/<<Main>$>d__0": {
         "System.Void Program/<<Main>$>d__0::MoveNext()": {
           "Lines": {
@@ -21,7 +21,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\App.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\App.razor": {
       "ProjectBank.Client.App/<>c__DisplayClass0_1": {
         "System.Void ProjectBank.Client.App/<>c__DisplayClass0_1::<BuildRenderTree>b__5(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -68,7 +68,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Shared\\LoginDisplay.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\LoginDisplay.razor": {
       "ProjectBank.Client.Shared.LoginDisplay/<>c__DisplayClass0_0": {
         "System.Void ProjectBank.Client.Shared.LoginDisplay/<>c__DisplayClass0_0::<BuildRenderTree>b__2(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Shared\\RedirectToLogin.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\RedirectToLogin.razor": {
       "ProjectBank.Client.Shared.RedirectToLogin": {
         "System.Void ProjectBank.Client.Shared.RedirectToLogin::OnInitialized()": {
           "Lines": {
@@ -118,7 +118,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Shared\\SurveyPrompt.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\SurveyPrompt.razor": {
       "ProjectBank.Client.Shared.SurveyPrompt": {
         "System.Void ProjectBank.Client.Shared.SurveyPrompt::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -134,7 +134,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Shared\\MainLayout.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\MainLayout.razor": {
       "ProjectBank.Client.Shared.MainLayout": {
         "System.Void ProjectBank.Client.Shared.MainLayout::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -144,7 +144,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Shared\\NavMenu.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Shared\\NavMenu.razor": {
       "ProjectBank.Client.Shared.NavMenu": {
         "System.String ProjectBank.Client.Shared.NavMenu::get_NavMenuCssClass()": {
           "Lines": {
@@ -185,7 +185,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Pages\\Authentication.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\Authentication.razor": {
       "ProjectBank.Client.Pages.Authentication": {
         "System.String ProjectBank.Client.Pages.Authentication::get_Action()": {
           "Lines": {
@@ -195,7 +195,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Pages\\Counter.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\Counter.razor": {
       "ProjectBank.Client.Pages.Counter": {
         "System.Void ProjectBank.Client.Pages.Counter::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -219,7 +219,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Pages\\CreatePost.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\CreatePost.razor": {
       "ProjectBank.Client.Pages.CreatePost": {
         "System.Void ProjectBank.Client.Pages.CreatePost::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -369,7 +369,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Pages\\YourPosts.razor": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Pages\\YourPosts.razor": {
       "ProjectBank.Client.Pages.YourPosts": {
         "System.Void ProjectBank.Client.Pages.YourPosts::BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)": {
           "Lines": {
@@ -430,7 +430,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Model\\KeywordDTO.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Model\\KeywordDTO.cs": {
       "client.Model.KeywordDTO": {
         "System.Int32 client.Model.KeywordDTO::get_Id()": {
           "Lines": {
@@ -446,7 +446,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Client\\Model\\PostDTO.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Client\\Model\\PostDTO.cs": {
       "client.Model.PostDTO": {
         "System.Int32 client.Model.PostDTO::get_Id()": {
           "Lines": {
@@ -476,7 +476,7 @@
     }
   },
   "ProjectBank.Server.dll": {
-    "C:\\Code\\BDSA-Project\\Server\\Pages\\Error.cshtml": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Pages\\Error.cshtml": {
       "AspNetCoreGeneratedDocument.Pages_Error/<<ExecuteAsync>b__13_1>d": {
         "System.Void AspNetCoreGeneratedDocument.Pages_Error/<<ExecuteAsync>b__13_1>d::MoveNext()": {
           "Lines": {
@@ -506,7 +506,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Program.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Program.cs": {
       "main.Program": {
         "System.Void main.Program::Main(System.String[])": {
           "Lines": {
@@ -572,7 +572,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Pages\\Error.cshtml.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Pages\\Error.cshtml.cs": {
       "ProjectBank.Server.Pages.ErrorModel": {
         "System.String ProjectBank.Server.Pages.ErrorModel::get_RequestId()": {
           "Lines": {
@@ -638,7 +638,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.cs": {
       "ProjectBank.Server.Migrations.InitMig1": {
         "System.Void ProjectBank.Server.Migrations.InitMig1::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
           "Lines": {
@@ -656,7 +656,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.Designer.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.Designer.cs": {
       "ProjectBank.Server.Migrations.InitMig1": {
         "System.Void ProjectBank.Server.Migrations.InitMig1::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
           "Lines": {
@@ -807,345 +807,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220161630_initmig2.cs": {
-      "ProjectBank.Server.Migrations.initmig2": {
-        "System.Void ProjectBank.Server.Migrations.initmig2::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
-          "Lines": {
-            "10": 0,
-            "12": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Server.Migrations.initmig2::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
-          "Lines": {
-            "15": 0,
-            "17": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220161630_initmig2.Designer.cs": {
-      "ProjectBank.Server.Migrations.initmig2": {
-        "System.Void ProjectBank.Server.Migrations.initmig2::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
-          "Lines": {
-            "19": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0,
-            "25": 0,
-            "27": 0,
-            "28": 0,
-            "29": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0,
-            "35": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
-            "39": 0,
-            "40": 0,
-            "42": 0,
-            "43": 0,
-            "44": 0,
-            "45": 0,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "49": 0,
-            "50": 0,
-            "51": 0,
-            "52": 0,
-            "53": 0,
-            "54": 0,
-            "55": 0,
-            "57": 0,
-            "58": 0,
-            "59": 0,
-            "60": 0,
-            "61": 0,
-            "62": 0,
-            "63": 0,
-            "64": 0,
-            "65": 0,
-            "66": 0,
-            "67": 0,
-            "68": 0,
-            "69": 0,
-            "70": 0,
-            "71": 0,
-            "72": 0,
-            "73": 0,
-            "75": 0,
-            "76": 0,
-            "77": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "82": 0,
-            "83": 0,
-            "84": 0,
-            "85": 0,
-            "86": 0,
-            "87": 0,
-            "88": 0,
-            "89": 0,
-            "90": 0,
-            "91": 0,
-            "92": 0,
-            "93": 0,
-            "94": 0,
-            "95": 0,
-            "96": 0,
-            "97": 0,
-            "98": 0,
-            "99": 0,
-            "100": 0,
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "104": 0,
-            "105": 0,
-            "106": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0,
-            "111": 0,
-            "112": 0,
-            "113": 0,
-            "114": 0,
-            "115": 0,
-            "116": 0,
-            "117": 0,
-            "118": 0,
-            "119": 0,
-            "120": 0,
-            "121": 0,
-            "122": 0,
-            "123": 0,
-            "124": 0,
-            "125": 0,
-            "126": 0,
-            "127": 0,
-            "128": 0,
-            "129": 0,
-            "130": 0,
-            "131": 0,
-            "132": 0,
-            "133": 0,
-            "134": 0,
-            "135": 0,
-            "136": 0,
-            "137": 0,
-            "138": 0,
-            "140": 0,
-            "141": 0,
-            "142": 0,
-            "143": 0,
-            "144": 0,
-            "145": 0,
-            "146": 0,
-            "147": 0,
-            "148": 0,
-            "149": 0,
-            "150": 0,
-            "151": 0,
-            "152": 0,
-            "153": 0,
-            "155": 0,
-            "156": 0,
-            "157": 0,
-            "158": 0,
-            "159": 0,
-            "160": 0,
-            "161": 0,
-            "162": 0,
-            "163": 0,
-            "164": 0,
-            "165": 0,
-            "166": 0,
-            "167": 0,
-            "168": 0,
-            "170": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220163315_initMig3.cs": {
-      "ProjectBank.Server.Migrations.initMig3": {
-        "System.Void ProjectBank.Server.Migrations.initMig3::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
-          "Lines": {
-            "10": 0,
-            "12": 0
-          },
-          "Branches": []
-        },
-        "System.Void ProjectBank.Server.Migrations.initMig3::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
-          "Lines": {
-            "15": 0,
-            "17": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\20211220163315_initMig3.Designer.cs": {
-      "ProjectBank.Server.Migrations.initMig3": {
-        "System.Void ProjectBank.Server.Migrations.initMig3::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
-          "Lines": {
-            "19": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0,
-            "25": 0,
-            "27": 0,
-            "28": 0,
-            "29": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0,
-            "35": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
-            "39": 0,
-            "40": 0,
-            "42": 0,
-            "43": 0,
-            "44": 0,
-            "45": 0,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "49": 0,
-            "50": 0,
-            "51": 0,
-            "52": 0,
-            "53": 0,
-            "54": 0,
-            "55": 0,
-            "57": 0,
-            "58": 0,
-            "59": 0,
-            "60": 0,
-            "61": 0,
-            "62": 0,
-            "63": 0,
-            "64": 0,
-            "65": 0,
-            "66": 0,
-            "67": 0,
-            "68": 0,
-            "69": 0,
-            "70": 0,
-            "71": 0,
-            "72": 0,
-            "73": 0,
-            "75": 0,
-            "76": 0,
-            "77": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "82": 0,
-            "83": 0,
-            "84": 0,
-            "85": 0,
-            "86": 0,
-            "87": 0,
-            "88": 0,
-            "89": 0,
-            "90": 0,
-            "91": 0,
-            "92": 0,
-            "93": 0,
-            "94": 0,
-            "95": 0,
-            "96": 0,
-            "97": 0,
-            "98": 0,
-            "99": 0,
-            "100": 0,
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "104": 0,
-            "105": 0,
-            "106": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0,
-            "111": 0,
-            "112": 0,
-            "113": 0,
-            "114": 0,
-            "115": 0,
-            "116": 0,
-            "117": 0,
-            "118": 0,
-            "119": 0,
-            "120": 0,
-            "121": 0,
-            "122": 0,
-            "123": 0,
-            "124": 0,
-            "125": 0,
-            "126": 0,
-            "127": 0,
-            "128": 0,
-            "129": 0,
-            "130": 0,
-            "131": 0,
-            "132": 0,
-            "133": 0,
-            "134": 0,
-            "135": 0,
-            "136": 0,
-            "137": 0,
-            "138": 0,
-            "140": 0,
-            "141": 0,
-            "142": 0,
-            "143": 0,
-            "144": 0,
-            "145": 0,
-            "146": 0,
-            "147": 0,
-            "148": 0,
-            "149": 0,
-            "150": 0,
-            "151": 0,
-            "152": 0,
-            "153": 0,
-            "155": 0,
-            "156": 0,
-            "157": 0,
-            "158": 0,
-            "159": 0,
-            "160": 0,
-            "161": 0,
-            "162": 0,
-            "163": 0,
-            "164": 0,
-            "165": 0,
-            "166": 0,
-            "167": 0,
-            "168": 0,
-            "170": 0
-          },
-          "Branches": []
-        }
-      }
-    },
-    "C:\\Code\\BDSA-Project\\Server\\Migrations\\ContextModelSnapshot.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\ContextModelSnapshot.cs": {
       "ProjectBank.Server.Migrations.ContextModelSnapshot": {
         "System.Void ProjectBank.Server.Migrations.ContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
           "Lines": {
@@ -1296,7 +958,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Repositories\\PostRepository.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\PostRepository.cs": {
       "server.Repositories.PostRepository": {
         "System.Int32 server.Repositories.PostRepository::Create(server.Model.PostCreateDTO)": {
           "Lines": {
@@ -1499,7 +1161,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Repositories\\UserRepository.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\UserRepository.cs": {
       "server.Repositories.UserRepository": {
         "server.Model.UserDTO server.Repositories.UserRepository::ReadById(System.Int32)": {
           "Lines": {
@@ -1537,7 +1199,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\Keyword.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\Keyword.cs": {
       "server.Model.Keyword": {
         "System.Int32 server.Model.Keyword::get_Id()": {
           "Lines": {
@@ -1559,7 +1221,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\KeywordDTO.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\KeywordDTO.cs": {
       "server.Model.KeywordDTO": {
         "System.Int32 server.Model.KeywordDTO::get_Id()": {
           "Lines": {
@@ -1569,7 +1231,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\Post.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\Post.cs": {
       "server.Model.Post": {
         "System.Int32 server.Model.Post::get_Id()": {
           "Lines": {
@@ -1627,7 +1289,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\PostDTO.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\PostDTO.cs": {
       "server.Model.PostCreateDTO": {
         "System.String server.Model.PostCreateDTO::get_Title()": {
           "Lines": {
@@ -1749,7 +1411,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\User.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\User.cs": {
       "server.Model.User": {
         "System.Int32 server.Model.User::get_Id()": {
           "Lines": {
@@ -1789,7 +1451,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Model\\UserDTO.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\UserDTO.cs": {
       "server.Model.UserDTO": {
         "System.Int32 server.Model.UserDTO::get_Id()": {
           "Lines": {
@@ -1830,7 +1492,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Database\\Context.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Database\\Context.cs": {
       "server.Database.Context": {
         "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.Keyword> server.Database.Context::get_Keywords()": {
           "Lines": {
@@ -1871,7 +1533,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Database\\ContextFactory.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Database\\ContextFactory.cs": {
       "server.Database.ContextFactory": {
         "server.Database.Context server.Database.ContextFactory::CreateDbContext(System.String[])": {
           "Lines": {
@@ -1936,7 +1598,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Controllers\\KeywordController.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Controllers\\KeywordController.cs": {
       "server.Controllers.KeywordController": {
         "System.Collections.Generic.IEnumerable`1<server.Model.KeywordDTO> server.Controllers.KeywordController::Get()": {
           "Lines": {
@@ -1964,7 +1626,7 @@
         }
       }
     },
-    "C:\\Code\\BDSA-Project\\Server\\Controllers\\PostController.cs": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Controllers\\PostController.cs": {
       "server.Controllers.PostController": {
         "System.Collections.Generic.IEnumerable`1<server.Model.PostDTO> server.Controllers.PostController::Get()": {
           "Lines": {

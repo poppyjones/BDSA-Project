@@ -26,6 +26,14 @@ namespace server.Tests
             var context = new Context(builder.Options);
             context.Database.EnsureCreated();
 
+            Keyword keywordCS = new Keyword { Name = "C#" };
+            Keyword keywordDatabase = new Keyword { Name = "Database" };
+            Keyword keywordBackend = new Keyword { Name = "Backend" };
+
+            context.Keywords.Add(keywordCS);
+            context.Keywords.Add(keywordDatabase);
+            context.Keywords.Add(keywordBackend);
+
             var user1 = new User
             {
                 Name = "Eric",
@@ -53,40 +61,43 @@ namespace server.Tests
             context.Users.Add(user3);
 
             // Adding data to test area
-            context.Posts.Add(new Post
+            Post post1 = new Post
             {
                 Title = "MyPost",
                 AuthorId = 1,
                 Created = date1,
                 Ended = date2,
                 Status = "Active",
-                Description = "this is a description",
-                Keywords = null,
-                Users = null
-            });
-            context.Posts.Add(new Post
+                Description = "C# and Database",
+                Keywords = new List<Keyword> { keywordCS, keywordDatabase },
+                Users = new List<User> { user3 }
+            };
+            Post post2 = new Post
             {
                 Title = "MyOtherPost",
                 AuthorId = 1,
                 Created = date1,
                 Ended = date2,
                 Status = "Pending",
-                Description = "this is also a description",
-                Keywords = null,
-                Users = null
-            });
-            context.Posts.Add(new Post
+                Description = "Backend and C#",
+                Keywords = new List<Keyword> { keywordCS, keywordBackend },
+                Users = new List<User> { user2 }
+            };
+            Post post3 = new Post
             {
-                Title = "",
+                Title = "TheThirdOtherPost",
                 AuthorId = 2,
                 Created = date1,
                 Ended = date2,
                 Status = "Pending",
-                Description = "",
-                Keywords = null,
-                Users = null
-            }); 
+                Description = "Backend and Database",
+                Keywords = new List<Keyword> { keywordBackend, keywordDatabase },
+                Users = new List<User> { user1 }
+            }; 
 
+            context.Posts.Add(post1);
+            context.Posts.Add(post2);
+            context.Posts.Add(post3);
 
             context.SaveChanges();
 
@@ -99,7 +110,9 @@ namespace server.Tests
         public void ReadByPostId_given_existing_postid_returns_post()
         {
             // arrange
-            var expected = new PostDTO(1, "MyPost", 1, date1, date2, "Active", "this is a description", new Collection<KeywordDTO> { }, new Collection<UserDTO> { });
+            var expectedKeywords = new Collection<KeywordDTO> { new KeywordDTO(1, "C#"), new KeywordDTO(2, "Database") };
+            var expectedUsers = new Collection<UserDTO> { new UserDTO(3, "Hans", "Hans@mail.dk", "ITU", "master science") };
+            var expected = new PostDTO(1, "MyPost", 1, date1, date2, "Active", "C# and Database", expectedKeywords, expectedUsers);
 
             // act
             var result = _repository.ReadByPostId(1);
@@ -112,6 +125,25 @@ namespace server.Tests
             Assert.Equal(expected.Ended, result.Ended);
             Assert.Equal(expected.Status, result.Status);
             Assert.Equal(expected.Description, result.Description);
+            Assert.Collection(result.Keywords,
+                t => {
+                    Assert.Equal(expectedKeywords[0].Id, t.Id);
+                    Assert.Equal(expectedKeywords[0].Name, t.Name);
+                },
+                t => {
+                    Assert.Equal(expectedKeywords[1].Id, t.Id);
+                    Assert.Equal(expectedKeywords[1].Name, t.Name);
+                }
+            );
+            Assert.Collection(result.Users,
+                t => {
+                    Assert.Equal(expectedUsers[0].Id, t.Id);
+                    Assert.Equal(expectedUsers[0].Name, t.Name);
+                    Assert.Equal(expectedUsers[0].Email, t.Email);
+                    Assert.Equal(expectedUsers[0].Degree, t.Degree);
+                    Assert.Equal(expectedUsers[0].Institution, t.Institution);
+                }
+            );
         }
 
         [Theory]
