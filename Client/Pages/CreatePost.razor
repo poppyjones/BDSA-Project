@@ -29,7 +29,6 @@
     <div class="keyword-select">
         <label for="keyword">Keywords:</label><br>
         <select @onchange="SelectedKeywordsChanged" class="Keyword" multiple="multiple" style="width: 340px;">
-            <option value="" disabled selected>Select your suggested keywords</option>
             @if (KeywordDTOs == null)
             {
                 <p>No keywords found</p>
@@ -37,7 +36,7 @@
             else
                 @foreach (var keyword in KeywordDTOs)
                 {
-                    <option value="@keyword.Name">@keyword.Name</option>
+                    <option value="@keyword.Id">@keyword.Name</option>
                 }
         </select><br>
     </div>
@@ -46,11 +45,11 @@
     <div class="newKeyword-field">
         <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
         <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
-    <div class="keyword-button">
-    <button @onclick="AddKeyword">Add Keyword</button>
+        <div class="keyword-button">
+            <button @onclick="AddKeyword">Add Keyword</button>
+        </div>
     </div>
-</div>
-    
+
 </EditForm>
 
 <div class="submit-button">
@@ -60,15 +59,15 @@
 @if (_showsuccess)
 {
     <blockquote class="showSuccess">
-    <strong>Create Post Saved Successfully!</strong>
-</blockquote>
+        <strong>Create Post Saved Successfully!</strong>
+    </blockquote>
 }
 
 
 @code {
     PostCreateDTO Post = new();
     KeywordDTO[]? KeywordDTOs;
-    string[]? selectedKeywords = new string[] { };
+    int[] selectedKeywordIds = new int[] { };
     private string? newDescription;
     private string? newTitle;
     bool _showsuccess = false;
@@ -78,31 +77,47 @@
     {
         if (e.Value is not null)
         {
-            selectedKeywords = (string[])e.Value;
+            var intermediary = (string[])e.Value;
+            selectedKeywordIds = Array.ConvertAll(intermediary, s => int.Parse(s));
         }
+    }
+
+    KeywordDTO[] ConvertSelectedKeywords()
+    {
+        int n = selectedKeywordIds.Length;
+        if (n == 0) return new KeywordDTO[]{};
+
+        var result = new KeywordDTO[n];
+        for (int i = 0; i < n; i++)
+        {
+            result[i] = Array.Find(KeywordDTOs, kw => kw.Id == selectedKeywordIds[i]);
+        }
+
+        return result;
+
     }
 
 
     private async Task AddPost()
     {
 
-        KeywordDTO[] kDTOs = Array.ConvertAll(selectedKeywords, s => new KeywordDTO { Name = s });
+        KeywordDTO[] kDTOs = ConvertSelectedKeywords(); //Array.ConvertAll(selectedKeywordIds, i => new KeywordDTO { Id = });
 
-        var addPost = new PostCreateDTO { 
-            Title = newTitle, 
-            Description = newDescription, 
-            Created = DateTime.UtcNow, 
+        var addPost = new PostCreateDTO
+        {
+            Title = newTitle,
+            Description = newDescription,
+            Created = DateTime.UtcNow,
             Status = "Proposed Project",
-            Keywords = kDTOs 
-            };
+            Keywords = kDTOs
+        };
 
-        await http.PostAsJsonAsync("https://localhost:7081/Post", addPost);
-        
-        /*
+        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", addPost);
+
         if (response.IsSuccessStatusCode)
         {
-        _showsuccess = true;
-        }*/
+            _showsuccess = true;
+        }
     }
 
     private async Task AddKeyword()
