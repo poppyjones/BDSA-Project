@@ -19,10 +19,9 @@ public class PostRepository : IPostRepository
                                 Title = post.Title,
                                 AuthorId = post.AuthorId,
                                 Created = post.Created,
-                                Ended = post.Ended,
                                 Status = post.Status,
                                 Description = post.Description,
-                                Keywords = KeywordDTOsToKeywords(post.Keywords).ToList(),
+                                Keywords = KeywordDTOsToKeywords(post.Keywords).ToList()
                             };
 
         _context.Posts.Add(newPost);

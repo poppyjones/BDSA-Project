@@ -10,17 +10,17 @@
 <h3> Testing API connection Server. Localhost:7081</h3>
 
 <div class="yourPostList">
-@if (postDTOs == null)
+@if (postDisplayDTOs == null)
 {
     <p>No posts found.</p>
 }
 else
 {
     
-        @foreach (var post in postDTOs)
+        @foreach (var post in postDisplayDTOs)
         {
             <div class="yourPosts">
-                <div class="topic">
+                <div class="title">
                     @post.Title
                 </div> 
                 <div class="desc" >
@@ -36,9 +36,9 @@ else
 </div>
 
 @code {
-    private PostDTO[]? postDTOs;
+    private PostDisplayDTO[]? postDisplayDTOs;
     protected override async Task OnInitializedAsync() => 
-        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:7081/Post");
+        postDisplayDTOs = await Http.GetFromJsonAsync<PostDisplayDTO[]>("https://localhost:7081/Post");
 }
 
 
@@ -52,7 +52,7 @@ else
         margin-bottom: 10px;
     }
 
-    .topic
+    .title
     {
         font-weight: bold;
         margin-bottom: 5px;
