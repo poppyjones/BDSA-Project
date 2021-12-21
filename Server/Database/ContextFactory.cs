@@ -36,8 +36,6 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         context.Database.ExecuteSqlRaw("DELETE dbo.Posts");
         context.Database.ExecuteSqlRaw("DELETE dbo.Users");
         
-        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.KeywordPost', RESEED, 0)");
-        //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.PostUser', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Keywords', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Posts', RESEED, 0)");
         context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('dbo.Users', RESEED, 0)");

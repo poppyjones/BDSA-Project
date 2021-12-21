@@ -1,6 +1,3 @@
-using System.Net.Http;
-using System;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
 using server.Model;
@@ -34,10 +31,10 @@ namespace server.Controllers
         public int Post(KeywordCreateDTO keywordDTO)
         {
             var dto = new KeywordCreateDTO(
-                keywordDTO.Name                
+                keywordDTO.Name
             );
             return _repository.Create(dto);
         }
 
-        }
     }
+}

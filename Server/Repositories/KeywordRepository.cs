@@ -15,17 +15,17 @@ namespace server.Repositories
         }
 
         public int Create(KeywordCreateDTO keywordCreateDTO)
-        {   
-            //check if the word exists
-            var keyword =  from k in _context.Keywords
-                            where k.Name == keywordCreateDTO.Name
-                            select new KeywordDTO(
-                                k.Id,
-                                k.Name
-                            );
-            if(keyword.FirstOrDefault() is not null) return keyword.FirstOrDefault().Id;
-            
-            var newKeyword = new Keyword{ Name = keywordCreateDTO.Name };
+        {
+            //checks if the keyword already exists
+            var keyword = from k in _context.Keywords
+                          where k.Name == keywordCreateDTO.Name
+                          select new KeywordDTO(
+                              k.Id,
+                              k.Name
+                          );
+            if (keyword.FirstOrDefault() is not null) return keyword.FirstOrDefault().Id;
+
+            var newKeyword = new Keyword { Name = keywordCreateDTO.Name };
 
             _context.Keywords.Add(newKeyword);
             _context.SaveChanges();
@@ -34,22 +34,22 @@ namespace server.Repositories
         }
         public ICollection<KeywordDTO> ReadAllKeywords()
         {
-            var keywords =  from k in _context.Keywords
-                            select new KeywordDTO(
-                                k.Id,
-                                k.Name
-                            );
-            return keywords.ToList();  
+            var keywords = from k in _context.Keywords
+                           select new KeywordDTO(
+                               k.Id,
+                               k.Name
+                           );
+            return keywords.ToList();
         }
 
         public KeywordDTO ReadById(int keywordId)
         {
-            var keyword =  from k in _context.Keywords
-                            where k.Id == keywordId
-                            select new KeywordDTO(
-                                k.Id,
-                                k.Name
-                            );
+            var keyword = from k in _context.Keywords
+                          where k.Id == keywordId
+                          select new KeywordDTO(
+                              k.Id,
+                              k.Name
+                          );
             return keyword.FirstOrDefault();
         }
 

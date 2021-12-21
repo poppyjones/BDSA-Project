@@ -7,13 +7,13 @@ using Microsoft.OpenApi.Models;
 
 namespace main
 {
-    public class Program 
+    public class Program
     {
         private static IContext _context;
         public static void Main(string[] args)
         {
             _context = SetupDB();
-            
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -26,8 +26,8 @@ namespace main
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "TeamPrime.Server", Version = "v1" });
-            c.UseInlineDefinitionsForEnums();
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TeamPrime.Server", Version = "v1" });
+                c.UseInlineDefinitionsForEnums();
             });
             builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PrimeSlice")));
             builder.Services.AddScoped<IContext, Context>();
@@ -36,7 +36,7 @@ namespace main
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configures the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseWebAssemblyDebugging();
@@ -60,8 +60,6 @@ namespace main
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            //app.UseCors();
 
             app.MapRazorPages();
             app.MapControllers();

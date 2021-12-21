@@ -1,6 +1,5 @@
 namespace server.Model
 {
-
     public class Keyword
     {
         [Key]

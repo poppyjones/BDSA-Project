@@ -15,15 +15,16 @@ public class PostRepository : IPostRepository
 
     public int Create(PostCreateDTO post)
     {
-        var newPost = new Post{ 
-                                Title = post.Title,
-                                AuthorId = post.AuthorId,
-                                Created = post.Created,
-                                Status = post.Status,
-                                Description = post.Description,
-                                Keywords = KeywordDTOsToKeywords(post.Keywords, _context).ToList(),
+        var newPost = new Post
+        {
+            Title = post.Title,
+            AuthorId = post.AuthorId,
+            Created = post.Created,
+            Status = post.Status,
+            Description = post.Description,
+            Keywords = KeywordDTOsToKeywords(post.Keywords, _context).ToList(),
 
-                            };
+        };
 
         _context.Posts.Add(newPost);
         _context.SaveChanges();
@@ -33,23 +34,23 @@ public class PostRepository : IPostRepository
 
     public PostDTO ReadByPostId(int PostId)
     {
-        var post =  from p in _context.Posts
-                    where p.Id == PostId
-                    select new PostDTO(
-                        p.Id,
-                        p.Title,
-                        p.AuthorId,
-                        p.Created,
-                        p.Ended,
-                        p.Status,
-                        p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
-                        UsersToUserDTOs(p.Users, _context).ToList()
-                    );
-        
+        var post = from p in _context.Posts
+                   where p.Id == PostId
+                   select new PostDTO(
+                       p.Id,
+                       p.Title,
+                       p.AuthorId,
+                       p.Created,
+                       p.Ended,
+                       p.Status,
+                       p.Description,
+                       KeywordsToKeywordDTOs(p.Keywords).ToList(),
+                       UsersToUserDTOs(p.Users, _context).ToList()
+                   );
+
         return post.FirstOrDefault();
     }
-    
+
     public ICollection<PostDTO> ReadAllByAuthorId(int AuthorId)
     {
         var posts = from p in _context.Posts
@@ -75,7 +76,7 @@ public class PostRepository : IPostRepository
         {
             yield return new KeywordDTO(keyword.Id, keyword.Name);
         }
-        
+
     }
 
     private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords, IContext context)
@@ -83,8 +84,8 @@ public class PostRepository : IPostRepository
         foreach (KeywordDTO keyword in Keywords)
         {
             var result = from k in context.Keywords
-                            where k.Id == keyword.Id
-                            select k;
+                         where k.Id == keyword.Id
+                         select k;
             yield return result.FirstOrDefault();
         }
     }
@@ -92,7 +93,7 @@ public class PostRepository : IPostRepository
     {
         foreach (User user in Users)
         {
-           yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
+            yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
         }
     }
 
