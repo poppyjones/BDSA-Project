@@ -16,8 +16,8 @@
     <DataAnnotationsValidator />
     <div class="topic-field">
         <label title="The title of your project">Topic:</label><br>
-        <InputText @bind-Value="Post.Topic" placeholder="Project in ..." style="width: 340px;"/><br>
-        <ValidationMessage For="@(() => Post.Topic)" />
+        <InputText @bind-Value="Post.Title" placeholder="Project in ..." style="width: 340px;"/><br>
+        <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
         <label for="Description" title="A description of what the project entails">Description:</label><br>
@@ -75,7 +75,7 @@
     
     private async Task AddPost(){
 
-        var response = await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", Post);
+        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", Post);
 
         if (response.IsSuccessStatusCode)
         {
@@ -97,7 +97,7 @@
     }
 
     protected override async Task OnInitializedAsync() =>
-        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:5222/Keyword");
+        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:7081/Keyword");
 
     private void HandleValidSubmit()
     {

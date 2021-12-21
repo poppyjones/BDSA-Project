@@ -1,7 +1,9 @@
 using server.Database;
-// using Database;
+using server.Repositories;
+using server.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+using Microsoft.OpenApi.Models;
 
 namespace main
 {
@@ -11,7 +13,6 @@ namespace main
         public static void Main(string[] args)
         {
             _context = SetupDB();
-            //LoadAuthentication();
             
             var builder = WebApplication.CreateBuilder(args);
 
@@ -22,12 +23,25 @@ namespace main
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "TeamPrime.Server", Version = "v1" });
+            c.UseInlineDefinitionsForEnums();
+            });
+            builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PrimeSlice")));
+            builder.Services.AddScoped<IContext, Context>();
+            builder.Services.AddScoped<IPostRepository, PostRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseWebAssemblyDebugging();
+                app.UseSwagger();
+                app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
             }
             else
             {
@@ -46,6 +60,7 @@ namespace main
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.UseCors();
 
             app.MapRazorPages();
             app.MapControllers();
@@ -53,49 +68,6 @@ namespace main
 
             app.Run();
         }
-
-        /* public static void LoadAuthentication()
-        {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
-
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddRazorPages();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseWebAssemblyDebugging();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
-
-
-            app.MapRazorPages();
-            app.MapControllers();
-            app.MapFallbackToFile("index.html");
-
-            app.Run();
-        } */
 
         private static Context SetupDB()
         {

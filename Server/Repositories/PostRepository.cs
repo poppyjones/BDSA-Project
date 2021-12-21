@@ -23,7 +23,6 @@ public class PostRepository : IPostRepository
                                 Status = post.Status,
                                 Description = post.Description,
                                 Keywords = KeywordDTOsToKeywords(post.Keywords).ToList(),
-                                Users = UserDTOsToUsers(post.Users).ToList()
                             };
 
         _context.Posts.Add(newPost);
