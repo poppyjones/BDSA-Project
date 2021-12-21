@@ -26,8 +26,11 @@ else
                 <div class="desc" >
                     @post.Description
                 </div> 
-                <div class="key">
-                    @post.Keywords
+                <div class="flex-container">
+                    @foreach (var k in @post.Keywords)
+                    {
+                        <p class="key">@k.Name</p>
+                    }
                 </div>
             </div>
         }
@@ -64,12 +67,17 @@ else
         margin-bottom: 10px;
     }
 
+    .flex-container{
+        display: flex;
+    }
+
     .key
     {
         background-color: lightgray;
         display: inline-block;
         margin-bottom: 10px;
-        
+        margin-left: 10px;
     }
+
 </style>
 

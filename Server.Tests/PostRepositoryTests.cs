@@ -230,7 +230,6 @@ namespace server.Tests
                 Title = "TheFourthPost",
                 AuthorId = 3,
                 Created = date2,
-                Ended = date1,
                 Status = "Ended",
                 Description = "Java and Math",
                 Keywords = new Collection<Keyword> { keywordJava, keywordMath }
@@ -240,7 +239,6 @@ namespace server.Tests
                 "TheFourthPost",
                 3,
                 date2,
-                date1,
                 "Ended",
                 "Java and Math",
                 new Collection<KeywordDTO> { keywordDTOJava, keywordDTOMath }
@@ -256,7 +254,6 @@ namespace server.Tests
             Assert.Equal(expectedPost.Title, actualPost.Title);
             Assert.Equal(expectedPost.AuthorId, actualPost.AuthorId);
             Assert.Equal(expectedPost.Created, actualPost.Created);
-            Assert.Equal(expectedPost.Ended, actualPost.Ended);
             Assert.Equal(expectedPost.Status, actualPost.Status);
             Assert.Equal(expectedPost.Description, actualPost.Description);
             Assert.Collection(actualPost.Keywords,
