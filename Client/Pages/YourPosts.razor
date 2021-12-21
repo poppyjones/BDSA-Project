@@ -1,0 +1,75 @@
+@page "/YourPosts"
+@using System.Net.Http;
+@using System.Net.Http.Json;
+@using System.Threading.Tasks;
+@using client.Model;
+@inject HttpClient Http;
+@attribute [Authorize]
+
+
+<h3> Testing API connection Server. Localhost:5222</h3>
+
+<div class="yourPostList">
+@if (postDTOs == null)
+{
+    <p>No posts found.</p>
+}
+else
+{
+    
+        @foreach (var post in postDTOs)
+        {
+            <div class="yourPosts">
+                <div class="topic">
+                    @post.Topic
+                </div> 
+                <div class="desc" >
+                    @post.Description
+                </div> 
+                <div class="key">
+                    @post.Keywords
+                </div>
+            </div>
+        }
+    
+}
+</div>
+
+@code {
+    private PostDTO[]? postDTOs;
+    protected override async Task OnInitializedAsync() => 
+        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:5222/Post");
+}
+
+
+<style>
+    .yourPosts 
+    {
+        border: 1px solid black;
+        width: auto;
+        height: auto;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .topic
+    {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .desc
+    {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .key
+    {
+        background-color: lightgray;
+        display: inline-block;
+        margin-bottom: 10px;
+        
+    }
+</style>
+
