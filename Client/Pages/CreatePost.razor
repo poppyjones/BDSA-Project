@@ -25,6 +25,14 @@
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
+    <div class="newKeyword-field">
+        <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
+        <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
+        <div class="keyword-button">
+            <button @onclick="AddKeyword">Add Keyword</button>
+        </div>
+    </div>
+
 
     <div class="keyword-select">
         <label for="keyword">Keywords:</label><br>
@@ -41,14 +49,6 @@
         </select><br>
     </div>
 
-
-    <div class="newKeyword-field">
-        <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
-        <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
-        <div class="keyword-button">
-            <button @onclick="AddKeyword">Add Keyword</button>
-        </div>
-    </div>
 
 </EditForm>
 
