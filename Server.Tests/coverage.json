@@ -1,0 +1,1239 @@
+{
+  "ProjectBank.Server.dll": {
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Pages\\Error.cshtml": {
+      "AspNetCoreGeneratedDocument.Pages_Error/<<ExecuteAsync>b__13_1>d": {
+        "System.Void AspNetCoreGeneratedDocument.Pages_Error/<<ExecuteAsync>b__13_1>d::MoveNext()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "26": 0
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 43,
+              "EndOffset": 45,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 21,
+              "Offset": 43,
+              "EndOffset": 109,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Program.cs": {
+      "main.Program": {
+        "System.Void main.Program::Main(System.String[])": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "37": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0,
+            "54": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "70": 0,
+            "71": 0
+          },
+          "Branches": [
+            {
+              "Line": 40,
+              "Offset": 289,
+              "EndOffset": 291,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 40,
+              "Offset": 289,
+              "EndOffset": 325,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "server.Database.Context main.Program::SetupDB()": {
+          "Lines": {
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Pages\\Error.cshtml.cs": {
+      "ProjectBank.Server.Pages.ErrorModel": {
+        "System.String ProjectBank.Server.Pages.ErrorModel::get_RequestId()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean ProjectBank.Server.Pages.ErrorModel::get_ShowRequestId()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void ProjectBank.Server.Pages.ErrorModel::OnGet()": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 8,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 20,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void ProjectBank.Server.Pages.ErrorModel::.ctor(Microsoft.Extensions.Logging.ILogger`1<ProjectBank.Server.Pages.ErrorModel>)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.cs": {
+      "ProjectBank.Server.Migrations.InitMig1": {
+        "System.Void ProjectBank.Server.Migrations.InitMig1::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "10": 0,
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Void ProjectBank.Server.Migrations.InitMig1::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "15": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\20211220151813_InitMig1.Designer.cs": {
+      "ProjectBank.Server.Migrations.InitMig1": {
+        "System.Void ProjectBank.Server.Migrations.InitMig1::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "170": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Migrations\\ContextModelSnapshot.cs": {
+      "ProjectBank.Server.Migrations.ContextModelSnapshot": {
+        "System.Void ProjectBank.Server.Migrations.ContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "168": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\KeywordRepository.cs": {
+      "server.Repositories.KeywordRepository": {
+        "System.Int32 server.Repositories.KeywordRepository::Create(server.Model.KeywordCreateDTO)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 275,
+              "EndOffset": 277,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 275,
+              "EndOffset": 292,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.KeywordDTO> server.Repositories.KeywordRepository::ReadAllKeywords()": {
+          "Lines": {
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1
+          },
+          "Branches": []
+        },
+        "server.Model.KeywordDTO server.Repositories.KeywordRepository::ReadById(System.Int32)": {
+          "Lines": {
+            "47": 3,
+            "48": 3,
+            "49": 3,
+            "50": 3,
+            "51": 3,
+            "52": 3,
+            "53": 3,
+            "54": 3,
+            "55": 3
+          },
+          "Branches": []
+        },
+        "System.Void server.Repositories.KeywordRepository::.ctor(server.Database.IContext)": {
+          "Lines": {
+            "13": 11,
+            "14": 11,
+            "15": 11,
+            "16": 11
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Repositories\\PostRepository.cs": {
+      "server.Repositories.PostRepository": {
+        "System.Int32 server.Repositories.PostRepository::Create(server.Model.PostCreateDTO)": {
+          "Lines": {
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "28": 1,
+            "29": 1,
+            "31": 1,
+            "32": 1
+          },
+          "Branches": []
+        },
+        "server.Model.PostDTO server.Repositories.PostRepository::ReadByPostId(System.Int32)": {
+          "Lines": {
+            "35": 6,
+            "36": 6,
+            "37": 6,
+            "38": 6,
+            "39": 6,
+            "40": 6,
+            "41": 6,
+            "42": 6,
+            "43": 6,
+            "44": 6,
+            "45": 6,
+            "46": 6,
+            "47": 6,
+            "48": 6,
+            "50": 5,
+            "51": 5
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.PostDTO> server.Repositories.PostRepository::ReadAllByAuthorId(System.Int32)": {
+          "Lines": {
+            "54": 2,
+            "55": 2,
+            "56": 2,
+            "57": 2,
+            "58": 2,
+            "59": 2,
+            "60": 2,
+            "61": 2,
+            "62": 2,
+            "63": 2,
+            "64": 2,
+            "65": 2,
+            "66": 2,
+            "67": 2,
+            "69": 2,
+            "70": 2
+          },
+          "Branches": []
+        },
+        "System.Void server.Repositories.PostRepository::Dispose()": {
+          "Lines": {
+            "115": 1,
+            "116": 1,
+            "117": 1
+          },
+          "Branches": []
+        },
+        "System.Void server.Repositories.PostRepository::.ctor(server.Database.IContext)": {
+          "Lines": {
+            "11": 9,
+            "12": 9,
+            "13": 9,
+            "14": 9
+          },
+          "Branches": []
+        }
+      },
+      "server.Repositories.PostRepository/<KeywordDTOsToKeywords>d__7": {
+        "System.Boolean server.Repositories.PostRepository/<KeywordDTOsToKeywords>d__7::MoveNext()": {
+          "Lines": {
+            "104": 1,
+            "105": 7,
+            "106": 2,
+            "107": 2,
+            "108": 2,
+            "109": 2,
+            "110": 2,
+            "111": 2,
+            "112": 1
+          },
+          "Branches": [
+            {
+              "Line": 105,
+              "Offset": 307,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 105,
+              "Offset": 307,
+              "EndOffset": 312,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            }
+          ]
+        }
+      },
+      "server.Repositories.PostRepository/<KeywordsToKeywordDTOs>d__5": {
+        "System.Boolean server.Repositories.PostRepository/<KeywordsToKeywordDTOs>d__5::MoveNext()": {
+          "Lines": {
+            "73": 3,
+            "74": 21,
+            "75": 6,
+            "76": 6,
+            "77": 6,
+            "78": 6,
+            "79": 6,
+            "80": 6,
+            "81": 6,
+            "82": 6,
+            "83": 6,
+            "84": 3
+          },
+          "Branches": [
+            {
+              "Line": 74,
+              "Offset": 422,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 74,
+              "Offset": 422,
+              "EndOffset": 427,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            }
+          ]
+        }
+      },
+      "server.Repositories.PostRepository/<UsersToUserDTOs>d__6": {
+        "System.Boolean server.Repositories.PostRepository/<UsersToUserDTOs>d__6::MoveNext()": {
+          "Lines": {
+            "87": 3,
+            "88": 15,
+            "89": 3,
+            "90": 3,
+            "91": 3,
+            "92": 3,
+            "93": 3,
+            "94": 3,
+            "95": 3,
+            "96": 3,
+            "97": 3,
+            "98": 3,
+            "99": 3,
+            "100": 3,
+            "101": 3
+          },
+          "Branches": [
+            {
+              "Line": 88,
+              "Offset": 669,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            },
+            {
+              "Line": 88,
+              "Offset": 669,
+              "EndOffset": 674,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\Keyword.cs": {
+      "server.Model.Keyword": {
+        "System.Int32 server.Model.Keyword::get_Id()": {
+          "Lines": {
+            "7": 10
+          },
+          "Branches": []
+        },
+        "System.String server.Model.Keyword::get_Name()": {
+          "Lines": {
+            "10": 37
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.Post> server.Model.Keyword::get_Posts()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\KeywordDTO.cs": {
+      "server.Model.KeywordDTO": {
+        "System.Int32 server.Model.KeywordDTO::get_Id()": {
+          "Lines": {
+            "4": 135
+          },
+          "Branches": []
+        }
+      },
+      "server.Model.KeywordCreateDTO": {
+        "System.String server.Model.KeywordCreateDTO::get_Name()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\Post.cs": {
+      "server.Model.Post": {
+        "System.Int32 server.Model.Post::get_Id()": {
+          "Lines": {
+            "7": 4
+          },
+          "Branches": []
+        },
+        "System.String server.Model.Post::get_Title()": {
+          "Lines": {
+            "10": 31
+          },
+          "Branches": []
+        },
+        "System.Int32 server.Model.Post::get_AuthorId()": {
+          "Lines": {
+            "12": 31
+          },
+          "Branches": []
+        },
+        "System.DateTime server.Model.Post::get_Created()": {
+          "Lines": {
+            "14": 31
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> server.Model.Post::get_Ended()": {
+          "Lines": {
+            "16": 31
+          },
+          "Branches": []
+        },
+        "System.String server.Model.Post::get_Status()": {
+          "Lines": {
+            "18": 31
+          },
+          "Branches": []
+        },
+        "System.String server.Model.Post::get_Description()": {
+          "Lines": {
+            "21": 31
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.Keyword> server.Model.Post::get_Keywords()": {
+          "Lines": {
+            "23": 30
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.User> server.Model.Post::get_Users()": {
+          "Lines": {
+            "25": 27
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\PostDTO.cs": {
+      "server.Model.PostCreateDTO": {
+        "System.String server.Model.PostCreateDTO::get_Title()": {
+          "Lines": {
+            "5": 2
+          },
+          "Branches": []
+        },
+        "System.Int32 server.Model.PostCreateDTO::get_AuthorId()": {
+          "Lines": {
+            "6": 2
+          },
+          "Branches": []
+        },
+        "System.DateTime server.Model.PostCreateDTO::get_Created()": {
+          "Lines": {
+            "7": 2
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> server.Model.PostCreateDTO::get_Ended()": {
+          "Lines": {
+            "8": 2
+          },
+          "Branches": []
+        },
+        "System.String server.Model.PostCreateDTO::get_Status()": {
+          "Lines": {
+            "9": 2
+          },
+          "Branches": []
+        },
+        "System.String server.Model.PostCreateDTO::get_Description()": {
+          "Lines": {
+            "10": 2
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.KeywordDTO> server.Model.PostCreateDTO::get_Keywords()": {
+          "Lines": {
+            "11": 2
+          },
+          "Branches": []
+        },
+        "System.Void server.Model.PostCreateDTO::.ctor(System.String,System.Int32,System.DateTime,System.Nullable`1<System.DateTime>,System.String,System.String,System.Collections.Generic.ICollection`1<server.Model.KeywordDTO>)": {
+          "Lines": {
+            "4": 1,
+            "12": 1
+          },
+          "Branches": []
+        }
+      },
+      "server.Model.PostDTO": {
+        "System.Int32 server.Model.PostDTO::get_Id()": {
+          "Lines": {
+            "15": 37
+          },
+          "Branches": []
+        },
+        "System.String server.Model.PostDTO::get_Title()": {
+          "Lines": {
+            "16": 37
+          },
+          "Branches": []
+        },
+        "System.Int32 server.Model.PostDTO::get_AuthorId()": {
+          "Lines": {
+            "17": 37
+          },
+          "Branches": []
+        },
+        "System.DateTime server.Model.PostDTO::get_Created()": {
+          "Lines": {
+            "18": 37
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> server.Model.PostDTO::get_Ended()": {
+          "Lines": {
+            "19": 37
+          },
+          "Branches": []
+        },
+        "System.String server.Model.PostDTO::get_Status()": {
+          "Lines": {
+            "20": 37
+          },
+          "Branches": []
+        },
+        "System.String server.Model.PostDTO::get_Description()": {
+          "Lines": {
+            "21": 37
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.KeywordDTO> server.Model.PostDTO::get_Keywords()": {
+          "Lines": {
+            "22": 32
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.UserDTO> server.Model.PostDTO::get_Users()": {
+          "Lines": {
+            "23": 32
+          },
+          "Branches": []
+        },
+        "System.Void server.Model.PostDTO::.ctor(System.Int32,System.String,System.Int32,System.DateTime,System.Nullable`1<System.DateTime>,System.String,System.String,System.Collections.Generic.ICollection`1<server.Model.KeywordDTO>,System.Collections.Generic.ICollection`1<server.Model.UserDTO>)": {
+          "Lines": {
+            "14": 31,
+            "24": 31
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\User.cs": {
+      "server.Model.User": {
+        "System.Int32 server.Model.User::get_Id()": {
+          "Lines": {
+            "9": 6
+          },
+          "Branches": []
+        },
+        "System.String server.Model.User::get_Name()": {
+          "Lines": {
+            "11": 30
+          },
+          "Branches": []
+        },
+        "System.String server.Model.User::get_Email()": {
+          "Lines": {
+            "13": 30
+          },
+          "Branches": []
+        },
+        "System.String server.Model.User::get_Institution()": {
+          "Lines": {
+            "15": 30
+          },
+          "Branches": []
+        },
+        "System.String server.Model.User::get_Degree()": {
+          "Lines": {
+            "17": 30
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<server.Model.Post> server.Model.User::get_Posts()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Model\\UserDTO.cs": {
+      "server.Model.UserDTO": {
+        "System.Int32 server.Model.UserDTO::get_Id()": {
+          "Lines": {
+            "5": 32
+          },
+          "Branches": []
+        },
+        "System.String server.Model.UserDTO::get_Name()": {
+          "Lines": {
+            "6": 32
+          },
+          "Branches": []
+        },
+        "System.String server.Model.UserDTO::get_Email()": {
+          "Lines": {
+            "7": 32
+          },
+          "Branches": []
+        },
+        "System.String server.Model.UserDTO::get_Institution()": {
+          "Lines": {
+            "8": 32
+          },
+          "Branches": []
+        },
+        "System.String server.Model.UserDTO::get_Degree()": {
+          "Lines": {
+            "9": 32
+          },
+          "Branches": []
+        },
+        "System.Void server.Model.UserDTO::.ctor(System.Int32,System.String,System.String,System.String,System.String)": {
+          "Lines": {
+            "4": 30,
+            "10": 30
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Database\\Context.cs": {
+      "server.Database.Context": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.Keyword> server.Database.Context::get_Keywords()": {
+          "Lines": {
+            "6": 56
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.Post> server.Database.Context::get_Posts()": {
+          "Lines": {
+            "7": 48
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<server.Model.User> server.Database.Context::get_Users()": {
+          "Lines": {
+            "8": 41
+          },
+          "Branches": []
+        },
+        "System.Void server.Database.Context::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "13": 2,
+            "14": 2,
+            "16": 2,
+            "17": 2,
+            "19": 2,
+            "20": 2,
+            "22": 2,
+            "23": 2
+          },
+          "Branches": []
+        },
+        "System.Void server.Database.Context::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<server.Database.Context>)": {
+          "Lines": {
+            "10": 33
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Database\\ContextFactory.cs": {
+      "server.Database.ContextFactory": {
+        "server.Database.Context server.Database.ContextFactory::CreateDbContext(System.String[])": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "11": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.Extensions.Configuration.IConfiguration server.Database.ContextFactory::LoadConfiguration()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void server.Database.ContextFactory::DBSeed(server.Database.Context)": {
+          "Lines": {
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Controllers\\KeywordController.cs": {
+      "server.Controllers.KeywordController": {
+        "System.Collections.Generic.IEnumerable`1<server.Model.KeywordDTO> server.Controllers.KeywordController::Get()": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 server.Controllers.KeywordController::Post(server.Model.KeywordCreateDTO)": {
+          "Lines": {
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.Void server.Controllers.KeywordController::.ctor(Microsoft.Extensions.Logging.ILogger`1<server.Controllers.KeywordController>,server.Interfaces.IKeywordRepository)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\maibl\\Documents\\VSCode\\BDSA-Project\\Server\\Controllers\\PostController.cs": {
+      "server.Controllers.PostController": {
+        "System.Collections.Generic.IEnumerable`1<server.Model.PostDTO> server.Controllers.PostController::Get()": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 server.Controllers.PostController::Post(server.Model.PostDTO)": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0
+          },
+          "Branches": []
+        },
+        "System.Void server.Controllers.PostController::.ctor(Microsoft.Extensions.Logging.ILogger`1<server.Controllers.PostController>,server.Interfaces.IPostRepository)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "ProjectBank.Shared.dll": {}
+}

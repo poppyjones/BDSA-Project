@@ -11,7 +11,8 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
         var connectionString = configuration.GetConnectionString("PrimeSlice");
 
         var optionsBuilder = new DbContextOptionsBuilder<Context>()
-            .UseSqlServer(connectionString);
+            .UseSqlServer(connectionString)
+            .EnableSensitiveDataLogging();
 
         return new Context(optionsBuilder.Options);
     }
@@ -49,7 +50,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<Context>
 
         context.SaveChanges();
 
-        Post post = new Post {  Title = "Post 1",
+        Post post = new Post {  Title = "Post 2",
                                 AuthorId = 1,
                                 Description = "blablabla",
                                 Created = DateTime.UtcNow,

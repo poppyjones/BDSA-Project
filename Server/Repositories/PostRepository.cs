@@ -21,7 +21,8 @@ public class PostRepository : IPostRepository
                                 Created = post.Created,
                                 Status = post.Status,
                                 Description = post.Description,
-                                Keywords = KeywordDTOsToKeywords(post.Keywords).ToList()
+                                Keywords = KeywordDTOsToKeywords(post.Keywords, _context).ToList(),
+
                             };
 
         _context.Posts.Add(newPost);
@@ -42,8 +43,8 @@ public class PostRepository : IPostRepository
                         p.Ended,
                         p.Status,
                         p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
-                        UsersToUserDTOs(p.Users).ToList()
+                        KeywordsToKeywordDTOs(p.Keywords, _context).ToList(),
+                        UsersToUserDTOs(p.Users, _context).ToList()
                     );
         
         return post.FirstOrDefault();
@@ -61,42 +62,52 @@ public class PostRepository : IPostRepository
                         p.Ended,
                         p.Status,
                         p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
-                        UsersToUserDTOs(p.Users).ToList()
+                        KeywordsToKeywordDTOs(p.Keywords, _context).ToList(),
+                        UsersToUserDTOs(p.Users, _context).ToList()
                     );
 
         return posts.ToList();
     }
 
-    private static IEnumerable<KeywordDTO> KeywordsToKeywordDTOs(ICollection<Keyword> Keywords)
+    private static IEnumerable<KeywordDTO> KeywordsToKeywordDTOs(ICollection<Keyword> Keywords, IContext context)
     {
         foreach (Keyword keyword in Keywords)
         {
-            yield return new KeywordDTO(keyword.Id, keyword.Name);            
+            var result = from k in context.Keywords
+                            where k.Id == keyword.Id
+                            select new KeywordDTO(
+                                k.Id,
+                                k.Name
+                            );
+            yield return result.FirstOrDefault();
         }
     }
 
-    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users)
+    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users, IContext context)
     {
         foreach (User user in Users)
         {
-            yield return new UserDTO(user.Id, user.Name, user.Email, user.Institution, user.Degree);
+            var result = from u in context.Users
+                            where u.Id == user.Id
+                            select new UserDTO(
+                                user.Id,
+                                user.Name,
+                                user.Email,
+                                user.Institution,
+                                user.Degree
+                            );
+            yield return result.FirstOrDefault();
         }
     }
 
-    private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords)
+    private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords, IContext context)
     {
         foreach (KeywordDTO keyword in Keywords)
         {
-            yield return new Keyword { Id = keyword.Id, Name = keyword.Name };            
-        }
-    }
-
-    private static IEnumerable<User> UserDTOsToUsers(ICollection<UserDTO> Users)
-    {
-        foreach (UserDTO user in Users)
-        {
-            yield return new User { Id = user.Id, Name = user.Name, Email = user.Email, Institution = user.Institution, Degree = user.Degree };
+            var result = from k in context.Keywords
+                            where k.Id == keyword.Id
+                            select k;
+            yield return result.FirstOrDefault();
         }
     }
     

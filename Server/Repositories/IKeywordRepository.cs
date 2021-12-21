@@ -5,7 +5,8 @@ namespace server.Interfaces;
 
 public interface IKeywordRepository 
 {
-    int Create(KeywordDTO keyword);
+    int Create(KeywordCreateDTO keywordCreateDTO);
     ICollection<KeywordDTO> ReadAllKeywords();
+    KeywordDTO ReadById(int keywordId);
 }
 

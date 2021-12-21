@@ -2,7 +2,8 @@ using System.Net.Http;
 using Xunit;
 using server.Controllers;
 
-
+// For Test Coverage:
+// CLI: dotnet test /p:CollectCoverage=true
 
 namespace server.Tests
 {
