@@ -16,12 +16,12 @@
     <DataAnnotationsValidator />
     <div class="title-field">
         <label title="The title of your project">Title:</label><br>
-        <input @bind="newTitle" placeholder="Project title" style="width: 340px;" /><br>
+        <InputText @bind-Value="@Post.Title" placeholder="Project title" style="width: 340px;" /><br>
         <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
         <label for="Description" title="A description of what the project entails">Description:</label><br>
-        <InputTextArea @bind-Value="newDescription" placeholder="Description" rows="4" cols="40" /><br>
+        <InputTextArea @bind-Value="@Post.Description" placeholder="Description" rows="4" cols="40" /><br>
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
@@ -67,11 +67,16 @@
 
 
 @code {
-    PostCreateDTO Post = new();
+    PostCreateDTO Post = new PostCreateDTO
+        {
+            Title = "",
+            Description = "",
+            Created = DateTime.UtcNow,
+            Status = "Proposed Project",
+            Keywords = new KeywordDTO[]{}
+        };
     KeywordDTO[]? KeywordDTOs;
     int[] selectedKeywordIds = new int[] { };
-    private string? newDescription;
-    private string? newTitle;
     bool _showsuccess = false;
     private string? newKeywordName;
 
@@ -104,17 +109,9 @@
     {
 
         KeywordDTO[] kDTOs = ConvertSelectedKeywords(); 
-
-        var addPost = new PostCreateDTO
-        {
-            Title = newTitle,
-            Description = newDescription,
-            Created = DateTime.UtcNow,
-            Status = "Proposed Project",
-            Keywords = kDTOs
-        };
-
-        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", addPost);
+        Post.Keywords = kDTOs;
+        
+        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", Post);
 
         if (response.IsSuccessStatusCode)
         {
@@ -126,7 +123,8 @@
     {
         var addItem = new KeywordCreateDTO { Name = newKeywordName };
         await http.PostAsJsonAsync("https://localhost:7081/Keyword", addItem);
-        
+        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:7081/Keyword");
+
     }
 
     protected override async Task OnInitializedAsync() =>

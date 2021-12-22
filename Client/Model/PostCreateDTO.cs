@@ -5,7 +5,7 @@ public class PostCreateDTO
 {
 
     [Required]
-    [StringLength(20, ErrorMessage = "Title must be over two characters.", MinimumLength = 2)]
+    [StringLength(150, ErrorMessage = "Title must be over two characters.", MinimumLength = 2)]
     public string? Title { get; set; }
     public int AuthorId { get; set; }
     public DateTime Created { get; set;}
