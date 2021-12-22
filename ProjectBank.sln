@@ -6,8 +6,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectBank.Server", "Serve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectBank.Client", "Client\ProjectBank.Client.csproj", "{2B46B67E-7970-497E-B11C-7C863ADF78D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectBank.Shared", "Shared\ProjectBank.Shared.csproj", "{BF0B2A2D-7455-4748-8307-244BC7495447}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server.Tests", "server.Tests\server.Tests.csproj", "{3DA5A4F7-235D-45BA-A561-D7F9115CB02F}"
 EndProject
 Global
