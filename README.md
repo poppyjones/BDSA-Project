@@ -1,12 +1,23 @@
-# Team Prime!
+# Team Prime - Project Bank
 
-1. Arbejdsdage: mandagen kl. 10 og torsdagen kl. 12:30
-2. Github regler
-  - Main Branch, Dev Branch, + active  branches.
-  - Personen der laver PR er ansvarlig for at merge til Dev.
-  - Dev branch merges til master - skal mindst kigges på hver torsdag.
-3. Kommunikation sker på Discord.
-4. Man gør hvad man har ansvar for, hvis man ikke kan alligvel er det bedre at meld klart fra (i så god tid som muligt).
-5. Snacks er anbefalet.
-6. Mål for feature freeze den 10. December.
-7. Arbejde foregår primært irl, og online hvis nødvendigt
+This is a vertical slice of the Team Prime Project Bank. This project is run in a browser, with at database that needs to be containerized on a local machine using Docker. This is a university project and meant for demonstation purposes only.
+
+## HOW TO RUN THE APPLICATIION:
+
+1. Clone repository to local machine from https://github.com/poppyjones/BDSA-Project.git
+
+2. Navigate into Server folder.
+
+3. Run these command in powershell:
+  - `$password = New-Guid`
+  - `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=$password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest`
+  - `$database = "PrimeSlice"`
+  - `$connectionString = "Server=localhost;Database=$database;User Id=sa;Password=$password;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True`
+  - `dotnet user-secrets set "ConnectionStrings:PrimeSlice" "$connectionString"`
+
+4. Run following commands:
+  - `dotnet restore`
+  - `dotnet ef database update`
+  - `dotnet run`
+
+5. Open browser and navigate to [Team Primes Project Bank](https://localhost:7081) - (https://localhost:7081)
