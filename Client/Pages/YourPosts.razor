@@ -7,27 +7,30 @@
 @attribute [Authorize]
 
 
-<h3> Testing API connection Server. Localhost:5222</h3>
+<h3>Your Posts</h3>
 
 <div class="yourPostList">
-@if (postDTOs == null)
+@if (postDisplayDTOs == null)
 {
     <p>No posts found.</p>
 }
 else
 {
     
-        @foreach (var post in postDTOs)
+        @foreach (var post in postDisplayDTOs)
         {
             <div class="yourPosts">
-                <div class="topic">
-                    @post.Topic
+                <div class="title">
+                    @post.Title
                 </div> 
                 <div class="desc" >
                     @post.Description
                 </div> 
-                <div class="key">
-                    @post.Keywords
+                <div class="flex-container">
+                    @foreach (var k in @post.Keywords)
+                    {
+                        <p class="key">@k.Name</p>
+                    }
                 </div>
             </div>
         }
@@ -36,9 +39,9 @@ else
 </div>
 
 @code {
-    private PostDTO[]? postDTOs;
+    private PostDisplayDTO[]? postDisplayDTOs;
     protected override async Task OnInitializedAsync() => 
-        postDTOs = await Http.GetFromJsonAsync<PostDTO[]>("https://localhost:5222/Post");
+        postDisplayDTOs = await Http.GetFromJsonAsync<PostDisplayDTO[]>("https://localhost:7081/Post");
 }
 
 
@@ -52,7 +55,7 @@ else
         margin-bottom: 10px;
     }
 
-    .topic
+    .title
     {
         font-weight: bold;
         margin-bottom: 5px;
@@ -64,12 +67,17 @@ else
         margin-bottom: 10px;
     }
 
+    .flex-container{
+        display: flex;
+    }
+
     .key
     {
         background-color: lightgray;
         display: inline-block;
         margin-bottom: 10px;
-        
+        margin-left: 10px;
     }
+
 </style>
 

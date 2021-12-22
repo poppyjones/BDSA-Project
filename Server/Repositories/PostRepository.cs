@@ -15,16 +15,16 @@ public class PostRepository : IPostRepository
 
     public int Create(PostCreateDTO post)
     {
-        var newPost = new Post{ 
-                                Title = post.Title,
-                                AuthorId = post.AuthorId,
-                                Created = post.Created,
-                                Ended = post.Ended,
-                                Status = post.Status,
-                                Description = post.Description,
-                                Keywords = KeywordDTOsToKeywords(post.Keywords).ToList(),
-                                Users = UserDTOsToUsers(post.Users).ToList()
-                            };
+        var newPost = new Post
+        {
+            Title = post.Title,
+            AuthorId = post.AuthorId,
+            Created = post.Created,
+            Status = post.Status,
+            Description = post.Description,
+            Keywords = KeywordDTOsToKeywords(post.Keywords, _context).ToList(),
+
+        };
 
         _context.Posts.Add(newPost);
         _context.SaveChanges();
@@ -34,23 +34,23 @@ public class PostRepository : IPostRepository
 
     public PostDTO ReadByPostId(int PostId)
     {
-        var post =  from p in _context.Posts
-                    where p.Id == PostId
-                    select new PostDTO(
-                        p.Id,
-                        p.Title,
-                        p.AuthorId,
-                        p.Created,
-                        p.Ended,
-                        p.Status,
-                        p.Description,
-                        KeywordsToKeywordDTOs(p.Keywords).ToList(),
-                        UsersToUserDTOs(p.Users).ToList()
-                    );
-        
+        var post = from p in _context.Posts
+                   where p.Id == PostId
+                   select new PostDTO(
+                       p.Id,
+                       p.Title,
+                       p.AuthorId,
+                       p.Created,
+                       p.Ended,
+                       p.Status,
+                       p.Description,
+                       KeywordsToKeywordDTOs(p.Keywords).ToList(),
+                       UsersToUserDTOs(p.Users, _context).ToList()
+                   );
+
         return post.FirstOrDefault();
     }
-    
+
     public ICollection<PostDTO> ReadAllByAuthorId(int AuthorId)
     {
         var posts = from p in _context.Posts
@@ -64,7 +64,7 @@ public class PostRepository : IPostRepository
                         p.Status,
                         p.Description,
                         KeywordsToKeywordDTOs(p.Keywords).ToList(),
-                        UsersToUserDTOs(p.Users).ToList()
+                        UsersToUserDTOs(p.Users, _context).ToList()
                     );
 
         return posts.ToList();
@@ -74,11 +74,22 @@ public class PostRepository : IPostRepository
     {
         foreach (Keyword keyword in Keywords)
         {
-            yield return new KeywordDTO(keyword.Id, keyword.Name);            
+            yield return new KeywordDTO(keyword.Id, keyword.Name);
         }
+
     }
 
-    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users)
+    private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords, IContext context)
+    {
+        foreach (KeywordDTO keyword in Keywords)
+        {
+            var result = from k in context.Keywords
+                         where k.Id == keyword.Id
+                         select k;
+            yield return result.FirstOrDefault();
+        }
+    }
+    private static IEnumerable<UserDTO> UsersToUserDTOs(ICollection<User> Users, IContext context)
     {
         foreach (User user in Users)
         {
@@ -86,22 +97,6 @@ public class PostRepository : IPostRepository
         }
     }
 
-    private static IEnumerable<Keyword> KeywordDTOsToKeywords(ICollection<KeywordDTO> Keywords)
-    {
-        foreach (KeywordDTO keyword in Keywords)
-        {
-            yield return new Keyword { Id = keyword.Id, Name = keyword.Name };            
-        }
-    }
-
-    private static IEnumerable<User> UserDTOsToUsers(ICollection<UserDTO> Users)
-    {
-        foreach (UserDTO user in Users)
-        {
-            yield return new User { Id = user.Id, Name = user.Name, Email = user.Email, Institution = user.Institution, Degree = user.Degree };
-        }
-    }
-    
     public void Dispose()
     {
         _context.Dispose();

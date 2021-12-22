@@ -3,7 +3,7 @@
 @using System.Net.Http
 @using System.Net.Http.Json
 @using System.Threading.Tasks
-@using client.Model; 
+@using client.Model;
 
 @inject HttpClient http
 @attribute [Authorize]
@@ -14,46 +14,49 @@
 
 <EditForm Model="@Post" OnValidSubmit="@AddPost">
     <DataAnnotationsValidator />
-    <div class="topic-field">
-        <label title="The title of your project">Topic:</label><br>
-        <InputText @bind-Value="Post.Topic" placeholder="Project in ..." style="width: 340px;"/><br>
-        <ValidationMessage For="@(() => Post.Topic)" />
+    <div class="title-field">
+        <label title="The title of your project">Title:</label><br>
+        <input @bind="newTitle" placeholder="Project title" style="width: 340px;" /><br>
+        <ValidationMessage For="@(() => Post.Title)" />
     </div>
     <div class="text-field">
         <label for="Description" title="A description of what the project entails">Description:</label><br>
-        <InputTextArea @bind-Value="Post.Description" placeholder="Description" rows="4" cols="40" /><br>
+        <InputTextArea @bind-Value="newDescription" placeholder="Description" rows="4" cols="40" /><br>
         <ValidationMessage For="@(() => Post.Description)" />
     </div>
 
+    <div class="newKeyword-field">
+        <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
+        <div class="flex-container" style="width: 340px;">
+            <input @bind="newKeywordName" placeholder="New Keyword"/><br>
+            <div class="keyword-button">
+                <button @onclick="AddKeyword">Add Keyword</button>
+            </div>
+        </div>
+    </div>
 
-    <div class="skeyword-field">
-        <label for="keyword" title="Select the keywords that describes your project">Keywords:</label><br>
-        <select class="Keyword" style="width: 340px;">
-            <option value="" disabled selected >Select your suggested keyword</option>
+
+    <div class="keyword-select">
+        <label for="keyword">Keywords:</label><br>
+        <select @onchange="SelectedKeywordsChanged" class="Keyword" multiple="multiple" style="width: 340px;">
             @if (KeywordDTOs == null)
             {
                 <p>No keywords found</p>
             }
-            else 
-            @foreach (var keyword in KeywordDTOs)
-            {
-             <option value="@keyword.Id">@keyword.Name</option>   
-            }
+            else
+                @foreach (var keyword in KeywordDTOs)
+                {
+                    <option value="@keyword.Id">@keyword.Name</option>
+                }
         </select><br>
     </div>
 
 
-    <div class="newKeyword-field">
-        <label for="ckeyword" title="Write your own keyword for your project">Create your own keyword</label><br>
-        <input @bind="newKeywordName" placeholder="Keywords" style="width: 340px;" /><br>
-    </div>
 </EditForm>
 
-    <div class="submit-button">
-        <button @onclick="AddBoth">Post project</button>
-    </div>
-
-
+<div class="submit-button">
+    <button @onclick="AddPost">Post project</button>
+</div>
 
 @if (_showsuccess)
 {
@@ -64,65 +67,95 @@
 
 
 @code {
-    PostDTO Post = new();
+    PostCreateDTO Post = new();
     KeywordDTO[]? KeywordDTOs;
-
-    bool _showsuccess = false;
-    private string? newTopic;
+    int[] selectedKeywordIds = new int[] { };
     private string? newDescription;
+    private string? newTitle;
+    bool _showsuccess = false;
     private string? newKeywordName;
 
-    
-    private async Task AddPost(){
+    void SelectedKeywordsChanged(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            var intermediary = (string[])e.Value;
+            selectedKeywordIds = Array.ConvertAll(intermediary, s => int.Parse(s));
+        }
+    }
 
-        var response = await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Posts", Post);
+    KeywordDTO[] ConvertSelectedKeywords()
+    {
+        int n = selectedKeywordIds.Length;
+        if (n == 0) return new KeywordDTO[] { };
+
+        var result = new KeywordDTO[n];
+        for (int i = 0; i < n; i++)
+        {
+            result[i] = Array.Find(KeywordDTOs, kw => kw.Id == selectedKeywordIds[i]);
+        }
+
+        return result;
+
+    }
+
+
+    private async Task AddPost()
+    {
+
+        KeywordDTO[] kDTOs = ConvertSelectedKeywords(); 
+
+        var addPost = new PostCreateDTO
+        {
+            Title = newTitle,
+            Description = newDescription,
+            Created = DateTime.UtcNow,
+            Status = "Proposed Project",
+            Keywords = kDTOs
+        };
+
+        var response = await http.PostAsJsonAsync("https://localhost:7081/Post", addPost);
 
         if (response.IsSuccessStatusCode)
         {
             _showsuccess = true;
         }
     }
-       
 
     private async Task AddKeyword()
     {
-        var addItem = new KeywordDTO { Name = newKeywordName };
-        await http.PostAsJsonAsync("https://61a6407b8395690017be91cb.mockapi.io/Keywords", addItem);
-    }
-
-    private async Task AddBoth()
-    {
-        await AddPost();
-        await AddKeyword();
+        var addItem = new KeywordCreateDTO { Name = newKeywordName };
+        await http.PostAsJsonAsync("https://localhost:7081/Keyword", addItem);
+        
     }
 
     protected override async Task OnInitializedAsync() =>
-        KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:5222/Keyword");
+    KeywordDTOs = await http.GetFromJsonAsync<KeywordDTO[]>("https://localhost:7081/Keyword");
 
     private void HandleValidSubmit()
     {
         Console.WriteLine("OnValidSubmit");
-
     }
 }
 
 
 
 <style>
-    .submit-button
-    {
+    .submit-button {
         margin-top: 10px;
     }
 
-    .showSuccess
-    {
+    .showSuccess {
         border-style: 2px dotted lightgreen;
         border-left: 2px solid lightgreen;
-        background-color:hsla(120,60%,70%,0.3);
+        background-color: hsla(120, 60%, 70%, 0.3);
         display: inline-block;
         margin-top: 20px;
     }
 
-
+    
+    .flex-container{
+        display: flex;
+        justify-content: space-between;
+    }
 </style>
-
